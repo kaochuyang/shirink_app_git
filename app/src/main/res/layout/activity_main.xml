@@ -1,33 +1,281 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="tw.com.cct.ms2.shirink_app_git.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:theme="@style/AppTheme.AppBarOverlay">-->
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:id="@+id/toolbar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="?attr/actionBarSize"-->
+            <!--android:background="?attr/colorPrimary"-->
+            <!--app:popupTheme="@style/AppTheme.PopupOverlay" />-->
 
-    </android.support.design.widget.AppBarLayout>
+    <!--</android.support.design.widget.AppBarLayout>-->
 
-    <include layout="@layout/content_main" />
+
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+    android:id="@+id/fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|end"
+    android:layout_margin="@dimen/fab_margin"
+    app:srcCompat="@android:drawable/ic_dialog_email" />
 
-</android.support.design.widget.CoordinatorLayout>
+        <LinearLayout
+            android:id="@+id/p1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1sp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mark"
+                android:text="系統日期:" />
+
+            <EditText
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="          " />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/p2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1sp"
+            android:layout_below="@+id/p1"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mark1"
+                android:text="設備編號:" />
+
+            <EditText
+                android:id="@+id/content1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="          " />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/p3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1sp"
+            android:layout_below="@+id/p2"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mark2"
+                android:text="韌體版本:" />
+
+            <EditText
+                android:id="@+id/conten2t"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="          " />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/p4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1sp"
+            android:layout_below="@+id/p3"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mark3"
+                android:text="上次斷電時間:" />
+
+            <EditText
+                android:id="@+id/content3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="          " />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/p5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1sp"
+            android:layout_below="@+id/p4"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mark4"
+                android:text="中心連線狀態:" />
+
+            <EditText
+                android:id="@+id/content4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="          " />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/p6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1sp"
+            android:layout_below="@+id/p5"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mark5"
+                android:text="韌體修改時間:" />
+
+            <EditText
+                android:id="@+id/content5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="          " />
+        </LinearLayout>
+        <!--以上是靜態內容-->
+        <!--區分內容和功能的分隔線-->
+        <View
+            android:id="@+id/gap_line1"
+            android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="450sp"
+            android:background="#000000" />
+        <!--區分內容和功能的分隔線-->
+        <!--以下開始是功能連結-->
+        <LinearLayout
+            android:id="@+id/table_1"
+            android:layout_below="@+id/gap_line1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:context="tw.com.cct.ms2.shrink_tc_app.MainActivity">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="硬體回報週期設定"/>
+
+            <Button
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="資料庫操作設定"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/table_2"
+            android:layout_below="@+id/table_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            tools:context="tw.com.cct.ms2.shrink_tc_app.MainActivity">
+
+            <Button
+                android:id="@+id/go_to_tod_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周內日編輯"/>
+
+            <Button
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="特別日編輯"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/table_3"
+            android:layout_below="@+id/table_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            tools:context="tw.com.cct.ms2.shrink_tc_app.MainActivity">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="當下運行時制內容"/>
+
+            <Button
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="要求中心下傳時制"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/table_4"
+            android:layout_below="@+id/table_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            tools:context="tw.com.cct.ms2.shrink_tc_app.MainActivity">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="燈態回報週期設定"/>
+
+            <Button
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="紅燈倒數模組設定"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/table_5"
+            android:layout_below="@+id/table_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            tools:context="tw.com.cct.ms2.shrink_tc_app.MainActivity">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="燈號方位設定"/>
+
+            <Button
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="調撥車道號誌設定"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!--<include layout="@layout/content_main" />-->
+
+
