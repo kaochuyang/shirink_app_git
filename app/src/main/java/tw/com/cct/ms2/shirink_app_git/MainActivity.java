@@ -47,13 +47,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    protected void floating_button_function(FloatingActionButton floatingActionButton,final AppCompatActivity A) {//定義floating button 組的功能，要讓每個頁面都有
+    protected void floating_button_function(FloatingActionButton floatingActionButton,final AppCompatActivity appCompatActivity) {//定義floating button 組的功能，要讓每個頁面都有
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
 //應該要全頁面拿來共用此按鈕
-                PopupMenu button_popmenu=new PopupMenu(A,view);
+                PopupMenu button_popmenu=new PopupMenu(appCompatActivity,view);
                 button_popmenu.getMenuInflater().inflate(R.menu.button_popmenu,button_popmenu.getMenu());
 
 
@@ -85,10 +85,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void Button_goto_where(Button A, final Intent B) {
-        A.setOnClickListener(new View.OnClickListener() {
+    public void Button_goto_where(Button button, final Intent intent) {
+        button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(B);
+                startActivity(intent);
             }
         });
     }
