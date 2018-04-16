@@ -639,7 +639,28 @@
             android:hint="MM/dd/yy h:mmaa"
         android:inputType="datetime" />
         </TableRow>
-    </TableLayout>
+   <TableRow>
 
+
+    <Button
+        android:id="@+id/goto_plan_button"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/special_day_label_mark_group"
+        android:layout_marginEnd="81dp"
+        android:text="@string/plan_setting" />
+   </TableRow>
+
+    </TableLayout>
+    <!--<LinearLayout-->
+        <!--android:layout_below="@+id/num_series_mark"-->
+        <!--android:layout_marginTop="500sp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <include layout="@layout/enter_button_group" />
+    <!--</LinearLayout>-->
 
 </RelativeLayout>

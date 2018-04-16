@@ -43,13 +43,13 @@
             android:layout_marginTop="1sp"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/mark"
                 android:text="系統日期:" />
 
-            <EditText
+            <TextView
                 android:id="@+id/content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,13 +64,13 @@
             android:layout_below="@+id/p1"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/mark1"
                 android:text="設備編號:" />
 
-            <EditText
+            <TextView
                 android:id="@+id/content1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -85,13 +85,13 @@
             android:layout_below="@+id/p2"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/mark2"
                 android:text="韌體版本:" />
 
-            <EditText
+            <TextView
                 android:id="@+id/conten2t"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -106,13 +106,13 @@
             android:layout_below="@+id/p3"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/mark3"
                 android:text="上次斷電時間:" />
 
-            <EditText
+            <TextView
                 android:id="@+id/content3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -127,13 +127,13 @@
             android:layout_below="@+id/p4"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/mark4"
                 android:text="中心連線狀態:" />
 
-            <EditText
+            <TextView
                 android:id="@+id/content4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -148,13 +148,13 @@
             android:layout_below="@+id/p5"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/mark5"
                 android:text="韌體修改時間:" />
 
-            <EditText
+            <TextView
                 android:id="@+id/content5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

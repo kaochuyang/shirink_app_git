@@ -1,6 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/label_select_segmenttype_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/label_set_segmenttype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_horizontal"
+            android:text="@string/segmenttype_select"
+            android:textSize="27sp" />
+        <Spinner
+            android:id="@+id/segmenttype_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/link_to_plan_detail"
+            android:text="時制內容設定"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/gap_line_plan_xml"
+        android:layout_below="@+id/label_select_segmenttype_group"
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="20sp"
+        android:background="#000000" />
+    <LinearLayout
+        android:id="@+id/num_series_mark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/gap_line_plan_xml"
+        >
+        <TextView
+            android:id="@+id/textView"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_width="fill_parent" android:layout_weight="1"
+            android:shadowColor="@color/colorAccent"
+            android:text="@string/serial_num"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="fill_parent" android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/start_time"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="fill_parent" android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <!--需要再model中再佈一個expandablelistAdapter-->
+    <!--http://mrraybox.blogspot.tw/2014/01/android-expandablelist.html  可參考這邊-->
+    <!--<LinearLayout-->
+    <!--android:layout_below="@id/num_series_mark"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--<ExpandableListView-->
+    <!--android:id="@+id/expandlist"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="#00FF00"-->
+    <!--android:layout_weight="1"-->
+    <!--android:drawSelectorOnTop="false"/>-->
+    <!--</LinearLayout>-->
+
+
+    <LinearLayout
+        android:layout_below="@+id/num_series_mark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/plan_setting_content"    />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/num_series_mark"
+        android:layout_marginTop="500sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/enter_button_group" />
+    </LinearLayout>
+
+</RelativeLayout>
