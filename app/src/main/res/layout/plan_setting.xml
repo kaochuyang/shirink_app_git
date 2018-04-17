@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/link_to_plan_detail"
-            android:text="時制內容設定"/>
+            android:text="@string/plan_content_set"/>
 
     </LinearLayout>
 
@@ -88,16 +88,17 @@
     <!--android:drawSelectorOnTop="false"/>-->
     <!--</LinearLayout>-->
 
-
-    <LinearLayout
-        android:layout_below="@+id/num_series_mark"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <include layout="@layout/plan_setting_content"    />
-
-
-    </LinearLayout>
-
+<LinearLayout
+    android:id="@+id/fragment_content"
+    android:layout_below="@+id/num_series_mark"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+</LinearLayout>
     <LinearLayout
         android:layout_below="@+id/num_series_mark"
         android:layout_marginTop="500sp"

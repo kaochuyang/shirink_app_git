@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+<TableLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <!--plan_num_17-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_17"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_17"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_17"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_17"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_18-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_18"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_18"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_18"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_18"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_19-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_19"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_19"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_19"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_19"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_20-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_20"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_20"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_20"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_20"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_21-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_21"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_21"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_21"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_21"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_22-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_22"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_22"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_22"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_22"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_23-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_23"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_23"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_23"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_23"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_24-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_24"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_24"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_24"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_24"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_25-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_25"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_25"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_25"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_25"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_26-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_26"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_26"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_26"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_26"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_27-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_27"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_27"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_27"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_27"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_28-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_28"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_28"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_28"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_28"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_29-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_29"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_29"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_29"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_29"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_30-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_30"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_30"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_30"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_30"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_31-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_31"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_31"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_31"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_31"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <!--plan_num_32-->
+    <TableRow
+        android:id="@+id/plan_TableRow_group_num_32"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/plan_num_32"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_num"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/plan_start_num_32"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/plan_time_setting"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/plan_spin_num_32"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+
+
+
+</TableLayout>
+
+</android.support.constraint.ConstraintLayout>

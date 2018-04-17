@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <TableRow
 
         android:id="@+id/weekday_label_mark"
         android:layout_width="match_parent"
@@ -13,18 +13,15 @@
             android:id="@+id/weekday_label"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:text="@string/timeofday"
+            android:textSize="15sp" />
 
-            android:text="周內日時段型態"
-            android:textSize="27sp" />
+    </TableRow>
 
-    </LinearLayout>
-
-    <LinearLayout
+    <TableRow
         android:id="@+id/weekday_label_group"
         android:layout_width="fill_parent"
-
         android:layout_height="wrap_content"
-        android:layout_below="@+id/weekday_label_mark"
         android:gravity="center_horizontal">
 
         <TextView
@@ -32,8 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="   周內日  :"
-            android:textSize="18sp" />
+            android:text="@string/timeofday_mark"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/label_monday"
@@ -41,8 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="一"
-            android:textSize="18sp" />
+            android:text="@string/monday"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/label_tuesday"
@@ -51,8 +48,8 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
 
-            android:text=" 二 "
-            android:textSize="18sp" />
+            android:text="@string/tuesday"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/label_wednesday"
@@ -60,8 +57,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text=" 三 "
-            android:textSize="18sp" />
+            android:text="@string/wednesday"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/label_thursday"
@@ -69,8 +66,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text=" 四 "
-            android:textSize="18sp" />
+            android:text="@string/thirsday"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/label_friday"
@@ -78,8 +75,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text=" 五 "
-            android:textSize="18sp" />
+            android:text="@string/friday"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/label_saturday"
@@ -87,8 +84,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text=" 六 "
-            android:textSize="18sp" />
+            android:text="@string/saturday"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/label_sunday"
@@ -96,75 +93,74 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text=" 日 "
-            android:textSize="18sp" />
-    </LinearLayout>
+            android:text="@string/sunday"
+            android:textSize="15sp" />
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:id="@+id/common_day_setting_group"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/weekday_label_group">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/label_segement_mark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:text="時段型態:"
-            android:textSize="18sp" />
+            android:gravity="center_horizontal"
+            android:text="@string/segmenttype_mark"
+            android:textSize="15sp" />
 
         <Spinner
-            android:id="@+id/spin_common_day_1"
+            android:id="@+id/Spin_common_day_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal" />
 
         <Spinner
-            android:id="@+id/spin_common_day_2"
+            android:id="@+id/Spin_common_day_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal" />
 
         <Spinner
-            android:id="@+id/spin_common_day_3"
+            android:id="@+id/Spin_common_day_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal" />
 
         <Spinner
-            android:id="@+id/spin_common_day_4"
+            android:id="@+id/Spin_common_day_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal" />
 
         <Spinner
-            android:id="@+id/spin_common_day_5"
+            android:id="@+id/Spin_common_day_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal" />
 
         <Spinner
-            android:id="@+id/spin_common_day_6"
+            android:id="@+id/Spin_common_day_6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal" />
 
         <Spinner
-            android:id="@+id/spin_common_day_7"
+            android:id="@+id/Spin_common_day_7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal" />
 
 
-    </LinearLayout>
+    </TableRow>
 
     <!--<TextView-->
     <!--android:id="@+id/label_modify_mark"-->
@@ -174,103 +170,103 @@
     <!--android:layout_alignParentStart="true"-->
     <!--android:layout_below="@+id/label_segement_mark"-->
     <!--android:text="變更時段型態為:"-->
-    <!--android:textSize="18sp" />-->
+    <!--android:textSize="15sp" />-->
 
     <!--以上是靜態內容-->
     <!--區分內容和功能的分隔線-->
     <View
         android:id="@+id/gap_line_tod_xml"
         android:layout_width="fill_parent"
-        android:layout_height="3sp"
-        android:layout_marginTop="100sp"
+        android:layout_height="3dp"
         android:background="#000000" />
     <!--區分內容和功能的分隔線-->
     <!--以下開始是功能連結-->
-    <LinearLayout
+    <TableRow
 
-        android:id="@+id/special_day_label_mark"
+        android:id="@+id/dpecial_day_label_mark"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gap_line_tod_xml">
+        android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/special_label"
+            android:id="@+id/dpecial_label"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:text="@string/specialday_segmenttype"
+            android:textSize="20sp" />
 
-            android:text="特別日時段型態"
-            android:textSize="27sp" />
-
-    </LinearLayout>
+    </TableRow>
 
     <TableLayout
-        android:id="@+id/special_day_label_mark_group"
+        android:id="@+id/dpecial_day_label_mark_group"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/special_day_label_mark">
-<TableRow>
-        <TextView
-            android:id="@+id/special_day_segmenttype_mark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="時段型態"
-            android:textSize="18sp" />
-
-   
-        <TextView
-            android:id="@+id/speciday_start_time_mark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="開始日期及時間"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/speciday_end_date_mark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="結束日期及時間"
-            android:textSize="18sp" />
-
-</TableRow>
-   
-<TableRow>
-        <Button
-            android:id="@+id/segmenttype_button_8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-           
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="時段型態8"
-            android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/speciday_start_date_8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
-    android:hint="MM/dd/yy h:mmaa"
-
-        android:inputType="datetime" />
-
-        <EditText
-            android:id="@+id/speciday_end_date_8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-        android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
-</TableRow>
+        android:layout_height="wrap_content">
 
         <TableRow>
+
+            <TextView
+                android:id="@+id/dpecial_day_segmenttype_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/segmenttype"
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:id="@+id/dpeciday_start_time_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/date_time_start"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/dpeciday_end_date_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/day_time_end"
+                android:textSize="12sp" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/segmenttype_button_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/segmenttype_8"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/dpeciday_start_date_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:hint="@string/mm_dd_yy_h_mmaa"
+
+                android:inputType="datetime" />
+
+            <EditText
+                android:id="@+id/dpeciday_end_date_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
+        </TableRow>
+
+        <TableRow>
+
             <Button
                 android:id="@+id/segmenttype_button_9"
                 android:layout_width="wrap_content"
@@ -278,29 +274,30 @@
 
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="時段型態9"
-                android:textSize="18sp" />
+                android:text="@string/segmenttype_9"
+                android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/speciday_start_date_9"
+                android:id="@+id/dpeciday_start_date_9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
 
             <EditText
-                android:id="@+id/speciday_end_date_9"
+                android:id="@+id/dpeciday_end_date_9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
         </TableRow>
-        
+
         <TableRow>
+
             <Button
                 android:id="@+id/segmenttype_button_10"
                 android:layout_width="wrap_content"
@@ -308,29 +305,30 @@
 
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="時段型態10"
-                android:textSize="18sp" />
+                android:text="@string/segmenttype_10"
+                android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/speciday_start_date_10"
+                android:id="@+id/dpeciday_start_date_10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
 
             <EditText
-                android:id="@+id/speciday_end_date_10"
+                android:id="@+id/dpeciday_end_date_10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
         </TableRow>
-        
+
         <TableRow>
+
             <Button
                 android:id="@+id/segmenttype_button_11"
                 android:layout_width="wrap_content"
@@ -338,30 +336,31 @@
 
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="時段型態11"
-                android:textSize="18sp" />
+                android:text="@string/segmenttype_11"
+                android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/speciday_start_date_11"
+                android:id="@+id/dpeciday_start_date_11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
 
             <EditText
-                android:id="@+id/speciday_end_date_11"
+                android:id="@+id/dpeciday_end_date_11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
         </TableRow>
-        
-        
+
+
         <TableRow>
+
             <Button
                 android:id="@+id/segmenttype_button_12"
                 android:layout_width="wrap_content"
@@ -369,30 +368,31 @@
 
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="時段型態12"
-                android:textSize="18sp" />
+                android:text="@string/segmenttype_12"
+                android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/speciday_start_date_12"
+                android:id="@+id/dpeciday_start_date_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
 
             <EditText
-                android:id="@+id/speciday_end_date_12"
+                android:id="@+id/dpeciday_end_date_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
         </TableRow>
-        
-        
+
+
         <TableRow>
+
             <Button
                 android:id="@+id/segmenttype_button_13"
                 android:layout_width="wrap_content"
@@ -400,30 +400,31 @@
 
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="時段型態13"
-                android:textSize="18sp" />
+                android:text="@string/segmenttype_13"
+                android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/speciday_start_date_13"
+                android:id="@+id/dpeciday_start_date_13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
 
             <EditText
-                android:id="@+id/speciday_end_date_13"
+                android:id="@+id/dpeciday_end_date_13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
         </TableRow>
-        
-        
+
+
         <TableRow>
+
             <Button
                 android:id="@+id/segmenttype_button_14"
                 android:layout_width="wrap_content"
@@ -431,30 +432,31 @@
 
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="時段型態14"
-                android:textSize="18sp" />
+                android:text="@string/segmenttype_14"
+                android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/speciday_start_date_14"
+                android:id="@+id/dpeciday_start_date_14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
 
             <EditText
-                android:id="@+id/speciday_end_date_14"
+                android:id="@+id/dpeciday_end_date_14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
         </TableRow>
-        
-        
+
+
         <TableRow>
+
             <Button
                 android:id="@+id/segmenttype_button_15"
                 android:layout_width="wrap_content"
@@ -462,30 +464,31 @@
 
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="時段型態15"
-                android:textSize="18sp" />
+                android:text="@string/segmenttype_15"
+                android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/speciday_start_date_15"
+                android:id="@+id/dpeciday_start_date_15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
 
             <EditText
-                android:id="@+id/speciday_end_date_15"
+                android:id="@+id/dpeciday_end_date_15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
         </TableRow>
-        
-        
+
+
         <TableRow>
+
             <Button
                 android:id="@+id/segmenttype_button_16"
                 android:layout_width="wrap_content"
@@ -493,30 +496,31 @@
 
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="時段型態16"
-                android:textSize="18sp" />
+                android:text="@string/segmenttype_16"
+                android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/speciday_start_date_16"
+                android:id="@+id/dpeciday_start_date_16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
 
             <EditText
-                android:id="@+id/speciday_end_date_16"
+                android:id="@+id/dpeciday_end_date_16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
         </TableRow>
-        
-        
+
+
         <TableRow>
+
             <Button
                 android:id="@+id/segmenttype_button_17"
                 android:layout_width="wrap_content"
@@ -524,31 +528,31 @@
 
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="時段型態17"
-                android:textSize="18sp" />
+                android:text="@string/segmenttype_17"
+                android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/speciday_start_date_17"
+                android:id="@+id/dpeciday_start_date_17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
 
             <EditText
-                android:id="@+id/speciday_end_date_17"
+                android:id="@+id/dpeciday_end_date_17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
         </TableRow>
-        
-        
+
 
         <TableRow>
+
             <Button
                 android:id="@+id/segmenttype_button_18"
                 android:layout_width="wrap_content"
@@ -556,30 +560,31 @@
 
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="時段型態18"
-                android:textSize="18sp" />
+                android:text="@string/segmenttype_18"
+                android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/speciday_start_date_18"
+                android:id="@+id/dpeciday_start_date_18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
 
             <EditText
-                android:id="@+id/speciday_end_date_18"
+                android:id="@+id/dpeciday_end_date_18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
         </TableRow>
-        
-        
+
+
         <TableRow>
+
             <Button
                 android:id="@+id/segmenttype_button_19"
                 android:layout_width="wrap_content"
@@ -587,30 +592,31 @@
 
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="時段型態19"
-                android:textSize="18sp" />
+                android:text="@string/segmenttype_19"
+                android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/speciday_start_date_19"
+                android:id="@+id/dpeciday_start_date_19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
 
             <EditText
-                android:id="@+id/speciday_end_date_19"
+                android:id="@+id/dpeciday_end_date_19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
         </TableRow>
-        
-        
+
+
         <TableRow>
+
             <Button
                 android:id="@+id/segmenttype_button_20"
                 android:layout_width="wrap_content"
@@ -618,49 +624,49 @@
 
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="時段型態20"
-                android:textSize="18sp" />
+                android:text="@string/segmenttype_20"
+                android:textSize="13sp" />
 
             <EditText
-                android:id="@+id/speciday_start_date_20"
+                android:id="@+id/dpeciday_start_date_20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
 
             <EditText
-                android:id="@+id/speciday_end_date_20"
+                android:id="@+id/dpeciday_end_date_20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-            android:hint="MM/dd/yy h:mmaa"
-        android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa"
+                android:inputType="datetime" />
         </TableRow>
-   <TableRow>
 
+        <TableRow>
 
-    <Button
-        android:id="@+id/goto_plan_button"
+            <include layout="@layout/enter_button_group" />
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/special_day_label_mark_group"
-        android:layout_marginEnd="81dp"
-        android:text="@string/plan_setting" />
-   </TableRow>
+            <Button
+                android:id="@+id/goto_plan_button"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/plan_setting" />
+        </TableRow>
+
 
     </TableLayout>
-    <!--<LinearLayout-->
-        <!--android:layout_below="@+id/num_series_mark"-->
-        <!--android:layout_marginTop="500sp"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
+    <!--<TableRow-->
+    <!--android:layout_below="@+id/num_series_mark"-->
+    <!--android:layout_marginTop="500dp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
 
-        <include layout="@layout/enter_button_group" />
-    <!--</LinearLayout>-->
 
-</RelativeLayout>
+    <!--</TableRow>-->
+
+</TableLayout>

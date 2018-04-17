@@ -21,10 +21,11 @@
         </activity>
         <activity android:name=".tod_setting" />
         <activity android:name=".plan_setting" />
-        <activity android:name=".Base_activity" />
+
+
         <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
+            android:name=".Main3Activity"
+            android:label="@string/title_activity_main3"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

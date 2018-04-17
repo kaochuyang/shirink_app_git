@@ -11,5 +11,35 @@
     <string name="plan_setting">時制計畫設定</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="section_format">Hello World from section: %1$d</string>
-
+    <string name="plan_time_setting">時制設定</string>
+    <string name="plan_content_set">時制內容設定</string>
+    <string name="title_activity_main3">Main3Activity</string>
+    <string name="mm_dd_yy_h_mmaa">MM/dd/yy h:mmaa</string>
+    <string name="date_time_start">開始日期及時間</string>
+    <string name="thirsday">四</string>
+    <string name="wednesday">三</string>
+    <string name="friday">五</string>
+    <string name="tuesday">二</string>
+    <string name="segmenttype_8">時段型態8</string>
+    <string name="segmenttype_9">時段型態9</string>
+    <string name="segmenttype_10">時段型態10</string>
+    <string name="segmenttype_11">時段型態11</string>
+    <string name="segmenttype_12">時段型態12</string>
+    <string name="segmenttype_13">時段型態13</string>
+    <string name="segmenttype_14">時段型態14</string>
+    <string name="segmenttype_15">時段型態15</string>
+    <string name="segmenttype_16">時段型態16</string>
+    <string name="segmenttype_17">時段型態17</string>
+    <string name="segmenttype_18">時段型態18</string>
+    <string name="monday">一</string>
+    <string name="segmenttype_20">時段型態20</string>
+    <string name="segmenttype_19">時段型態19</string>
+    <string name="segmenttype_mark">時段型態:</string>
+    <string name="specialday_segmenttype">特別日時段型態</string>
+    <string name="segmenttype">時段型態</string>
+    <string name="timeofday">周內日時段型態</string>
+    <string name="timeofday_mark">周內日:</string>
+    <string name="saturday">六</string>
+    <string name="sunday">日</string>
+    <string name="day_time_end">結束日期及時間</string>
 </resources>
