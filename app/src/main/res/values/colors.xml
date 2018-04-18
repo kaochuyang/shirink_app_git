@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="pedred">#c61451</color>
+    <color name="ped_flash">#5bd263</color>
+    <color name="yellow">#f4ec0d</color>
+    <color name="red">#f40d28</color>
+    <color name="green">#5df406</color>
 </resources>

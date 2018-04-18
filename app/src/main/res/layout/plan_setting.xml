@@ -51,10 +51,13 @@
         <TextView
             android:id="@+id/textView"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_width="fill_parent" android:layout_weight="1"
+
+            android:layout_width="fill_parent"
+
             android:shadowColor="@color/colorAccent"
             android:text="@string/serial_num"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
             android:textSize="20sp"/>
 
         <TextView
@@ -88,6 +91,10 @@
     <!--android:drawSelectorOnTop="false"/>-->
     <!--</LinearLayout>-->
 
+
+
+
+    <!--//////////////////////////////////////-->
 <LinearLayout
     android:id="@+id/fragment_content"
     android:layout_below="@+id/num_series_mark"
@@ -99,6 +106,11 @@
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 </LinearLayout>
+    <!--//////////////////////////////////////-->
+
+
+
+
     <LinearLayout
         android:layout_below="@+id/num_series_mark"
         android:layout_marginTop="500sp"

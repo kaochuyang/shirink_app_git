@@ -1,6 +1,745 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TableLayout
+        android:id="@+id/test_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/label_select_plan_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-</android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/label_set_plan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center_horizontal"
+                android:text="@string/label_set_plan"
+                android:textSize="27sp" />
+
+            <Spinner
+                android:id="@+id/plan_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                />
+
+            <TextView
+                android:id="@+id/segment_name_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/segment_num_mark"
+                android:layout_gravity="center_horizontal"
+                android:textSize="27sp" />
+
+            <EditText
+                android:id="@+id/segment_name_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:inputType="text"
+
+                android:hint="@string/segment_num"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/gap_line_plan_detail_xml"
+            android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="20dp"
+            android:background="#000000" />
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:textSize="27sp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/subsegment_mark"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/subsegment"
+
+                />
+
+            <TextView
+                android:id="@+id/subsegment_1"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/subsegment_1" />
+
+            <TextView
+                android:id="@+id/subsegment_"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/subsegment_2" />
+
+            <TextView
+                android:id="@+id/subsegment_3"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/segment_3" />
+
+            <TextView
+                android:id="@+id/subsegment_4"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/segment_4" />
+
+            <TextView
+                android:id="@+id/subsegment_5"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/segment_5" />
+
+            <TextView
+                android:id="@+id/subsegment_6"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/segment_6" />
+
+            <TextView
+                android:id="@+id/subsegment_7"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/segment_7" />
+
+            <TextView
+                android:id="@+id/subsegment_8"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/segment_8" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/green_light_mark"
+                android:background="#000000"
+                android:textStyle="bold"
+                android:textColor="@color/green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/green"
+                android:textSize="27sp" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/green_light_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:textSize="27sp"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/green_light_2"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/green_light_3"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/green_light_4"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/green_light_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:textSize="27sp"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/green_light_6"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/green_light_7"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/green_light_8"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/red_light_mark"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:background="#000000"
+                android:textColor="@color/red"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/red"
+                tools:text="紅燈" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/red_light_1"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/red_light_2"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/red_light_3"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/red_light_4"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/red_light_5"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/red_light_6"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/red_light_7"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/red_light_8"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/yellow_light_mark"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="#000000"
+                android:textColor="@color/yellow"
+                android:layout_weight="1"
+                android:text="@string/yellow"
+                tools:text="黃燈" />
+
+            <EditText
+                android:hint="@string/second"
+                android:inputType="number"
+
+                android:id="@+id/yellow_light_1"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:inputType="number"
+                android:id="@+id/yellow_light_2"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:inputType="number"
+                android:id="@+id/yellow_light_3"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:inputType="number"
+                android:id="@+id/yellow_light_4"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:inputType="number"
+                android:id="@+id/yellow_light_5"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:inputType="number"
+                android:id="@+id/yellow_light_6"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:inputType="number"
+                android:id="@+id/yellow_light_7"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:inputType="number"
+                android:id="@+id/yellow_light_8"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:value="0" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:background="#000000"
+                android:textStyle="bold"
+                android:textColor="@color/ped_flash"
+                android:id="@+id/ped_flash_mark"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/ped_flash"
+                tools:text="行人綠閃" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_flash_1"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_flash_2"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_flash_3"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_flash_4"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_flash_5"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_flash_6"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_flash_7"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_flash_8"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+
+                android:background="#000000"
+                android:textColor="@color/pedred"
+
+                android:id="@+id/ped_red_mark"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+
+
+                android:text="@string/ped_red"
+                tools:text="行人紅燈" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_red_1"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_red_2"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_red_3"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_red_4"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_red_5"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_red_6"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_red_7"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/ped_red_8"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/plan_cycle"
+                android:textSize="27sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:text="@string/plan_cycle"/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/plan_cycle_value"
+                android:textSize="27sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:hint="@string/second"/>
+            <TextView
+                android:layout_weight="14"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/plan_offset"
+                android:textSize="27sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:text="@string/plan_offset"/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/plan_offset_value"
+                android:textSize="27sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:hint="@string/second"/>
+            <TextView
+                android:layout_weight="14"/>
+        </TableRow>
+        <TableRow>
+            <include layout="@layout/enter_button_group"    />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/link_to_step_setting"
+                android:text="@string/step_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </TableRow>
+    </TableLayout>
+
+ <TableLayout
+     android:id="@+id/buttonPanel"
+     android:layout_below="@+id/test_panel"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+
+ </TableLayout>
+
+
+</RelativeLayout>
