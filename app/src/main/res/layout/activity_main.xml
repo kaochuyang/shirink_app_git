@@ -81,6 +81,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="          " />
+
+        <Button
+            android:id="@+id/mark2_modify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/p6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/p5"
+        android:layout_marginTop="1sp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mark5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="韌體修改時間:" />
+
+        <TextView
+            android:id="@+id/content5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="          " />
     </TableRow>
 
     <TableRow
@@ -125,22 +152,23 @@
             android:text="          " />
     </TableRow>
 
+
     <TableRow
-        android:id="@+id/p6"
+        android:id="@+id/p7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/p5"
+
         android:layout_marginTop="1sp"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/mark5"
+            android:id="@+id/mark6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="韌體修改時間:" />
+            android:text="訊息等級:" />
 
         <TextView
-            android:id="@+id/content5"
+            android:id="@+id/content6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="          " />
@@ -164,6 +192,18 @@
         tools:context="tw.com.cct.ms2.shrink_tc_app.MainActivity">
 
         <Button
+            android:id="@+id/firmware_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2.韌體設定" />
+
+        <Button
+            android:id="@+id/password_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3.密碼設定" />
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="硬體回報週期設定" />
@@ -173,6 +213,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="資料庫操作設定" />
+
     </TableRow>
 
     <TableRow
@@ -188,13 +229,8 @@
             android:id="@+id/go_to_tod_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="周內日編輯" />
+            android:text="16.周內日編輯" />
 
-        <Button
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="特別日編輯" />
     </TableRow>
 
     <TableRow
@@ -238,7 +274,7 @@
             android:layout_height="wrap_content"
             android:text="紅燈倒數模組設定" />
     </TableRow>
-    
+
     <TableRow
         android:id="@+id/table_5"
         android:layout_width="match_parent"
@@ -261,7 +297,7 @@
     </TableRow>
 
 
-        <include layout="@layout/enter_button_group" />
+    <include layout="@layout/enter_button_group" />
 
 
 </TableLayout>

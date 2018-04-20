@@ -85,5 +85,14 @@
     <string name="step2">步階2</string>
     <string name="step1">步階1</string>
     <string name="plan_segment1">分相1</string>
+    <string name="subsegment_X">第x分相</string>
+    <string name="subsegment_">分相:</string>
+    <string name="total_subsegment">/總分相數:</string>
+    <string name="edit_mode">編輯模式</string>
+    <string name="View_mode">檢視模式</string>
+    <string name="password_old"></string>
+    <string name="password_new"></string>
+    <string name="password_new_check"></string>
+    <string name="ok">ok</string>
 
 </resources>
