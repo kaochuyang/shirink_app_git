@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TableLayout
+    android:layout_width="wrap_content"
+    android:verticalScrollbarPosition="defaultPosition"
+    android:layout_height="wrap_content">
+
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ped_button_switch"
+        android:text=" 行人觸動OFF_ON"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="時制計畫號碼"
+        android:inputType="number"
+        android:id="@+id/plan_num_edit"/>
+
+</TableLayout>
+</android.support.constraint.ConstraintLayout>
