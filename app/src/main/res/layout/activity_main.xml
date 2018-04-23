@@ -39,8 +39,109 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="          " />
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/p1_ip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1sp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mark_ip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主機IP:" />
+
+        <TextView
+            android:id="@+id/content_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="          " />
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/netmask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1sp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mark_netmask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="子網路遮罩:" />
+
+        <TextView
+            android:id="@+id/content_netmask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="          " />
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/p1_gateway"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1sp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mark_gateway"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="預設閘道:" />
+
+        <TextView
+            android:id="@+id/content_gateway"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="          " />
+
     </TableRow>
 
+    <TableRow
+        android:id="@+id/p1_remote_ip1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1sp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mark_remote_ip1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="目標IP1:" />
+
+        <TextView
+            android:id="@+id/content_remote_ip1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="          " />
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/p1_remote_ip2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1sp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mark_remote_ip2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="目標IP2:" />
+
+        <TextView
+            android:id="@+id/content_remote_ip2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="          " />
+
+    </TableRow>
     <TableRow
         android:id="@+id/p2"
         android:layout_width="match_parent"
@@ -82,11 +183,7 @@
             android:layout_height="wrap_content"
             android:text="          " />
 
-        <Button
-            android:id="@+id/mark2_modify"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="修改" />
+
     </TableRow>
 
     <TableRow
@@ -191,11 +288,6 @@
         android:orientation="horizontal"
         tools:context="tw.com.cct.ms2.shrink_tc_app.MainActivity">
 
-        <Button
-            android:id="@+id/firmware_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2.韌體設定" />
 
         <Button
             android:id="@+id/password_setting"
@@ -209,10 +301,10 @@
             android:text="硬體回報週期設定" />
 
         <Button
-
+            android:id="@+id/database_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="資料庫操作設定" />
+            android:text="4.資料庫操作設定" />
 
     </TableRow>
 
@@ -231,7 +323,24 @@
             android:layout_height="wrap_content"
             android:text="16.周內日編輯" />
 
+        <Button
+            android:id="@+id/Uart_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5.2 Uart連接選擇" />
+        <Button
+            android:id="@+id/report_cycle_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12.回報週期設定"/>
+        <Button
+            android:id="@+id/ped_button_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9.行人觸動設定"/>
+
     </TableRow>
+
 
     <TableRow
         android:id="@+id/table_3"
@@ -295,7 +404,51 @@
             android:layout_height="wrap_content"
             android:text="調撥車道號誌設定" />
     </TableRow>
+    <!--以上是靜態內容-->
+    <!--區分內容和功能的分隔線-->
+    <View
 
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="50dp"
+        android:background="#000000" />
+    <!--區分內容和功能的分隔線-->
+    <!--以下開始是功能連結-->
+<TableRow>
+    <Button
+android:id="@+id/check_v3_packet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7.檢視封包內容" />
+    <Button
+        android:id="@+id/GPS_check_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5.1 衛星對時" />
+    <Button
+        android:id="@+id/Reboot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6.1 重新開機" />
+    <Button
+        android:id="@+id/firmware_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2.韌體更新" />
+    <TableRow>
+        <Button
+            android:id="@+id/Relink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6.2 重新連線" />
+
+
+
+    </TableRow>
+
+
+
+</TableRow>
 
     <include layout="@layout/enter_button_group" />
 
