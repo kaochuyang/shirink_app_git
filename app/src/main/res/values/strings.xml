@@ -101,10 +101,15 @@
     <string name="GPS_link">連接GPS</string>
     <string name="Red_countdown">連接紅燈倒數</string>
     <string name="stop_report_hardcore_state">停止傳送硬體狀態</string>
+    <string name="stop_report">停止回報</string>
+    <string name="transfer_change_state">傳送變化</string>
     <string name="second_1">1秒鐘</string>
     <string name="second_2">2秒鐘</string>
     <string name="second_5">5秒鐘</string>
     <string name="minute_1">1分鐘</string>
     <string name="minute_5">5分鐘</string>
+    <string name="in_time_stratage">目前控制策略:</string>
+    <string name="light_direction_setting">燈號方位設定</string>
+    <string name="ask_for_center_transfer_plan">要求中心下傳時制</string>
 
 </resources>
