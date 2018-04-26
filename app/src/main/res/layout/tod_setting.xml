@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TableRow
+    <LinearLayout
 
         android:id="@+id/weekday_label_mark"
         android:layout_width="match_parent"
@@ -13,10 +13,11 @@
             android:id="@+id/weekday_label"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@string/timeofday"
             android:textSize="15sp" />
 
-    </TableRow>
+    </LinearLayout>
 
     <TableRow
         android:id="@+id/weekday_label_group"
@@ -28,7 +29,7 @@
             android:id="@+id/label_weeday_mark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+
             android:text="@string/timeofday_mark"
             android:textSize="15sp" />
 
@@ -106,7 +107,7 @@
             android:id="@+id/label_segement_mark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+
             android:text="@string/segmenttype_mark"
             android:textSize="15sp" />
 
@@ -157,7 +158,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:scrollbarStyle="insideOverlay" />
 
 
     </TableRow>
@@ -181,7 +183,7 @@
         android:background="#000000" />
     <!--區分內容和功能的分隔線-->
     <!--以下開始是功能連結-->
-    <TableRow
+    <LinearLayout
 
         android:id="@+id/dpecial_day_label_mark"
         android:layout_width="match_parent"
@@ -191,10 +193,11 @@
             android:id="@+id/dpecial_label"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@string/specialday_segmenttype"
             android:textSize="20sp" />
 
-    </TableRow>
+    </LinearLayout>
 
     <TableLayout
         android:id="@+id/dpecial_day_label_mark_group"
@@ -250,19 +253,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
 
             <EditText
                 android:id="@+id/dpeciday_end_date_8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
         </TableRow>
 
         <TableRow>
@@ -282,18 +286,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
 
             <EditText
                 android:id="@+id/dpeciday_end_date_9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
         </TableRow>
 
         <TableRow>
@@ -313,18 +319,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
 
             <EditText
                 android:id="@+id/dpeciday_end_date_10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
         </TableRow>
 
         <TableRow>
@@ -344,18 +352,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
 
             <EditText
                 android:id="@+id/dpeciday_end_date_11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
         </TableRow>
 
 
@@ -376,18 +386,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
 
             <EditText
                 android:id="@+id/dpeciday_end_date_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
         </TableRow>
 
 
@@ -408,18 +420,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
 
             <EditText
                 android:id="@+id/dpeciday_end_date_13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
         </TableRow>
 
 
@@ -440,18 +454,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
 
             <EditText
                 android:id="@+id/dpeciday_end_date_14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
         </TableRow>
 
 
@@ -472,18 +488,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
 
             <EditText
                 android:id="@+id/dpeciday_end_date_15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
         </TableRow>
 
 
@@ -504,18 +522,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
 
             <EditText
                 android:id="@+id/dpeciday_end_date_16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
         </TableRow>
 
 
@@ -536,18 +556,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
 
             <EditText
                 android:id="@+id/dpeciday_end_date_17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
         </TableRow>
 
 
@@ -568,18 +590,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
 
             <EditText
                 android:id="@+id/dpeciday_end_date_18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
         </TableRow>
 
 
@@ -600,18 +624,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
 
             <EditText
                 android:id="@+id/dpeciday_end_date_19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
         </TableRow>
 
 
@@ -632,18 +658,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
 
             <EditText
                 android:id="@+id/dpeciday_end_date_20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa"
-                android:inputType="datetime" />
+                android:hint="@string/mm_dd_yy_h_mmaa" />
         </TableRow>
 
         <TableRow>

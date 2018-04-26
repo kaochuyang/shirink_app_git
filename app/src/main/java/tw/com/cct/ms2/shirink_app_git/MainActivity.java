@@ -43,14 +43,59 @@ public class MainActivity extends Base_activity {
 
         Button datatbase_setting = findViewById(R.id.database_setting);
         FloatingActionButton setting_button_group = (FloatingActionButton) findViewById(R.id.setting_button_group);
-     
+
         final Button ped_button_setting = findViewById(R.id.ped_button_setting);
 
-        Button light_report_cycle_setting=findViewById(R.id.light_report_cycle_setting);
-        Button  step_report_cycle_setting=findViewById(R.id.step_report_cycle_setting);
-        Button hardware_state_report_cycle_set=findViewById(R.id.hardware_state_report_cycle_set);
+        Button light_report_cycle_setting = findViewById(R.id.light_report_cycle_setting);
+        Button step_report_cycle_setting = findViewById(R.id.step_report_cycle_setting);
+        Button hardware_state_report_cycle_set = findViewById(R.id.hardware_state_report_cycle_set);
         floating_button_function(setting_button_group, MainActivity.this);
 
+
+        Button GPS_check_time = findViewById(R.id.GPS_check_time);
+        Button firmware_update = findViewById(R.id.firmware_update);
+        Button Reboot = findViewById(R.id.Reboot);
+        Button ask_for_center_transfer_plan = findViewById(R.id.ask_for_center_transfer_plan);
+        Button check_v3_packet=findViewById(R.id.check_v3_packet);
+        Intent check_v3_packet_intent=new Intent(MainActivity.this,V3MessageActivity.class);
+        Button_goto_where(check_v3_packet,check_v3_packet_intent);
+
+        GPS_check_time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                new MyDialog(MainActivity.this).show();
+                vGPS_check_time();
+            }
+
+        });
+
+        firmware_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                new MyDialog(MainActivity.this).show();
+                vFirmware_update();
+            }
+
+        });
+
+        Reboot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                new MyDialog(MainActivity.this).show();
+                vReboot();
+            }
+
+        });
+
+
+        ask_for_center_transfer_plan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                new MyDialog(MainActivity.this).show();
+                vAsk_for_center_transfer_plan();
+            }
+
+        });
 
         password_setting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -214,6 +259,122 @@ public class MainActivity extends Base_activity {
     }
 
 
+    private void vFirmware_update() {
+        AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+                .setTitle("韌體更新")
+                .setMessage("確定更新?")
+                .setCancelable(false)
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+//                .setNeutralButton("忽略", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                })
+                .setPositiveButton("確定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).create();
+        dialog.show();
+
+
+    }
+
+
+    private void vReboot() {
+        AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+                .setTitle("重新開機")
+                .setMessage("確定主機重啟?")
+                .setCancelable(false)
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+//                .setNeutralButton("忽略", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                })
+                .setPositiveButton("確定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).create();
+        dialog.show();
+
+
+    }
+
+
+    private void vGPS_check_time() {
+        AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+                .setTitle("GPS對時")
+                .setMessage("確定對時?")
+                .setCancelable(false)
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+//                .setNeutralButton("忽略", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                })
+                .setPositiveButton("確定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).create();
+        dialog.show();
+
+
+    }
+
+
+    private void vAsk_for_center_transfer_plan() {
+        AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+                .setTitle("像中心要求目前新的時制")
+                .setMessage("確定要求?")
+                .setCancelable(false)
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+//                .setNeutralButton("忽略", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                })
+                .setPositiveButton("確定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).create();
+        dialog.show();
+
+
+    }
+
+
     int database_manual_manual_ChoiceIndex = 1;//把database_manual_ChiceIndex改成讀出來的內容
 
     private void database_setting()//資料庫操作設定
@@ -241,8 +402,7 @@ public class MainActivity extends Base_activity {
                 .show();
     }
 
-    
-    
+
     int com2_select_ChoiceIndex = 0;
 
     private void com2_select() {
@@ -298,12 +458,10 @@ public class MainActivity extends Base_activity {
     }
 
 
-
-
     int report_step_cycle_ChoiceIndex = 5;
 
     private void set_step_Report_cycle() {
-        final List<String>step_report_cycle = new ArrayList<>();
+        final List<String> step_report_cycle = new ArrayList<>();
         step_report_cycle.add(getString(R.string.stop_report));
         step_report_cycle.add(getString(R.string.second_1));
         step_report_cycle.add(getString(R.string.second_2));
@@ -312,12 +470,12 @@ public class MainActivity extends Base_activity {
         step_report_cycle.add(getString(R.string.minute_5));
         step_report_cycle.add(getString(R.string.transfer_change_state));
         new AlertDialog.Builder(MainActivity.this)
-                .setSingleChoiceItems(step_report_cycle.toArray(new String[step_report_cycle.size()]),hardware_report_cycle_ChoiceIndex,
+                .setSingleChoiceItems(step_report_cycle.toArray(new String[step_report_cycle.size()]), hardware_report_cycle_ChoiceIndex,
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                hardware_report_cycle_ChoiceIndex= which;
-                                Toast.makeText(MainActivity.this, "你選擇的是" +step_report_cycle.get(hardware_report_cycle_ChoiceIndex), Toast.LENGTH_SHORT).show();
+                                hardware_report_cycle_ChoiceIndex = which;
+                                Toast.makeText(MainActivity.this, "你選擇的是" + step_report_cycle.get(hardware_report_cycle_ChoiceIndex), Toast.LENGTH_SHORT).show();
                             }
                         })
                 .setPositiveButton("確定", new DialogInterface.OnClickListener() {
@@ -331,11 +489,10 @@ public class MainActivity extends Base_activity {
     }
 
 
-
     int report_light_cycle_ChoiceIndex = 5;
 
     private void set_light_Report_cycle() {
-        final List<String>light_report_cycle = new ArrayList<>();
+        final List<String> light_report_cycle = new ArrayList<>();
         light_report_cycle.add(getString(R.string.stop_report));
         light_report_cycle.add(getString(R.string.second_1));
         light_report_cycle.add(getString(R.string.second_2));
@@ -344,12 +501,12 @@ public class MainActivity extends Base_activity {
         light_report_cycle.add(getString(R.string.minute_5));
         light_report_cycle.add(getString(R.string.transfer_change_state));
         new AlertDialog.Builder(MainActivity.this)
-                .setSingleChoiceItems(light_report_cycle.toArray(new String[light_report_cycle.size()]),hardware_report_cycle_ChoiceIndex,
+                .setSingleChoiceItems(light_report_cycle.toArray(new String[light_report_cycle.size()]), hardware_report_cycle_ChoiceIndex,
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                hardware_report_cycle_ChoiceIndex= which;
-                                Toast.makeText(MainActivity.this, "你選擇的是" +light_report_cycle.get(hardware_report_cycle_ChoiceIndex), Toast.LENGTH_SHORT).show();
+                                hardware_report_cycle_ChoiceIndex = which;
+                                Toast.makeText(MainActivity.this, "你選擇的是" + light_report_cycle.get(hardware_report_cycle_ChoiceIndex), Toast.LENGTH_SHORT).show();
                             }
                         })
                 .setPositiveButton("確定", new DialogInterface.OnClickListener() {
@@ -361,8 +518,6 @@ public class MainActivity extends Base_activity {
                 .show();
 
     }
-
-
 
 
 //////////////////////////////////主程式底部///////////////////////////////

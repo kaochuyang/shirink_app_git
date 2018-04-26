@@ -9,7 +9,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 public class plan_setting extends Base_activity {
     /**
@@ -46,6 +50,16 @@ public class plan_setting extends Base_activity {
         Button_goto_where(link_to_plan_detail, plan_detail);
         FloatingActionButton setting_button_group = (FloatingActionButton) findViewById(R.id.setting_button_group);
         Log.d("test2", "onCreate: ");
+
+        Spinner segmenttype_select=findViewById(R.id.segmenttype_select);
+
+
+        ArrayAdapter<CharSequence> arrayAdapter_segmenttype_select_spinner=ArrayAdapter.createFromResource(this,R.array.segmenttype,R.layout.myspinner_style);
+        //  arrayAdapter_tod_spinner
+        segmenttype_select.setAdapter(arrayAdapter_segmenttype_select_spinner);
+
+
+
         floating_button_function(setting_button_group, plan_setting.this);
 
 

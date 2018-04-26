@@ -29,6 +29,11 @@
         <activity
             android:name=".step_setting"
             android:label="@string/title_activity_step_setting"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".V3MessageActivity" />
+        <activity
+            android:name=".Direction_setting"
+            android:label="@string/title_activity_direction_setting"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

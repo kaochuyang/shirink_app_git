@@ -111,5 +111,6 @@
     <string name="in_time_stratage">目前控制策略:</string>
     <string name="light_direction_setting">燈號方位設定</string>
     <string name="ask_for_center_transfer_plan">要求中心下傳時制</string>
+    <string name="title_activity_direction_setting">Direction_setting</string>
 
 </resources>
