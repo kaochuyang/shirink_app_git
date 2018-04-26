@@ -33,7 +33,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="17"
                 android:textSize="20sp" />
 
             <TextView
@@ -75,7 +75,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="18"
                 android:textSize="20sp" />
 
             <TextView
@@ -117,7 +117,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="19"
                 android:textSize="20sp" />
 
             <TextView
@@ -159,7 +159,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="20"
                 android:textSize="20sp" />
 
             <TextView
@@ -201,7 +201,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="21"
                 android:textSize="20sp" />
 
             <TextView
@@ -243,7 +243,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="22"
                 android:textSize="20sp" />
 
             <TextView
@@ -285,7 +285,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="23"
                 android:textSize="20sp" />
 
             <TextView
@@ -327,7 +327,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="24"
                 android:textSize="20sp" />
 
             <TextView
@@ -369,7 +369,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="25"
                 android:textSize="20sp" />
 
             <TextView
@@ -411,7 +411,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="26"
                 android:textSize="20sp" />
 
             <TextView
@@ -453,7 +453,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="27"
                 android:textSize="20sp" />
 
             <TextView
@@ -495,7 +495,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="28"
                 android:textSize="20sp" />
 
             <TextView
@@ -537,7 +537,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="29"
                 android:textSize="20sp" />
 
             <TextView
@@ -579,7 +579,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="30"
                 android:textSize="20sp" />
 
             <TextView
@@ -621,7 +621,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="31"
                 android:textSize="20sp" />
 
             <TextView
@@ -663,7 +663,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/plan_num"
+                android:text="32"
                 android:textSize="20sp" />
 
             <TextView
