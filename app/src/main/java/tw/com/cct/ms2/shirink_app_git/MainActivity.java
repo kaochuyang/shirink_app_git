@@ -59,12 +59,18 @@ public class MainActivity extends Base_activity {
         Button ask_for_center_transfer_plan = findViewById(R.id.ask_for_center_transfer_plan);
         Button check_v3_packet = findViewById(R.id.check_v3_packet);
 
-        Button chain_setting=findViewById(R.id.chain_setting);
+        final Button chain_setting = findViewById(R.id.chain_setting);
 
         Intent check_v3_packet_intent = new Intent(MainActivity.this, V3MessageActivity.class);
         Button_goto_where(check_v3_packet, check_v3_packet_intent);
 
-
+        chain_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chain_setting Dialog = new chain_setting();
+                Dialog.show(getFragmentManager(), "chain_setting");
+            }
+        });
 
 
         light_direction_setting.setOnClickListener(new View.OnClickListener() {
@@ -73,8 +79,6 @@ public class MainActivity extends Base_activity {
                 DialogFragment editNameDialog = new Direction_dialog();
                 editNameDialog
                         .show(getFragmentManager(), "Direction_dialog");
-
-
 
 
             }
@@ -205,7 +209,7 @@ public class MainActivity extends Base_activity {
 
     }
 
-    int iPed_plan_num = 0;
+    int iPed_plan_num = 1;
     boolean bPed_switch = false;
     int iPed_plan_view = 0;
 
@@ -243,34 +247,50 @@ public class MainActivity extends Base_activity {
                 .setPositiveButton("確認", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if ((Integer.parseInt(ped_plan_num.getText().toString()) > 48) || (Integer.parseInt(ped_plan_num.getText().toString()) < 0)) {
 
-                            Toast.makeText(getApplicationContext(), "時制設定錯誤(超過範圍)", Toast.LENGTH_SHORT).show();
-                        } else {
-                            if (ped_button_switch.isChecked()) {
+                        if (ped_plan_num.getText().toString().trim().length() > 0) {
 
-                                if (ped_plan_num.getText().toString().matches("")) {
-                                    iPed_plan_num = iPed_plan_view;
-                                } else {
+
+                            if ((Integer.parseInt(ped_plan_num.getText().toString()) > 48) || (Integer.parseInt(ped_plan_num.getText().toString()) < 0)) {
+
+                                Toast.makeText(getApplicationContext(), "時制設定錯誤(超過範圍)", Toast.LENGTH_SHORT).show();
+                            } else {
+                                if (ped_button_switch.isChecked()) {
+
+
+                                    Log.d("2", "onClick:2");
 
                                     iPed_plan_num = Integer.parseInt(ped_plan_num.getText().toString());
                                     iPed_plan_view = iPed_plan_num;
+
+
+                                    Toast.makeText(getApplicationContext(), "行人觸動啟動，時制" + iPed_plan_view, Toast.LENGTH_SHORT).show();
+                                    bPed_switch = true;
+
+
+                                } else {
+
+                                    bPed_switch = false;
+                                    iPed_plan_num = Integer.parseInt(ped_plan_num.getText().toString());
+
+                                    iPed_plan_view = iPed_plan_num;
+
+                                    Toast.makeText(getApplicationContext(), "行人觸動停止，時制" + iPed_plan_view, Toast.LENGTH_SHORT).show();
+
                                 }
 
-                                Toast.makeText(getApplicationContext(), "行人觸動啟動，時制" + iPed_plan_view, Toast.LENGTH_SHORT).show();
-                                bPed_switch = true;
-
-
-                            } else {
-
-                                bPed_switch = false;
-                                iPed_plan_num = Integer.parseInt(ped_plan_num.getText().toString());
-
-                                iPed_plan_view = iPed_plan_num;
-
-                                Toast.makeText(getApplicationContext(), "行人觸動停止，時制" + iPed_plan_view, Toast.LENGTH_SHORT).show();
-
                             }
+                        } else {
+
+                            if (ped_button_switch.isChecked()) {
+                                bPed_switch = true;
+                                Toast.makeText(getApplicationContext(), "行人觸動保持運行，時制 " + iPed_plan_view, Toast.LENGTH_SHORT).show();
+                            } else {
+                                bPed_switch = false;
+                                Toast.makeText(getApplicationContext(), "行人觸動無運行，時制 " + iPed_plan_view, Toast.LENGTH_SHORT).show();
+                            }
+
+
                         }
                     }
                 }).create();
@@ -396,7 +416,7 @@ public class MainActivity extends Base_activity {
     }
 
 
-    int database_manual_manual_ChoiceIndex = 1;//把database_manual_ChiceIndex改成讀出來的內容
+    int database_manual_ChoiceIndex = 1;//把database_manual_ChiceIndex改成讀出來的內容
 
     private void database_setting()//資料庫操作設定
     {
@@ -406,12 +426,12 @@ public class MainActivity extends Base_activity {
         database_manual.add(getString(R.string.allow_construction_view));
 
         new AlertDialog.Builder(MainActivity.this)
-                .setSingleChoiceItems(database_manual.toArray(new String[database_manual.size()]), database_manual_manual_ChoiceIndex,
+                .setSingleChoiceItems(database_manual.toArray(new String[database_manual.size()]), database_manual_ChoiceIndex,
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                database_manual_manual_ChoiceIndex = which;
-                                Toast.makeText(MainActivity.this, "你選擇的是" + database_manual.get(database_manual_manual_ChoiceIndex), Toast.LENGTH_SHORT).show();
+                                database_manual_ChoiceIndex = which;
+                                Toast.makeText(MainActivity.this, "你選擇的是" + database_manual.get(database_manual_ChoiceIndex), Toast.LENGTH_SHORT).show();
                             }
                         })
                 .setPositiveButton("確定", new DialogInterface.OnClickListener() {
