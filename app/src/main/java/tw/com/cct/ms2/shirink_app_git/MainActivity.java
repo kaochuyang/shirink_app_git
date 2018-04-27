@@ -1,5 +1,6 @@
 package tw.com.cct.ms2.shirink_app_git;
 
+import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -50,15 +51,35 @@ public class MainActivity extends Base_activity {
         Button step_report_cycle_setting = findViewById(R.id.step_report_cycle_setting);
         Button hardware_state_report_cycle_set = findViewById(R.id.hardware_state_report_cycle_set);
         floating_button_function(setting_button_group, MainActivity.this);
-
+        Button light_direction_setting = findViewById(R.id.light_direction_setting);
 
         Button GPS_check_time = findViewById(R.id.GPS_check_time);
         Button firmware_update = findViewById(R.id.firmware_update);
         Button Reboot = findViewById(R.id.Reboot);
         Button ask_for_center_transfer_plan = findViewById(R.id.ask_for_center_transfer_plan);
-        Button check_v3_packet=findViewById(R.id.check_v3_packet);
-        Intent check_v3_packet_intent=new Intent(MainActivity.this,V3MessageActivity.class);
-        Button_goto_where(check_v3_packet,check_v3_packet_intent);
+        Button check_v3_packet = findViewById(R.id.check_v3_packet);
+
+        Button chain_setting=findViewById(R.id.chain_setting);
+
+        Intent check_v3_packet_intent = new Intent(MainActivity.this, V3MessageActivity.class);
+        Button_goto_where(check_v3_packet, check_v3_packet_intent);
+
+
+
+
+        light_direction_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment editNameDialog = new Direction_dialog();
+                editNameDialog
+                        .show(getFragmentManager(), "Direction_dialog");
+
+
+
+
+            }
+        });
+
 
         GPS_check_time.setOnClickListener(new View.OnClickListener() {
             @Override

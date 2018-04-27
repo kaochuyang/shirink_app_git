@@ -8,4 +8,449 @@
     tools:context="tw.com.cct.ms2.shirink_app_git.Direction_setting"
     tools:showIn="@layout/activity_direction_setting">
 
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/weekday_label"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="輸出卡輸出方位檢視"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+        <TableRow>
+
+            <TextView
+                android:id="@+id/label_direction"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/direction"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/label_north"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/north"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/label_EN"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/EN"
+                android:textSize="15sp" />
+
+
+
+            <TextView
+                android:id="@+id/label_E"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/E"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/label_ES"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/es"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/label_S"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/sourth"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/label_WS"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/ws"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/label_W"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/W"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/label_WN"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/wn"
+                android:textSize="15sp" />
+
+
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/label_output_num"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/output_board_num"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/edit_dir_n"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:editable="false"
+                android:gravity="center_horizontal"
+                android:hint="@string/_0_7"
+               
+                android:text="0"
+                android:textSize="15sp" />
+            <EditText
+                android:text="4"
+                android:id="@+id/edit_dir_en"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+               
+                android:editable="false"
+                android:hint="@string/_0_7"
+                android:textSize="15sp" />
+
+            <EditText
+                android:text="1"
+                android:id="@+id/edit_dir_e"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+               
+                android:editable="false"
+                android:hint="@string/_0_7"
+                android:textSize="15sp" />
+            <EditText
+                android:id="@+id/edit_dir_es"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+               
+                android:editable="false"
+                android:hint="@string/_0_7"
+                android:textSize="15sp"
+                android:text="5"/>
+
+            <EditText
+                android:text="2"
+                android:id="@+id/edit_dir_s"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+               
+                android:editable="false"
+                android:hint="@string/_0_7"
+                android:textSize="15sp" />
+
+            <EditText
+                android:text="6"
+                android:id="@+id/edit_dir_ws"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+               
+                android:editable="false"
+                android:hint="@string/_0_7"
+                android:textSize="15sp" />
+            <EditText
+                android:text="3"
+                android:id="@+id/edit_dir_w"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+               
+                android:editable="false"
+                android:hint="@string/_0_7"
+                android:textSize="15sp" />
+            <EditText
+                android:text="7"
+                android:id="@+id/edit_dir_wn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+               
+                android:editable="false"
+                android:hint="@string/_0_7"
+                android:textSize="15sp" />
+
+
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            android:background="#000000" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="輸出卡對應方位"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+
+
+        <TableRow>
+
+    <TextView
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:text="輸出卡標號:"
+        android:textSize="15sp" />
+    <TextView
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:text="輸出卡0"
+        android:textSize="15sp" />
+
+
+
+
+    <TextView
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="輸出卡1"
+            android:textSize="15sp" />
+
+
+        <TextView
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="輸出卡2"
+            android:textSize="15sp" />
+
+        <TextView
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="輸出卡3"
+            android:textSize="15sp" />
+
+    <TextView
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:text="輸出卡4"
+        android:textSize="15sp" />
+
+    <TextView
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:text="輸出卡5"
+        android:textSize="15sp" />
+
+
+    <TextView
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:text="無輸出卡"
+        android:textSize="15sp" />
+
+
+    <TextView
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:text="無輸出卡"
+        android:textSize="15sp" />
+
+
+
+
+</TableRow>
+
+<TableRow>
+    <TextView
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:text="方位編號"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/edit_output_board_0"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+       
+        android:editable="false"
+        android:text="0"
+        android:hint="@string/_0_7"
+        android:textSize="15sp" />
+
+
+    <EditText
+        android:id="@+id/edit_output_board_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+       
+        android:editable="false"
+        android:text="1"
+        android:hint="@string/_0_7"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/edit_output_board_2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+       
+        android:editable="false"
+        android:text="2"
+        android:hint="@string/_0_7"
+        android:textSize="15sp" />
+    <EditText
+        android:id="@+id/edit_output_board_3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+       
+        android:editable="false"
+        android:text="3"
+        android:hint="@string/_0_7"
+        android:textSize="15sp" />
+    <EditText
+        android:id="@+id/edit_output_board_4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+       
+        android:editable="false"
+        android:text="4"
+        android:hint="@string/_0_7"
+        android:textSize="15sp" />
+    <EditText
+        android:id="@+id/edit_output_board_5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+       
+        android:editable="false"
+        android:text="5"
+        android:hint="@string/_0_7"
+        android:textSize="15sp" />
+    <EditText
+        android:id="@+id/edit_output_board_6"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+       
+        android:editable="false"
+        android:text="6"
+        android:hint="@string/_0_7"
+        android:textSize="15sp" />
+    <EditText
+        android:id="@+id/edit_output_board_7"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+       
+        android:editable="false"
+        android:text="7"
+        android:hint="@string/_0_7"
+        android:textSize="15sp" />
+
+
+</TableRow>
+<RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ok"
+        android:layout_alignParentRight="true"
+        android:text="@string/OK" />
+</RelativeLayout>
+
+
+
+
+
+
+
+    </TableLayout>
+
+
+
+
 </android.support.constraint.ConstraintLayout>

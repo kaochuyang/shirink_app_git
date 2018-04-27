@@ -391,7 +391,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12.2 燈態回報週期設定"/>
-
+        <Button
+            android:id="@+id/light_direction_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/light_direction_setting" />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/chain_setting"
+            android:text="@string/chain_setting"/>
 
 
     </TableRow>
@@ -438,11 +447,7 @@
         android:orientation="horizontal"
         tools:context="tw.com.cct.ms2.shrink_tc_app.MainActivity">
 
-        <Button
-            android:id="@+id/light_direction_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/light_direction_setting" />
+
 
         <Button
 
