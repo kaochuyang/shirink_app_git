@@ -4,31 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tw.com.cct.ms2.shirink_app_git.V3MessageActivity">
+   >
 
 
     <EditText
         android:id="@+id/et_show"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:lines="5"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
         android:hint="V3訊息"
-        android:gravity="center"
-        />
-    <EditText
-        android:id="@+id/et_input"
-        android:layout_below="@+id/et_show"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="輸入聊天信息"
-        android:gravity="center"
-        />
-    <Button
-        android:id="@+id/bt_send"
-        android:layout_below="@+id/et_input"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="記號"
-        />
+        android:lines="5" />
+
+
 </RelativeLayout>
 

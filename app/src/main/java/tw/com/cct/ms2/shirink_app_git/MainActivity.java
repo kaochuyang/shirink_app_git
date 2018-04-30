@@ -61,16 +61,6 @@ public class MainActivity extends Base_activity {
         Button redcount_setting = findViewById(R.id.redcount_setting);
         final Button chain_setting = findViewById(R.id.chain_setting);
 
-        Intent check_v3_packet_intent = new Intent(MainActivity.this, V3MessageActivity.class);
-        Button_goto_where(check_v3_packet, check_v3_packet_intent);
-
-        chain_setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                chain_setting Dialog = new chain_setting();
-                Dialog.show(getFragmentManager(), "chain_setting");
-            }
-        });
 
 
         light_direction_setting.setOnClickListener(new View.OnClickListener() {
