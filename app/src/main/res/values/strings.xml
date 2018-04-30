@@ -125,6 +125,12 @@
     <string name="_0_7">0~7</string>
     <string name="OK">確認</string>
     <string name="chain_setting">連鎖功能設定</string>
+    <string name="title_activity_red_countdown__setting">RedCountdown_Setting</string>
+    <string name="redcount_ID">倒數顯示器編號:</string>
+    <string name="zero">零</string>
+    <string name="communication_state">通訊狀態:</string>
+    <string name="disconnection">斷線</string>
+    <string name="Redcount_state">倒數顯示器狀態</string>
 
 
 </resources>

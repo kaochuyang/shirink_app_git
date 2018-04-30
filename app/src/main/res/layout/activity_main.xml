@@ -402,6 +402,11 @@
             android:id="@+id/chain_setting"
             android:text="@string/chain_setting"/>
 
+        <Button
+            android:id="@+id/redcount_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="紅燈倒數模組設定" />
 
     </TableRow>
     <!--以上是靜態內容-->
@@ -424,11 +429,6 @@
         tools:context="tw.com.cct.ms2.shrink_tc_app.MainActivity">
 
 
-        <Button
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="紅燈倒數模組設定" />
 
 
         <Button

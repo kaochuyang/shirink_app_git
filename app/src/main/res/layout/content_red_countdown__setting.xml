@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="tw.com.cct.ms2.shirink_app_git.RedCountdown_Setting"
+    tools:showIn="@layout/red_countdown__setting">
+
+    <TableLayout
+        android:id="@+id/value_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <TextView
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/redcount_ID"
+                android:textSize="15sp" />
+
+            <TextView
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="0"
+                android:textSize="15sp" />
+
+
+            <TextView
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="1"
+                android:textSize="15sp" />
+
+
+            <TextView
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="2"
+                android:textSize="15sp" />
+
+            <TextView
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="3"
+                android:textSize="15sp" />
+
+            <TextView
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="4"
+                android:textSize="15sp" />
+
+            <TextView
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="5"
+                android:textSize="15sp" />
+
+
+            <TextView
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="6"
+                android:textSize="15sp" />
+
+
+            <TextView
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="7"
+                android:textSize="15sp" />
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/label_output_num"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="對應輸出卡:"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/edit_red_0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:editable="false"
+                android:gravity="center_horizontal"
+                android:hint="@string/_0_7"
+
+                android:text="0"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/edit_red_1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:editable="false"
+                android:gravity="center_horizontal"
+
+                android:hint="@string/_0_7"
+                android:text="1"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/edit_red_2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:editable="false"
+                android:gravity="center_horizontal"
+
+                android:hint="@string/_0_7"
+                android:text="2"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/edit_red_3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:editable="false"
+
+                android:gravity="center_horizontal"
+                android:hint="@string/_0_7"
+                android:text="3"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/edit_red_4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:editable="false"
+                android:gravity="center_horizontal"
+
+                android:hint="@string/_0_7"
+                android:text="4"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/edit_red_5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:editable="false"
+                android:gravity="center_horizontal"
+
+                android:hint="@string/_0_7"
+                android:text="5"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/edit_red_6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:editable="false"
+                android:gravity="center_horizontal"
+
+                android:hint="@string/_0_7"
+                android:text="6"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/edit_red_7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:editable="false"
+                android:gravity="center_horizontal"
+
+                android:hint="@string/_0_7"
+                android:text="7"
+                android:textSize="15sp" />
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/Redcount_state"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/red_count_state_0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autoLink="all"
+                android:gravity="center_horizontal"
+                android:text="@string/disconnection"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/red_count_state_1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autoLink="all"
+                android:gravity="center_horizontal"
+                android:text="@string/disconnection"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/red_count_state_2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autoLink="all"
+                android:gravity="center_horizontal"
+                android:text="@string/disconnection"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/red_count_state_3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autoLink="all"
+                android:gravity="center_horizontal"
+                android:text="@string/disconnection"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/red_count_state_4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autoLink="all"
+                android:gravity="center_horizontal"
+                android:text="@string/disconnection"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/red_count_state_5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autoLink="all"
+                android:gravity="center_horizontal"
+                android:text="@string/disconnection"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/red_count_state_6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autoLink="all"
+                android:gravity="center_horizontal"
+                android:text="@string/disconnection"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/red_count_state_7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autoLink="all"
+                android:gravity="center_horizontal"
+                android:text="@string/disconnection"
+                android:textSize="15sp" />
+
+
+        </TableRow>
+
+        <TableRow            >
+
+
+            <TextView
+                android:id="@+id/redcount_version_mark"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="倒數顯示器版本:"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/redcount_version_select"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="15"
+                android:text="version"
+                android:textSize="15sp" />
+
+
+        </TableRow>
+
+        <LinearLayout>
+
+            <TextView
+                android:id="@+id/redcount_test_mark"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="面板測試:"
+
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:id="@+id/redcount_test_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+
+            <Button
+                android:id="@+id/coundount_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:text="循環顯示"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/display_88"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:text="顯示88"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/Redcount_ID_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:text="顯示ID"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/version_change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:text="變更版本"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
+
+
+    </TableLayout>
+
+
+    <LinearLayout
+        android:id="@+id/control_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/value_table"
+        android:layout_marginTop="20dp"
+        android:gravity="right">
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:text="取消"
+            android:textSize="15sp" />
+
+
+        <Button
+            android:id="@+id/transport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:text="確定"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+

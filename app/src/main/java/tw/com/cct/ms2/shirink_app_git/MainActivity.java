@@ -58,7 +58,7 @@ public class MainActivity extends Base_activity {
         Button Reboot = findViewById(R.id.Reboot);
         Button ask_for_center_transfer_plan = findViewById(R.id.ask_for_center_transfer_plan);
         Button check_v3_packet = findViewById(R.id.check_v3_packet);
-
+        Button redcount_setting = findViewById(R.id.redcount_setting);
         final Button chain_setting = findViewById(R.id.chain_setting);
 
         Intent check_v3_packet_intent = new Intent(MainActivity.this, V3MessageActivity.class);
@@ -79,6 +79,18 @@ public class MainActivity extends Base_activity {
                 DialogFragment editNameDialog = new Direction_dialog();
                 editNameDialog
                         .show(getFragmentManager(), "Direction_dialog");
+
+
+            }
+        });
+
+
+        redcount_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment editNameDialog = new Redcount_setting_dialog();
+                editNameDialog
+                        .show(getFragmentManager(), "redcount_dialog");
 
 
             }
