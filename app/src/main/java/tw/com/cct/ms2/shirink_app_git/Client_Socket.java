@@ -1,5 +1,8 @@
 package tw.com.cct.ms2.shirink_app_git;
 
+/**
+ * Created by user on 2018/5/3.
+ */
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -34,7 +37,7 @@ public class Client_Socket extends Activity {
             try{
                 // IP為Server端
                 InetAddress serverIp = InetAddress.getByName("192.168.2.1");
-                int serverPort = 7002;
+                int serverPort = 5000;
                 clientSocket = new Socket(serverIp, serverPort);
                 //取得網路輸出串流
                 bw = new BufferedWriter( new OutputStreamWriter(clientSocket.getOutputStream()));
@@ -73,9 +76,9 @@ public class Client_Socket extends Activity {
             //關閉輸出入串流後,關閉Socket
             //最近在小作品有發現close()這3個時,導致while (clientSocket.isConnected())這個迴圈內的區域錯誤
             //會跳出java.net.SocketException:Socket is closed錯誤,讓catch內的處理再重複執行,如有同樣問題的可以將下面這3行註解掉
-            bw.close();
-            br.close();
-            clientSocket.close();
+//            bw.close();
+//            br.close();
+//            clientSocket.close();
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

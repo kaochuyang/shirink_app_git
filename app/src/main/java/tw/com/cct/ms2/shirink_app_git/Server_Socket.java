@@ -1,5 +1,8 @@
 package tw.com.cct.ms2.shirink_app_git;
 
+/**
+ * Created by user on 2018/5/3.
+ */
 
 import org.json.JSONObject;
 
@@ -13,7 +16,7 @@ import java.util.ArrayList;
 
 public class Server_Socket {
     private static Thread th_close;                //執行緒
-    private static int serverport = 5050;
+    private static int serverport = 5000;
     private static ServerSocket serverSocket;    //伺服端的Socket
     private static ArrayList<Socket> socketlist = new ArrayList<Socket>();
 

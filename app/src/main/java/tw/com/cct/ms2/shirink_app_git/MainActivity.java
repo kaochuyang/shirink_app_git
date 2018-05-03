@@ -58,9 +58,11 @@ public class MainActivity extends Base_activity {
         Button Reboot = findViewById(R.id.Reboot);
         Button ask_for_center_transfer_plan = findViewById(R.id.ask_for_center_transfer_plan);
         Button check_v3_packet = findViewById(R.id.check_v3_packet);
+        Intent V3_connection_activity = new Intent(this, V3_connection_activity.class);
+        Button_goto_where(check_v3_packet, V3_connection_activity);
+
         Button redcount_setting = findViewById(R.id.redcount_setting);
         final Button chain_setting = findViewById(R.id.chain_setting);
-
 
 
         light_direction_setting.setOnClickListener(new View.OnClickListener() {
