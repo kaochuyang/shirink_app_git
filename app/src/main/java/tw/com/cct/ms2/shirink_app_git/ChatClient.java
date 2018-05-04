@@ -2,9 +2,12 @@ package tw.com.cct.ms2.shirink_app_git;
 
 import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.UTFDataFormatException;
 import java.net.InetAddress;
 import java.net.Socket;
 
@@ -33,6 +36,17 @@ public class ChatClient {
         Log.d(TAG, "sendMsg: send MSG");
         writer.write(msg.replace("\n", "") + "\n");
         writer.flush();
+
+    }
+    public String getMsg()throws IOException{
+        BufferedReader reader=new BufferedReader(new InputStreamReader(socket.getInputStream(),"UTF8"));
+
+//        reader.
+//        Log.d(TAG, "getMsg: MSG report"+);
+
+        Log.d("", "run: ##########lenght="+reader.readLine().length());
+        return reader.readLine();
+
     }
 
     public void sendMsg(String msg,Socket socket) throws IOException {
