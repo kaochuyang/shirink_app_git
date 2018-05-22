@@ -21,9 +21,9 @@ import java.util.List;
 public class MainActivity extends Base_activity {
 
     // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("native-lib");
-    }
+//    static {
+//        System.loadLibrary("native-lib");
+//    }
 
 
     private final CharSequence[] items = {"允許現場設定", "不允許現場設定", "只允許現場查看"};

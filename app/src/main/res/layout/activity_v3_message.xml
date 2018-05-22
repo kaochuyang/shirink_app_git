@@ -1,32 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   >
+    android:orientation="vertical">
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TableRow>
+
+            <EditText
+                android:id="@+id/edit"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:text="10.0.2.2" />
+
+            <Button
+                android:id="@+id/test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="连接测试" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/state_v3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
 
     <EditText
         android:id="@+id/et_show"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:gravity="center"
-        android:hint="V3訊息"
-        android:lines="5" />
+        android:hint="请在这里输入聊天内容" />
 
     <Button
         android:id="@+id/send_m"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/et_show"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="27dp"
-        android:text="發送" />
+        android:text="发送消息" />
 
 
-</RelativeLayout>
+</LinearLayout>
 
