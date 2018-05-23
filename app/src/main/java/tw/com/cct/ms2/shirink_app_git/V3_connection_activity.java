@@ -3,12 +3,15 @@ package tw.com.cct.ms2.shirink_app_git;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -18,18 +21,19 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
-
-
 public class V3_connection_activity extends Base_activity {
     private String tmp;                    //做為接收時的緩存
-    private JSONObject json_write, json_read;        //從java伺服器傳遞與接收資料的json
+    private JSONObject json_write, json_read,jsonALL;        //從java伺服器傳遞與接收資料的json
     // private OnMessageReceived mMessageListner = null;
     Socket socket = null;
     BufferedReader reader = null;
     BufferedWriter writer = null;
     Button test;
     Handler handler = new Handler();
+    JSONObject jsonObject=new JSONObject();
+    JSONArray json_to_string=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,7 @@ public class V3_connection_activity extends Base_activity {
                 textA.setText("");
             }
         });
+
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +76,7 @@ public class V3_connection_activity extends Base_activity {
     public void connect() {
 
         final TextView textB = findViewById(R.id.state_v3);
-        AsyncTask<Void, String, Void> read = new AsyncTask<Void, String, Void>() {
+       AsyncTask<Void, String, Void> read = new AsyncTask<Void, String, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
                 String line;
@@ -95,23 +100,43 @@ public class V3_connection_activity extends Base_activity {
                         e.printStackTrace();
                     }
                     publishProgress("init success");
+
                     while ((line = reader.readLine()) != null) {
                         publishProgress(line);
+                       json_read=new JSONObject(line);
+                       jsonObject=merge(jsonObject,json_read);
+
+                      //  Log.d("JSON", "doInBackground: "+json_read.getString("Data"));
+
+                       // json_read.getJSONObject(line);
+                        Log.d("jsonobject", "doInBackground: "+json_read.toString());
+                        Log.d("jsonobjectALL", "doInBackground: "+jsonObject.toString());
                     }
                 } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 return null;
             }
 
-            @Override
+           @Override
+           protected void onPostExecute(Void aVoid) {
+               super.onPostExecute(aVoid);
+           }
+
+           @Override
             protected void onProgressUpdate(String... values) {
                 textB.append("server說:"+values[0]+"\n");
+               //textB.append("server說:"+line+"\n");
                 Toast.makeText(V3_connection_activity.this, "連接成功", Toast.LENGTH_SHORT).show();
                 super.onProgressUpdate(values);
             }
-        };
+
+
+       };
         read.execute();
+
     }
     public void send(String A){
         try {
@@ -128,10 +153,20 @@ public class V3_connection_activity extends Base_activity {
 
 
     }
+    private static JSONObject merge(JSONObject... jsonObjects) throws JSONException {
 
+        JSONObject jsonObject = new JSONObject();
 
+        for(JSONObject temp : jsonObjects){
+            Iterator<String> keys = temp.keys();
+            while(keys.hasNext()){
+                String key = keys.next();
+                jsonObject.put(key, temp.get(key));
+            }
 
-
+        }
+        return jsonObject;
+    }
 
 }
 
