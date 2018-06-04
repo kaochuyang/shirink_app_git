@@ -6,9 +6,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -32,6 +34,9 @@ public class plan_setting extends Base_activity {
 
 //    private plan_setting.SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+
+
+int segmenttype;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +65,24 @@ public class plan_setting extends Base_activity {
 
 
 
+
+        segmenttype_select.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+putSegmenttype(position);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         floating_button_function(setting_button_group, plan_setting.this);
+
+
 
 
     }
@@ -92,15 +114,19 @@ public class plan_setting extends Base_activity {
 
         @Override
         public Fragment getItem(int position) {
+
             switch (position) {
                 case 0:
                     plan_setting_content tab0 = new plan_setting_content();
-                    return tab0;
+
+                                    return tab0;
                 case 1:
                     plan_setting_fragment tab1 = new plan_setting_fragment();
+
                     return tab1;
                 case 2:
                     plan_setting_fragment2 tab2 = new plan_setting_fragment2();
+
                     return tab2;
 
                 default:
@@ -115,7 +141,20 @@ public class plan_setting extends Base_activity {
             // Show 3 total pages.
             return 3;
         }
+
+
     }
 
+
+
+    private void putSegmenttype(int seg)
+    {
+        segmenttype=seg;
+    }
+
+    public int getSegmenttype()
+    {
+        return segmenttype;
+    }
 
 }

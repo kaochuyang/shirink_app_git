@@ -27,14 +27,15 @@
             android:text="33"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_33"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -69,14 +70,15 @@
             android:text="34"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_34"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -111,14 +113,15 @@
             android:text="35"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_35"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -153,14 +156,15 @@
             android:text="36"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_36"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -195,14 +199,15 @@
             android:text="37"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_37"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -237,14 +242,15 @@
             android:text="38"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_38"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -279,14 +285,15 @@
             android:text="39"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_39"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -321,14 +328,15 @@
             android:text="40"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_40"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -363,14 +371,15 @@
             android:text="41"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_41"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -405,14 +414,15 @@
             android:text="42"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_42"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -447,14 +457,15 @@
             android:text="43"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_43"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -489,14 +500,15 @@
             android:text="44"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_44"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -531,14 +543,15 @@
             android:text="45"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_45"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -573,14 +586,15 @@
             android:text="46"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_46"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -615,14 +629,15 @@
             android:text="47"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_47"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner
@@ -656,14 +671,15 @@
             android:text="48"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
+                android:editable="false"
             android:id="@+id/plan_start_num_48"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/plan_time_setting"
+            android:hint="@string/plan_time_setting"
             android:textSize="20sp" />
 
         <Spinner

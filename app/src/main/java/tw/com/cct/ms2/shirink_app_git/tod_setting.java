@@ -275,14 +275,7 @@ public class tod_setting extends Base_activity {
                 mYear = c.get(Calendar.YEAR);
                 mMonth = c.get(Calendar.MONTH);
                 mDay = c.get(Calendar.DAY_OF_MONTH);
-            /*    int hour = c.get(Calendar.HOUR_OF_DAY);
-                int minute = c.get(Calendar.MINUTE);
-                new TimePickerDialog(tod_setting.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        specialday_date_edit.setText( specialday_date_edit.getText() +  String.valueOf(view.getHour()) + ":" + String.valueOf(view.getMinute()));
-                    }
-                }, hour, minute, false).show();*/
+
                 new DatePickerDialog(tod_setting.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
@@ -342,15 +335,5 @@ public class tod_setting extends Base_activity {
                 + String.valueOf(dayOfMonth);
     }
 
-  /*  private String setDateAndTimeFormat(int year, int monthOfYear, int dayOfMonth,int hour,int minute)
-    {
-
-        return   String.valueOf(year) + "-"
-                + String.valueOf(monthOfYear) + "-"
-                + String.valueOf(dayOfMonth)+" "
-                +String.valueOf(hour)+":"
-                +String.valueOf(minute);
-
-    }*/
 
 }
