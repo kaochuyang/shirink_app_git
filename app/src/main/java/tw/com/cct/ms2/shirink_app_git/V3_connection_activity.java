@@ -33,7 +33,8 @@ public class V3_connection_activity extends Base_activity {
     Button test;
     Handler handler = new Handler();
     JSONObject jsonObject=new JSONObject();
-    JSONArray json_to_string=null;
+
+    V3_tc_data A=V3_tc_data.getV3_tc_data();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,12 +106,14 @@ public class V3_connection_activity extends Base_activity {
                         publishProgress(line);
                        json_read=new JSONObject(line);
                        jsonObject=merge(jsonObject,json_read);
-
-                      //  Log.d("JSON", "doInBackground: "+json_read.getString("Data"));
-
+                       JSONArray jsonArray;
+                        jsonArray=json_read.getJSONArray("weekdaysegment");
+                        Log.d("JSON", "doInBackground: WeekDayArray "+jsonArray.toString());
+                        A.put_tc_data(json_read);
+                        //json_read.getString("Data")
                        // json_read.getJSONObject(line);
-                        Log.d("jsonobject", "doInBackground: "+json_read.toString());
-                        Log.d("jsonobjectALL", "doInBackground: "+jsonObject.toString());
+                        //Log.d("jsonobject", "doInBackground: "+json_read.toString());
+                        //Log.d("jsonobjectALL", "doInBackground: "+jsonObject.toString());
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -153,7 +156,7 @@ public class V3_connection_activity extends Base_activity {
 
 
     }
-    private static JSONObject merge(JSONObject... jsonObjects) throws JSONException {
+    private static JSONObject merge(JSONObject... jsonObjects) throws JSONException {//用來拼接多個json物件用的
 
         JSONObject jsonObject = new JSONObject();
 
