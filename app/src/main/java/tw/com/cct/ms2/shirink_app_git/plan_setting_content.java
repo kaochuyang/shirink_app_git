@@ -28,28 +28,53 @@ import org.json.JSONObject;
 
 public class plan_setting_content extends android.support.v4.app.Fragment {
     final EditText[] plan_start_num = new EditText[16];
-    JSONObject[] segcontext = new JSONObject[16];
-
-
+   JSONObject[] segcontext = new JSONObject[16];
+    Spinner plan_spin_num[] = new Spinner[16];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.plan_setting_content, container, false);
         V3_tc_data A = V3_tc_data.getV3_tc_data();
         JSONObject jsonObject = A.getV3_json_data();
-        Spinner plan_spin_num[] = new Spinner[16];
         ArrayAdapter<CharSequence> arrayAdapter_plan_spinner = ArrayAdapter.createFromResource(this.getActivity(), R.array.plan, R.layout.myspinner_style);
-        //  arrayAdapter_tod_spinner
-        plan_spin_num_view_init(rootView, plan_spin_num);
+
+                      plan_spin_num_view_init(rootView, plan_spin_num);
+
+
         plan_spin_adapter_init(plan_spin_num, arrayAdapter_plan_spinner);
 
-        init_segcontext(jsonObject, segcontext);
-        plan_start_time_link_view(rootView, plan_start_num);
 
+        init_segcontext(jsonObject, segcontext);
+
+        plan_start_time_link_view(rootView, plan_start_num);
         plan_start_num_set_init_text(plan_start_num, segcontext,1);
         plan_start_time_setonclick(plan_start_num);
 
+
         return rootView;
+    }
+
+    private void plan_spin_init_value(Spinner[] plan_spin_num,int segmenttype)  {
+        try {
+        plan_spin_num[0].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(0));
+        plan_spin_num[1].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(1));
+        plan_spin_num[2].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(2));
+        plan_spin_num[3].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(3));
+        plan_spin_num[4].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(4));
+        plan_spin_num[5].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(5));
+        plan_spin_num[6].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(6));
+        plan_spin_num[7].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(7));
+        plan_spin_num[8].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(8));
+        plan_spin_num[9].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(9));
+        plan_spin_num[10].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(10));
+        plan_spin_num[11].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(11));
+        plan_spin_num[12].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(12));
+        plan_spin_num[13].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(13));
+        plan_spin_num[14].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(14));
+        plan_spin_num[15].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(15));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -69,8 +94,10 @@ public class plan_setting_content extends android.support.v4.app.Fragment {
     {
         int index=messageEvent.getSegmenttype();
         plan_start_num_set_init_text(plan_start_num, segcontext,index);
-    }
+        plan_spin_init_value(plan_spin_num,index);
 
+
+    }
     private void plan_start_num_set_init_text(EditText[] plan_start_num, JSONObject[] segcontext,int segmenttype) {
         try {
             plan_start_num[0].setText(getText_plan_start_time(segcontext[segmenttype], 0));
@@ -94,12 +121,9 @@ public class plan_setting_content extends android.support.v4.app.Fragment {
             e.printStackTrace();
         }
     }
-
-
     private String getText_plan_start_time(JSONObject jsonObject, int array_index) throws JSONException {
                 return jsonObject.getJSONArray("hour").getString(array_index) + ":" + jsonObject.getJSONArray("minute").getString(array_index);
         }
-
     private void init_segcontext(JSONObject jsonObject, JSONObject[] segcontext) {
         try {
             segcontext[0] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(0);
@@ -122,7 +146,6 @@ public class plan_setting_content extends android.support.v4.app.Fragment {
             e.printStackTrace();
         }
     }
-
     private void plan_start_time_setonclick(final EditText[] plan_start_num) {
         plan_start_num[0].setOnClickListener(new View.OnClickListener() {
             @Override
@@ -237,7 +260,6 @@ public class plan_setting_content extends android.support.v4.app.Fragment {
 
         });
     }
-
     private void plan_start_time_link_view(View rootView, EditText[] plan_start_num) {
         plan_start_num[0] = rootView.findViewById(R.id.plan_start_num_1);
         plan_start_num[1] = rootView.findViewById(R.id.plan_start_num_2);
@@ -256,8 +278,6 @@ public class plan_setting_content extends android.support.v4.app.Fragment {
         plan_start_num[14] = rootView.findViewById(R.id.plan_start_num_15);
         plan_start_num[15] = rootView.findViewById(R.id.plan_start_num_16);
     }
-
-
     private void plan_spin_num_view_init(View rootView, Spinner[] plan_spin_num) {
         plan_spin_num[0] = rootView.findViewById(R.id.plan_spin_num_1);
         plan_spin_num[1] = rootView.findViewById(R.id.plan_spin_num_2);
@@ -276,8 +296,9 @@ public class plan_setting_content extends android.support.v4.app.Fragment {
         plan_spin_num[14] = rootView.findViewById(R.id.plan_spin_num_15);
         plan_spin_num[15] = rootView.findViewById(R.id.plan_spin_num_16);
     }
-
     private void plan_spin_adapter_init(Spinner[] plan_spin_num, ArrayAdapter<CharSequence> arrayAdapter_plan_spinner) {
+
+
         plan_spin_num[0].setAdapter(arrayAdapter_plan_spinner);
         plan_spin_num[1].setAdapter(arrayAdapter_plan_spinner);
         plan_spin_num[2].setAdapter(arrayAdapter_plan_spinner);
@@ -296,10 +317,8 @@ public class plan_setting_content extends android.support.v4.app.Fragment {
         plan_spin_num[15].setAdapter(arrayAdapter_plan_spinner);
 
 
+
     }
-
-
-
 
 
 }
