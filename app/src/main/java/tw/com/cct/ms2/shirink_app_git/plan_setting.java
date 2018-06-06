@@ -1,12 +1,16 @@
 package tw.com.cct.ms2.shirink_app_git;
 
+import android.app.usage.UsageEvents;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.MenuItem;
@@ -17,6 +21,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 public class plan_setting extends Base_activity {
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -26,17 +34,11 @@ public class plan_setting extends Base_activity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
+
+
+
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-
-//    private plan_setting.SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
-
-
-int segmenttype;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,20 +51,17 @@ int segmenttype;
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
-        Log.d("test1", "onCreate: ");
+
         Button link_to_plan_detail = findViewById(R.id.link_to_plan_detail);
         Intent plan_detail = new Intent(plan_setting.this, plan_detail.class);
         Button_goto_where(link_to_plan_detail, plan_detail);
         FloatingActionButton setting_button_group = (FloatingActionButton) findViewById(R.id.setting_button_group);
-        Log.d("test2", "onCreate: ");
+
 
         Spinner segmenttype_select=findViewById(R.id.segmenttype_select);
-
-
         ArrayAdapter<CharSequence> arrayAdapter_segmenttype_select_spinner=ArrayAdapter.createFromResource(this,R.array.segmenttype,R.layout.myspinner_style);
         //  arrayAdapter_tod_spinner
         segmenttype_select.setAdapter(arrayAdapter_segmenttype_select_spinner);
-
 
 
 
@@ -70,8 +69,9 @@ int segmenttype;
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-putSegmenttype(position);
+change_segmenttype(position+1);
 
+            //finish();
             }
 
             @Override
@@ -80,11 +80,16 @@ putSegmenttype(position);
             }
         });
 
-        floating_button_function(setting_button_group, plan_setting.this);
+      //  floating_button_function(setting_button_group, plan_setting.this);
 
 
 
 
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void change_segmenttype(int segmenttype)
+    {
+        EventBus.getDefault().post(new MessageEvent(segmenttype));
     }
 
     @Override
@@ -102,10 +107,6 @@ putSegmenttype(position);
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -118,6 +119,7 @@ putSegmenttype(position);
             switch (position) {
                 case 0:
                     plan_setting_content tab0 = new plan_setting_content();
+
 
                                     return tab0;
                 case 1:
@@ -145,16 +147,16 @@ putSegmenttype(position);
 
     }
 
-
-
-    private void putSegmenttype(int seg)
-    {
-        segmenttype=seg;
+    @Override
+    protected void onResume() {
+        super.onResume();
+        EventBus.getDefault().register(this);
     }
 
-    public int getSegmenttype()
-    {
-        return segmenttype;
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 
-}
+    }

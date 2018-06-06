@@ -1,7 +1,11 @@
 package tw.com.cct.ms2.shirink_app_git;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +14,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,7 +25,12 @@ import org.json.JSONObject;
  * Created by user on 2018/4/17.
  */
 
+
 public class plan_setting_content extends android.support.v4.app.Fragment {
+    final EditText[] plan_start_num = new EditText[16];
+    JSONObject[] segcontext = new JSONObject[16];
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,17 +42,34 @@ public class plan_setting_content extends android.support.v4.app.Fragment {
         //  arrayAdapter_tod_spinner
         plan_spin_num_view_init(rootView, plan_spin_num);
         plan_spin_adapter_init(plan_spin_num, arrayAdapter_plan_spinner);
-        final EditText[] plan_start_num = new EditText[16];
-        JSONArray[] jsonArray = new JSONArray[16];
-        JSONObject[] segcontext = new JSONObject[16];
+
         init_segcontext(jsonObject, segcontext);
         plan_start_time_link_view(rootView, plan_start_num);
 
-     //   plan_start_num_set_init_text(plan_start_num, segcontext,);
+        plan_start_num_set_init_text(plan_start_num, segcontext,1);
         plan_start_time_setonclick(plan_start_num);
+
         return rootView;
     }
 
+    @Override
+    public  void onStart()
+    {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+    @Override
+    public void onStop()
+    {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void plan_set_select(MessageEvent messageEvent)
+    {
+        int index=messageEvent.getSegmenttype();
+        plan_start_num_set_init_text(plan_start_num, segcontext,index);
+    }
 
     private void plan_start_num_set_init_text(EditText[] plan_start_num, JSONObject[] segcontext,int segmenttype) {
         try {
@@ -268,6 +297,9 @@ public class plan_setting_content extends android.support.v4.app.Fragment {
 
 
     }
+
+
+
 
 
 }
