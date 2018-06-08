@@ -43,7 +43,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:inputType="text"
-
+                android:clickable="true"
+                android:editable="false"
                 android:hint="@string/segment_num"
                 android:textSize="20sp" />
 
@@ -695,6 +696,16 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/plan_cycle_unit"
+                android:textSize="27sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:textStyle="bold"
                 android:hint="@string/second"/>
             <TextView
                 android:layout_weight="14"/>
@@ -709,6 +720,16 @@
                 android:layout_weight="1"
                 android:textStyle="bold"
                 android:text="@string/plan_offset"/>
+            <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/plan_offset_edit"
+                android:textSize="27sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                />
+
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -731,6 +752,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </TableRow>
+
+
     </TableLayout>
 
  <TableLayout

@@ -79,8 +79,9 @@
                 android:text="18"
                 android:textSize="20sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/plan_start_num_18"
+                android:editable="false"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

@@ -126,10 +126,10 @@ change_segmenttype(position+1);
                     plan_setting_fragment tab1 = new plan_setting_fragment();
 
                     return tab1;
-                case 2:
-                    plan_setting_fragment2 tab2 = new plan_setting_fragment2();
-
-                    return tab2;
+//                case 2:
+//                    plan_setting_fragment2 tab2 = new plan_setting_fragment2();
+//
+//                    return tab2;
 
                 default:
                     return null;
@@ -140,8 +140,8 @@ change_segmenttype(position+1);
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Show 2 total pages.
+            return 2;
         }
 
 
