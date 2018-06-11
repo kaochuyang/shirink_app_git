@@ -133,6 +133,9 @@
     <string name="Redcount_state">倒數顯示器狀態</string>
     <string name="maxgreen">最大綠</string>
     <string name="mingreen">最小綠</string>
+    <string name="di">第</string>
+    <string name="subphase_mark">分相</string>
+    <string name="total_subphase_mark">總分相數:</string>
 
 
 </resources>

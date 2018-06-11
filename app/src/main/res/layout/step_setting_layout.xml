@@ -16,8 +16,6 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
 
-
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -31,6 +29,97 @@
         </android.support.v7.widget.Toolbar>
 
 
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/segment_num_mark"-->
+        <!--android:textSize="25sp"-->
+        <!--android:textStyle="bold"/>-->
+        <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/segment_num"-->
+        <!--android:textSize="25sp"-->
+        <!--android:hint="@string/segment_num"-->
+        <!--/>-->
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+
+        <!--android:text="@string/subsegment_"-->
+        <!--android:textSize="25sp"-->
+        <!--android:textStyle="bold" />-->
+
+        <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="25sp"-->
+        <!--android:id="@+id/subsegment_X"-->
+        <!--android:hint="@string/subsegment_X">-->
+
+        <!--</EditText>-->
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="25sp"-->
+        <!--android:textStyle="bold"-->
+        <!--android:text="@string/total_subsegment"-->
+        <!--/>-->
+        <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="25sp"-->
+        <!--android:hint="總分相數"/>-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/a123"
+
+            android:orientation="horizontal">
+            <TextView
+                android:textSize="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/di"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textStyle="bold"/>
+            <Spinner
+                android:textSize="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold">
+
+            </Spinner>
+            <TextView
+                android:textSize="25dp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/subphase_mark"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="25dp"
+                android:text="@string/total_subphase_mark"
+                android:textStyle="bold"/>
+            <TextView
+                android:textSize="25dp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/total_subphase"
+                android:hint="X"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
@@ -71,7 +160,6 @@
                 android:text="@string/step5" />
 
 
-
         </android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>
 
@@ -105,4 +193,5 @@
             android:layout_height="wrap_content"
             android:text="@string/View_mode"/>
     </LinearLayout>
+
 </android.support.design.widget.CoordinatorLayout>
