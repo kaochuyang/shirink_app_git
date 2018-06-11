@@ -3,61 +3,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <LinearLayout
+
+        android:id="@+id/label_select_plan_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/label_set_plan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_horizontal"
+            android:text="@string/label_set_plan"
+            android:textSize="27sp" />
+
+        <Spinner
+            android:id="@+id/plan_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            />
+
+        <TextView
+            android:id="@+id/segment_name_mark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/segment_num_mark"
+            android:layout_gravity="center_horizontal"
+            android:textSize="27sp" />
+
+        <EditText
+            android:id="@+id/segment_name_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:inputType="text"
+            android:clickable="true"
+            android:editable="false"
+            android:hint="@string/segment_num"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+    <View
+        android:id="@+id/gap_line_plan_detail_xml"
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"
+       android:layout_below="@id/label_select_plan_group"
+        android:background="#000000" />
+
+
+
+    <ScrollView
+        android:layout_below="@+id/gap_line_plan_detail_xml"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_weight="1">
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
     <TableLayout
         android:id="@+id/test_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <LinearLayout
-            android:id="@+id/label_select_plan_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/label_set_plan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_gravity="center_horizontal"
-                android:text="@string/label_set_plan"
-                android:textSize="27sp" />
-
-            <Spinner
-                android:id="@+id/plan_select"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-
-                />
-
-            <TextView
-                android:id="@+id/segment_name_mark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/segment_num_mark"
-                android:layout_gravity="center_horizontal"
-                android:textSize="27sp" />
-
-            <EditText
-                android:id="@+id/segment_name_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:inputType="text"
-                android:clickable="true"
-                android:editable="false"
-                android:hint="@string/segment_num"
-                android:textSize="20sp" />
 
 
-        </LinearLayout>
 
-
-        <View
-            android:id="@+id/gap_line_plan_detail_xml"
-            android:layout_width="fill_parent"
-            android:layout_height="3dp"
-            android:layout_marginTop="20dp"
-            android:background="#000000" />
 
         <TableRow
             android:layout_width="wrap_content"
@@ -252,7 +270,6 @@
                 android:value="0" />
 
         </TableRow>
-
         <TableRow>
 
             <TextView
@@ -357,7 +374,6 @@
                 android:value="0" />
 
         </TableRow>
-
         <TableRow>
 
             <TextView
@@ -463,7 +479,6 @@
                 android:value="0" />
 
         </TableRow>
-
         <TableRow>
 
             <TextView
@@ -568,7 +583,6 @@
                 android:value="0" />
 
         </TableRow>
-
         <TableRow>
 
             <TextView
@@ -677,7 +691,220 @@
                 android:value="0" />
 
         </TableRow>
+        <TableRow>
 
+            <TextView
+
+                android:background="#000000"
+                android:textColor="@color/green"
+
+                android:id="@+id/maxgreen_mark"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+
+
+                android:text="@string/maxgreen"
+                tools:text="最大綠" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/maxgreen_1"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/maxgreen_2"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/maxgreen_3"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/maxgreen_4"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/maxgreen_5"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/maxgreen_6"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/maxgreen_7"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/maxgreen_8"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+        </TableRow>
+        <TableRow>
+
+            <TextView
+
+                android:background="#000000"
+                android:textColor="@color/green"
+
+                android:id="@+id/mingreen_mark"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:text="@string/mingreen"
+                tools:text="最小綠" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/mingreen_1"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/mingreen_2"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/mingreen_3"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/mingreen_4"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/mingreen_5"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/mingreen_6"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/mingreen_7"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+            <EditText
+                android:hint="@string/second"
+                android:id="@+id/mingreen_8"
+                android:layout_width="wrap_content"
+                android:textSize="27sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:value="0" />
+
+        </TableRow>
         <TableRow>
             <TextView
                 android:layout_height="wrap_content"
@@ -756,6 +983,10 @@
 
     </TableLayout>
 
+    </LinearLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+
  <TableLayout
      android:id="@+id/buttonPanel"
      android:layout_below="@+id/test_panel"
@@ -763,6 +994,5 @@
      android:layout_height="wrap_content">
 
  </TableLayout>
-
 
 </RelativeLayout>

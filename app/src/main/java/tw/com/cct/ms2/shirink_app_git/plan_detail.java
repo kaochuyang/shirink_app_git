@@ -42,7 +42,8 @@ public class plan_detail extends Base_activity {
     EditText plan_offset_edit;
     TextView plan_cycle_value;
     EditText segment_name_value;
-
+    EditText[] maxgreen=new EditText[8];
+    EditText[] mingreen=new EditText[8];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,6 +113,10 @@ public class plan_detail extends Base_activity {
                         .getJSONArray("subphase_pedgreen_flash").get(i).toString());
                 ped_red[i].setText(jsonObject
                         .getJSONArray("subphase_pedred").get(i).toString());
+                maxgreen[i].setText(jsonObject
+                    .getJSONArray("subphase_max_green").get(i).toString());
+                mingreen[i].setText(jsonObject
+                        .getJSONArray("subphase_min_green").get(i).toString());
 
             }
             plan_cycle_value.setText(jsonObject.getString("cycle_time"));
@@ -134,7 +139,9 @@ public class plan_detail extends Base_activity {
             String idname_y = "yellow_light_" + String.format("%d", i);
             String idname_pg = "ped_flash_" + String.format("%d", i);
             String idname_pr = "ped_red_" + String.format("%d", i);
-            int resID_g = getResources().getIdentifier(idname_g, "id", getPackageName());
+            String idname_mxg="maxgreen_"+ String.format("%d", i);
+            String idname_mig="mingreen_"+ String.format("%d", i);
+           int resID_g = getResources().getIdentifier(idname_g, "id", getPackageName());
             green_light[i - 1] = findViewById(resID_g);
             int resID_r = getResources().getIdentifier(idname_r, "id", getPackageName());
             red_light[i - 1] = findViewById(resID_r);
@@ -144,6 +151,11 @@ public class plan_detail extends Base_activity {
             ped_flash[i - 1] = findViewById(resID_pg);
             int resID_pr = getResources().getIdentifier(idname_pr, "id", getPackageName());
             ped_red[i - 1] = findViewById(resID_pr);
+            int resID_mxg= getResources().getIdentifier(idname_mxg, "id", getPackageName());
+            maxgreen[i - 1] = findViewById(resID_mxg);
+            int resID_mig= getResources().getIdentifier(idname_mig, "id", getPackageName());
+            mingreen[i - 1] = findViewById(resID_mig);
+
 
         }
     }
