@@ -12,6 +12,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class step_setting extends Base_activity {
 
     /**
@@ -23,7 +27,6 @@ public class step_setting extends Base_activity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -33,30 +36,44 @@ public class step_setting extends Base_activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.step_setting_layout);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
-        Log.d("0", "step");
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        Log.d("1", "step");
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        Log.d("2", "step");
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        Log.d("3", "step");
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
-
-
         FloatingActionButton setting_button_group = (FloatingActionButton) findViewById(R.id.setting_button_group);
-        Log.d("test2", "onCreate: ");
-
         floating_button_function(setting_button_group, step_setting.this);
-        Log.d("4", "step");
+
+        V3_tc_data A = V3_tc_data.getV3_tc_data();
+        final JSONObject jsonObject = A.getV3_json_data();
+        JSONObject[] step_object=new JSONObject[256];
+
+        try {
+            step_object[0]=jsonObject.getJSONArray("step").getJSONObject(0);
+            String[]bit=Integer.toString(Integer.parseInt(step_object[0].getJSONObject("stepcontext")
+                    .getJSONArray("subphase")
+                    .getJSONObject(0)
+                    .getJSONArray("stepdetail")
+                    .getJSONObject(0)
+                    .getJSONArray("light")
+                    .get(0)
+                    .toString()),2).split("");
+
+                for(String i:bit){
+                    Log.d("!!!", "onCreate: "+i);
+                }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 
@@ -113,7 +130,7 @@ public class step_setting extends Base_activity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 8;
+            return 5;
         }
     }
 }
