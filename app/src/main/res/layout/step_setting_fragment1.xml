@@ -133,19 +133,34 @@
         <TableRow>
 
 
-            <CheckBox
-                android:id="@+id/checkBox_red_1"
+            <Button android:background="@android:drawable/btn_default" 
+                 
 
+                android:id="@+id/Button_red_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="@string/red"
                 android:textSize="20sp"
-                android:textStyle="bold"  />
+                android:textStyle="bold"
+              
 
-            <CheckBox
-                android:id="@+id/checkBox_red_2"
+                />
+            <!--android:textColor="@drawable/light_state_set"-->
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_red_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+             
+                android:gravity="center_horizontal"
+                android:text="@string/red"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_red_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -154,8 +169,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_red_3"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_red_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -164,8 +179,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_red_4"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_red_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -174,8 +189,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_red_5"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_red_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -184,18 +199,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_red_6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="@string/red"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_red_7"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_red_7"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -204,8 +209,8 @@
                 <!--android:textSize="20sp"-->
                 <!--android:textStyle="bold" />-->
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_red_8"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_red_8"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -220,8 +225,8 @@
         <TableRow>
 
 
-            <CheckBox
-                android:id="@+id/checkBox_yellow_1"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_yellow_1"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -231,8 +236,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_yellow_2"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_yellow_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -241,8 +246,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_yellow_3"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_yellow_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -251,8 +256,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_yellow_4"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_yellow_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -261,8 +266,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_yellow_5"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_yellow_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -271,8 +276,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_yellow_6"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_yellow_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -281,8 +286,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_yellow_7"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_yellow_7"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -291,8 +296,8 @@
                 <!--android:textSize="20sp"-->
                 <!--android:textStyle="bold" />-->
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_yellow_8"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_yellow_8"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -307,8 +312,8 @@
         <TableRow>
 
 
-            <CheckBox
-                android:id="@+id/checkBox_left_1"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_left_1"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -318,8 +323,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_left_2"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_left_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -328,8 +333,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_left_3"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_left_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -338,8 +343,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_left_4"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_left_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -348,8 +353,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_left_5"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_left_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -358,8 +363,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_left_6"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_left_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -368,8 +373,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_left_7"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_left_7"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -378,8 +383,8 @@
                 <!--android:textSize="20sp"-->
                 <!--android:textStyle="bold" />-->
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_left_8"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_left_8"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -394,8 +399,8 @@
         <TableRow>
 
 
-            <CheckBox
-                android:id="@+id/checkBox_green_1"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_green_1"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -405,8 +410,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_green_2"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_green_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -415,8 +420,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_green_3"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_green_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -425,8 +430,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_green_4"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_green_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -435,8 +440,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_green_5"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_green_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -445,8 +450,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_green_6"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_green_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -455,8 +460,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_green_7"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_green_7"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -465,8 +470,8 @@
                 <!--android:textSize="20sp"-->
                 <!--android:textStyle="bold" />-->
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_green_8"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_green_8"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -481,8 +486,8 @@
         <TableRow>
 
 
-            <CheckBox
-                android:id="@+id/checkBox_straight_1"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_straight_1"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -492,8 +497,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_straight_2"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_straight_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -502,8 +507,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_straight_3"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_straight_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -512,8 +517,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_straight_4"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_straight_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -522,8 +527,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_straight_5"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_straight_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -532,8 +537,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_straight_6"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_straight_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -542,8 +547,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_straight_7"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_straight_7"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -552,8 +557,8 @@
                 <!--android:textSize="20sp"-->
                 <!--android:textStyle="bold" />-->
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_straight_8"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_straight_8"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -568,8 +573,8 @@
         <TableRow>
 
 
-            <CheckBox
-                android:id="@+id/checkBox_right_1"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_right_1"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -579,8 +584,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_right_2"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_right_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -589,8 +594,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_right_3"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_right_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -599,8 +604,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_right_4"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_right_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -609,8 +614,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_right_5"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_right_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -619,8 +624,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_right_6"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_right_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -629,8 +634,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_right_7"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_right_7"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -639,8 +644,8 @@
                 <!--android:textSize="20sp"-->
                 <!--android:textStyle="bold" />-->
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_right_8"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_right_8"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -655,8 +660,8 @@
         <TableRow>
 
 
-            <CheckBox
-                android:id="@+id/checkBox_ped_red_1"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_ped_red_1"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -666,8 +671,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_ped_red_2"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_ped_red_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -676,8 +681,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_ped_red_3"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_ped_red_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -686,8 +691,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_ped_red_4"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_ped_red_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -696,8 +701,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_ped_red_5"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_ped_red_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -706,8 +711,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_ped_red_6"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_ped_red_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -716,8 +721,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_ped_red_7"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_ped_red_7"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -726,8 +731,8 @@
                 <!--android:textSize="20sp"-->
                 <!--android:textStyle="bold" />-->
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_ped_red_8"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_ped_red_8"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -742,8 +747,8 @@
         <TableRow>
 
 
-            <CheckBox
-                android:id="@+id/checkBox_ped_flash_1"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_ped_flash_1"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -753,8 +758,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_ped_flash_2"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_ped_flash_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -763,8 +768,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_ped_flash_3"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_ped_flash_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -773,8 +778,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_ped_flash_4"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_ped_flash_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -783,8 +788,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_ped_flash_5"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_ped_flash_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -793,8 +798,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox_ped_flash_6"
+            <Button android:background="@android:drawable/btn_default"  
+                android:id="@+id/Button_ped_flash_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -803,8 +808,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_ped_flash_7"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_ped_flash_7"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -813,8 +818,8 @@
                 <!--android:textSize="20sp"-->
                 <!--android:textStyle="bold" />-->
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBox_ped_flash_8"-->
+            <!--<Button android:background="@android:drawable/btn_default"  -->
+                <!--android:id="@+id/Button_ped_flash_8"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->

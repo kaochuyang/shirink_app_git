@@ -50,28 +50,29 @@ public class step_setting extends Base_activity {
         FloatingActionButton setting_button_group = (FloatingActionButton) findViewById(R.id.setting_button_group);
         floating_button_function(setting_button_group, step_setting.this);
 
-        V3_tc_data A = V3_tc_data.getV3_tc_data();
-        final JSONObject jsonObject = A.getV3_json_data();
-        JSONObject[] step_object=new JSONObject[256];
+//        V3_tc_data A = V3_tc_data.getV3_tc_data();
+//        final JSONObject jsonObject = A.getV3_json_data();
+//        JSONObject[] step_object=new JSONObject[256];
+//
+//        try {
+//            step_object[0]=jsonObject.getJSONArray("step").getJSONObject(0);
+//            String[]bit=Integer.toString(Integer.parseInt(step_object[0].getJSONObject("stepcontext")
+//                    .getJSONArray("subphase")
+//                    .getJSONObject(0)
+//                    .getJSONArray("stepdetail")
+//                    .getJSONObject(0)
+//                    .getJSONArray("light")
+//                    .get(0)
+//                    .toString()),2).split("");
+//
+//
+//
+//
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
 
-        try {
-            step_object[0]=jsonObject.getJSONArray("step").getJSONObject(0);
-            String[]bit=Integer.toString(Integer.parseInt(step_object[0].getJSONObject("stepcontext")
-                    .getJSONArray("subphase")
-                    .getJSONObject(0)
-                    .getJSONArray("stepdetail")
-                    .getJSONObject(0)
-                    .getJSONArray("light")
-                    .get(0)
-                    .toString()),2).split("");
-
-                for(String i:bit){
-                    Log.d("!!!", "onCreate: "+i);
-                }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
 
     }
@@ -82,6 +83,17 @@ public class step_setting extends Base_activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_step_setting, menu);
         return true;
+    }
+
+    private int state_check(String[]strings,int i)
+    {
+        int state=0;
+        if((strings[i]=="1")&&(strings[i+1]=="1"))state=1;
+        if((strings[i]=="0")&&(strings[i+1]=="1"))state=2;
+        if((strings[i]=="1")&&(strings[i+1]=="0"))state=2;
+        if((strings[i]=="0")&&(strings[i+1]=="0"))state=0;
+
+        return state;
     }
 
     @Override

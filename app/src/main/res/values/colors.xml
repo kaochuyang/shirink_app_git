@@ -8,4 +8,16 @@
     <color name="yellow">#f4ec0d</color>
     <color name="red">#f40d28</color>
     <color name="green">#5df406</color>
+    <drawable name="color1">#339966</drawable>
+    <drawable name="color2">#fff</drawable>
+    <drawable name="red">#f40d28</drawable>
+    <drawable name="green">#5df406</drawable>
+    <!--button中的文字变换色-->
+    <drawable name="button_text_white">#FFFFFF</drawable>
+    <drawable name="button_text_gray">#ed0909</drawable>
+
+    <!--dialog button 背景色-->
+    <color name="button_bg_black">#212121</color>
+    <color name="button_bg_gray">#7a7a7a</color>
+
 </resources>
