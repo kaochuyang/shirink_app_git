@@ -9,6 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import static org.greenrobot.eventbus.EventBus.TAG;
+import static tw.com.cct.ms2.shirink_app_git.V3_tc_data.jsonObject;
 
 
 /**
@@ -35,18 +45,149 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
     static int[] straight_state_=new int[6];
     static int[] ped_red_state_=new int[6];
     static int[] ped_green_state_=new int[6];
+    int step_num;
+    V3_tc_data A = V3_tc_data.getV3_tc_data();
+    final JSONObject jsonObject = A.getV3_json_data();
+    JSONObject[] step_object=new JSONObject[256];
+    int light_board_count;
+    TextView []board_=new TextView[6];
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
         System.out.println("hello page=" + page);
         rootView = inflater.inflate(R.layout.step_setting_fragment1, container, false);
+        
         Button_findview();
-
+        light_state_get(jsonObject, step_object,light_board_count,page-1,0);
         Button_color_init();
 
+        button_color_start_state();
+        light_board_count=4;
+        button_visible_control(light_board_count);
+  //board_[5].setVisibility(rootView.GONE);
         return getView(inflater, container);
     }
+
+    private void button_visible_control(int light_board_count) {
+        for(int i=light_board_count;i<6;i++) {
+            Button_red_[i].setVisibility(rootView.GONE);
+            Button_green_[i].setVisibility(rootView.GONE);
+            Button_left_[i].setVisibility(rootView.GONE);
+            Button_right_[i].setVisibility(rootView.GONE);
+            Button_straight_[i].setVisibility(rootView.GONE);
+            Button_yellow_[i].setVisibility(rootView.GONE);
+            Button_ped_flash_[i].setVisibility(rootView.GONE);
+            Button_ped_red_[i].setVisibility(rootView.GONE);
+            board_[i].setVisibility(rootView.GONE);
+        }
+        for(int i=0;i<light_board_count;i++) {
+            Button_red_[i].setVisibility(rootView.VISIBLE);
+            Button_green_[i].setVisibility(rootView.VISIBLE);
+            Button_left_[i].setVisibility(rootView.VISIBLE);
+            Button_right_[i].setVisibility(rootView.VISIBLE);
+            Button_straight_[i].setVisibility(rootView.VISIBLE);
+            Button_yellow_[i].setVisibility(rootView.VISIBLE);
+            Button_ped_flash_[i].setVisibility(rootView.VISIBLE);
+            Button_ped_red_[i].setVisibility(rootView.VISIBLE);
+            board_[i].setVisibility(rootView.VISIBLE);
+        }
+    }
+
+    private void button_color_start_state() {
+        for(int i=0;i<6;i++) {
+                  red_color_state(Button_red_, red_state_, i);
+            green_color_state(Button_green_, green_state_, i);
+            green_color_state(Button_left_, left_state_, i);
+            green_color_state(Button_straight_, straight_state_, i);
+            green_color_state(Button_ped_flash_, ped_green_state_, i);
+            red_color_state(Button_ped_red_, ped_red_state_, i);
+            green_color_state(Button_right_, right_state_, i);
+            yellow_color_state(Button_yellow_, yellow_state_, i);
+        }
+    }
+
+    @Override
+    public  void onStart()
+    {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+    @Override
+    public void onStop()
+    {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void step_set_select(MessageEvent_subphase messageEvent)
+    {
+        int index=messageEvent.getsubphase();
+
+        light_state_get(jsonObject, step_object,light_board_count,step_num,index);
+        Button_color_init();
+        button_color_start_state();
+    }
+
+    private void light_state_get(JSONObject jsonObject, JSONObject[] step_object, int light_board_count,int step_num,int subphase_num) {//i 代表第i+1排燈卡
+        try {
+int plan_num=0;
+
+
+
+            for (int light_board_num=0;light_board_num<light_board_count;light_board_num++)
+            {
+                //light_state[]順序(每兩個byte為一個燈態狀態):行人綠 行人紅 → ↑ 綠燈 ← 黃燈 紅燈
+            step_object[plan_num]=jsonObject.getJSONArray("step").getJSONObject(plan_num);
+
+            String[]light_state=String.format("%16s",Integer.toBinaryString(Integer.parseInt(step_object[plan_num].getJSONObject("stepcontext")
+                    .getJSONArray("subphase")
+                    .getJSONObject(subphase_num)
+                    .getJSONArray("stepdetail")
+                    .getJSONObject(step_num)
+                    .getJSONArray("light")
+                    .get(light_board_num)
+                    .toString()))).split("");
+            Log.d(TAG, "light_state_get: origin="+step_object[plan_num].getJSONObject("stepcontext")
+                    .getJSONArray("subphase")
+                    .getJSONObject(subphase_num)
+                    .getJSONArray("stepdetail")
+                    .getJSONObject(step_num)
+                    .getJSONArray("light")
+                    .get(light_board_num)
+                    .toString());
+            Log.d(TAG, "light_state_get: "+Integer.toString(Integer.parseInt(step_object[plan_num].getJSONObject("stepcontext")
+                    .getJSONArray("subphase")
+                    .getJSONObject(subphase_num)
+                    .getJSONArray("stepdetail")
+                    .getJSONObject(step_num)
+                    .getJSONArray("light")
+                    .get(light_board_num)
+                    .toString()),2));
+
+             ped_green_state_[light_board_num]=state_check(light_state,1);
+            ped_red_state_[light_board_num]=state_check(light_state,3);
+            right_state_[light_board_num]=state_check(light_state,5);
+            straight_state_[light_board_num]=state_check(light_state,7);
+            green_state_[light_board_num]=state_check(light_state,9);
+            left_state_[light_board_num]=state_check(light_state,11);
+            yellow_state_[light_board_num]=state_check(light_state,13);
+            red_state_[light_board_num]=state_check(light_state,15);}
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    private int state_check(String[]strings,int i)
+    {
+        int state=0;
+             if(strings[i].equals(strings[i+1])){
+            state = strings[i].equals("1") ? 1 : 0;
+       }
+        else state=2;
+
+        return state;
+    }
+
 
     private void Button_color_init() {
         for(int i=0;i<6;i++) {
@@ -67,13 +208,14 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
             @Override
             public void onClick(View v) {
                 red_state_[i]=button_state(red_state_[i]);
-
                 if(red_state_[i]==0)Button_red_[i].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
                 if(red_state_[i]==2)Button_red_[i].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_OUT);
                 if(red_state_[i]==1)Button_red_[i].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
             }
         });
     }
+
+
     private void green_button(final Button []Button_green_,final int[]green_state_,final int i ) {
         Button_green_[i].setOnClickListener(new View.OnClickListener() {
 
@@ -87,6 +229,31 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
             }
         });
     }
+    private void green_color_state(final Button []Button_green_,final int[]green_state_,final int i ) {
+          
+
+                if(green_state_[i]==0)Button_green_[i].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+                if(green_state_[i]==2)Button_green_[i].getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_OUT);
+                if(green_state_[i]==1)Button_green_[i].getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
+
+    }
+    private void yellow_color_state(final Button []Button_yellow_,final int[]yellow_state_,final int i ) {
+
+
+                if(yellow_state_[i]==0)Button_yellow_[i].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+                if(yellow_state_[i]==2)Button_yellow_[i].getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_OUT);
+                if(yellow_state_[i]==1)Button_yellow_[i].getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.MULTIPLY);
+     
+    }
+    private void red_color_state(final Button []Button_red_,final int[]red_state_,final int i ) {
+
+
+                if(red_state_[i]==0)Button_red_[i].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+                if(red_state_[i]==2)Button_red_[i].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_OUT);
+                if(red_state_[i]==1)Button_red_[i].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
+           
+    }
+    
     private void yellow_button(final Button []Button_yellow_,final int[]yellow_state_,final int i ) {
         Button_yellow_[i].setOnClickListener(new View.OnClickListener() {
 
@@ -138,8 +305,10 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
             int resID_ped_flash = getResources().getIdentifier(idname_ped_flash, "id", getActivity().getPackageName());
             Button_ped_flash_[i - 1] = rootView.findViewById(resID_ped_flash);
 
+         String idname_borad = "board_" + String.format("%d", i);
+            int resID_board= getResources().getIdentifier(idname_borad, "id", getActivity().getPackageName());
+            board_[i-1]=rootView.findViewById(resID_board);}
 
-        }
     }
 
     @Nullable
@@ -181,7 +350,7 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
 
     public int getPagenum(int page_num) {
         page = page_num;
-        System.out.println("hello  4");
+        System.out.println("hello page"+page);
         return page;
 
     }

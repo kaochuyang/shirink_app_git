@@ -11,10 +11,34 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import static tw.com.cct.ms2.shirink_app_git.R.array.total_subphase_1;
+import static tw.com.cct.ms2.shirink_app_git.R.array.total_subphase_2;
+import static tw.com.cct.ms2.shirink_app_git.R.array.total_subphase_3;
+import static tw.com.cct.ms2.shirink_app_git.R.array.total_subphase_4;
+import static tw.com.cct.ms2.shirink_app_git.R.array.total_subphase_5;
+import static tw.com.cct.ms2.shirink_app_git.R.array.total_subphase_8;
+import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.green_state_;
+import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.left_state_;
+import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.ped_green_state_;
+import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.ped_red_state_;
+import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.red_state_;
+import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.right_state_;
+import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.straight_state_;
+import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.yellow_state_;
 
 public class step_setting extends Base_activity {
 
@@ -31,7 +55,19 @@ public class step_setting extends Base_activity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-
+//    static int[] red_state_=new int[6];
+//    static int[] green_state_=new int[6];
+//    static int[] yellow_state_=new int[6];
+//    static int[] left_state_=new int[6];
+//    static int[] right_state_=new int[6];
+//    static int[] straight_state_=new int[6];
+//    static int[] ped_red_state_=new int[6];
+//    static int[] ped_green_state_=new int[6];
+Light_State lightState;
+Spinner subphase_spin;
+    V3_tc_data A = V3_tc_data.getV3_tc_data();
+    final JSONObject jsonObject = A.getV3_json_data();
+    JSONObject[] step_object=new JSONObject[256];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,32 +86,52 @@ public class step_setting extends Base_activity {
         FloatingActionButton setting_button_group = (FloatingActionButton) findViewById(R.id.setting_button_group);
         floating_button_function(setting_button_group, step_setting.this);
 
-//        V3_tc_data A = V3_tc_data.getV3_tc_data();
-//        final JSONObject jsonObject = A.getV3_json_data();
-//        JSONObject[] step_object=new JSONObject[256];
-//
-//        try {
-//            step_object[0]=jsonObject.getJSONArray("step").getJSONObject(0);
-//            String[]bit=Integer.toString(Integer.parseInt(step_object[0].getJSONObject("stepcontext")
-//                    .getJSONArray("subphase")
-//                    .getJSONObject(0)
-//                    .getJSONArray("stepdetail")
-//                    .getJSONObject(0)
-//                    .getJSONArray("light")
-//                    .get(0)
-//                    .toString()),2).split("");
-//
-//
-//
-//
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
+        subphase_spin=findViewById(R.id.subphase_spin);
+        TextView  total_subphase=findViewById(R.id.total_subphase);
+        int totalsubphase=6;
+        try {
+            totalsubphase= Integer.parseInt(String.valueOf(jsonObject.getJSONArray("step").getJSONObject(0).get("subphase_count")));
+            Log.d("subphase_spiner_", "subphase_spiner_init: "+jsonObject.getJSONArray("step").getJSONObject(0).getString("subphase_count").toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+           total_subphase.setText(String.valueOf(totalsubphase));
+        spinner_init(totalsubphase);
+
+        subphase_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                send_page_num(position);
+
+                //finish();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
 
 
     }
+
+    private void spinner_init(int totalsubphase) {
+        String adpter_name="total_subphase_"+ String.format("%d", totalsubphase);
+        int resID = getResources().getIdentifier(adpter_name, "array", getPackageName());
+        ArrayAdapter<CharSequence> arrayAdapter_select_spinner=ArrayAdapter.createFromResource(this,resID,R.layout.myspinner_style);
+        subphase_spin.setAdapter(arrayAdapter_select_spinner);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    void send_page_num(int position) {
+        EventBus.getDefault().post(new MessageEvent_subphase(position));
+    }
+
+
 
 
     @Override
@@ -85,16 +141,7 @@ public class step_setting extends Base_activity {
         return true;
     }
 
-    private int state_check(String[]strings,int i)
-    {
-        int state=0;
-        if((strings[i]=="1")&&(strings[i+1]=="1"))state=1;
-        if((strings[i]=="0")&&(strings[i+1]=="1"))state=2;
-        if((strings[i]=="1")&&(strings[i+1]=="0"))state=2;
-        if((strings[i]=="0")&&(strings[i+1]=="0"))state=0;
 
-        return state;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -126,7 +173,7 @@ public class step_setting extends Base_activity {
             super(fm);
         }
 
-        @Override
+            @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class belo
@@ -134,6 +181,7 @@ public class step_setting extends Base_activity {
 
             Log.d(String.valueOf(position), "getItem:postion ");
             step_page.getPagenum(position + 1);
+//                send_page_num(position);
             return step_page;
 
 
@@ -145,4 +193,17 @@ public class step_setting extends Base_activity {
             return 5;
         }
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+
 }

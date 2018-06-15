@@ -6,6 +6,7 @@ import org.greenrobot.eventbus.ThreadMode;
 public class MessageEvent {
     public int Segmenttype;
 
+
     public MessageEvent(int segmenttype)
     {
         this.Segmenttype=segmenttype;
@@ -20,6 +21,10 @@ public class MessageEvent {
         this.Segmenttype=segmenttype;
     }
 
+    Light_State lightState;
+    public void setLightState(Light_State lightState){this.lightState=lightState;}
+
+    public Light_State getLightState() {return lightState;}
 
 
 }

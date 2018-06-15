@@ -69,7 +69,7 @@ public class plan_setting extends Base_activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-change_segmenttype(position+1);
+            change_segmenttype(position+1);
 
             //finish();
             }

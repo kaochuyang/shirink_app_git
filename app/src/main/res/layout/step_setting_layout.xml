@@ -22,7 +22,7 @@
             android:layout_height="?attr/actionBarSize"
             android:layout_weight="1"
             android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
+
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:title="@string/app_name">
 
@@ -73,51 +73,78 @@
 
 
         <LinearLayout
+            android:id="@+id/a123"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/a123"
 
             android:orientation="horizontal">
+
             <TextView
-                android:textSize="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/di"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:textStyle="bold"/>
-            <Spinner
+                android:text="@string/phaseorder_mark"
                 android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/phaseorder_select"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:clickable="true"
+                android:editable="false"
+                android:hint="XX"
+                android:textSize="25dp"
+                android:textStyle="bold">
+
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:text="@string/di"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/subphase_spin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textSize="25dp"
                 android:textStyle="bold">
 
             </Spinner>
-            <TextView
-                android:textSize="25dp"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/subphase_mark"
-                android:textStyle="bold"/>
 
             <TextView
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/subphase_mark"
                 android:textSize="25dp"
-                android:text="@string/total_subphase_mark"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
+
             <TextView
-                android:textSize="25dp"
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
+                android:layout_weight="2"
+                android:text="@string/total_subphase_mark"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/total_subphase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:hint="X"
-                android:textStyle="bold"/>
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -179,19 +206,21 @@
         app:srcCompat="@android:drawable/ic_dialog_dialer" />
 
     <LinearLayout
-        android:layout_gravity="end|bottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom">
+
         <Button
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/edit_mode"/>
+            android:text="@string/edit_mode" />
+
         <Button
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/View_mode"/>
+            android:text="@string/View_mode" />
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
