@@ -36,8 +36,8 @@ public class MainActivity extends Base_activity {
 
         Button Uart_select = findViewById(R.id.Uart_select);
         Button goto_tod_setting = (Button) findViewById(R.id.go_to_tod_setting);
-   //     Intent intent_tod_setting_xml = new Intent(this, step_setting.class);
-        Intent intent_tod_setting_xml = new Intent(this, tod_setting.class);
+        Intent intent_tod_setting_xml = new Intent(this, step_setting.class);
+   //     Intent intent_tod_setting_xml = new Intent(this, tod_setting.class);
 
 
 

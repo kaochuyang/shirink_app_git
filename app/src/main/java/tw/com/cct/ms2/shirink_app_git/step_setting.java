@@ -1,5 +1,6 @@
 package tw.com.cct.ms2.shirink_app_git;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -7,8 +8,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +19,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -68,6 +73,9 @@ Spinner subphase_spin;
     V3_tc_data A = V3_tc_data.getV3_tc_data();
     final JSONObject jsonObject = A.getV3_json_data();
     JSONObject[] step_object=new JSONObject[256];
+    final int phase_ID=0;
+    final int totalsubphase=6;//init
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,35 +86,45 @@ Spinner subphase_spin;
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         // Set up the ViewPager with the sections adapter.
+
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        final TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
         FloatingActionButton setting_button_group = (FloatingActionButton) findViewById(R.id.setting_button_group);
         floating_button_function(setting_button_group, step_setting.this);
-
         subphase_spin=findViewById(R.id.subphase_spin);
-        TextView  total_subphase=findViewById(R.id.total_subphase);
-        int totalsubphase=6;
-        try {
-            totalsubphase= Integer.parseInt(String.valueOf(jsonObject.getJSONArray("step").getJSONObject(0).get("subphase_count")));
-            Log.d("subphase_spiner_", "subphase_spiner_init: "+jsonObject.getJSONArray("step").getJSONObject(0).getString("subphase_count").toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        final TextView  total_subphase=findViewById(R.id.total_subphase);
 
-           total_subphase.setText(String.valueOf(totalsubphase));
-        spinner_init(totalsubphase);
+        Spinner phaseorder_select=findViewById(R.id.phaseorder_select);
+        ArrayAdapter<CharSequence> arrayAdapter_select_spinner=ArrayAdapter.createFromResource(this,R.array.plan,R.layout.myspinner_style);
+        phaseorder_select.setAdapter(arrayAdapter_select_spinner);
+        getTotalsubphase(total_subphase, phase_ID, totalsubphase);
+
+        phaseorder_select.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        change_phaseorder(position);
+        getTotalsubphase(total_subphase,position, totalsubphase);
+        subphase_spin.setSelection(0);
+     tabLayout.getTabAt(0).select();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+});
 
         subphase_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 send_page_num(position);
-
-                //finish();
-            }
+                tabLayout.getTabAt(0).select();
+                          }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -114,10 +132,27 @@ Spinner subphase_spin;
             }
         });
 
-
-
-
     }
+
+
+
+    private int getTotalsubphase(TextView total_subphase, int phase_ID, int totalsubphase) {//include subphase spinner init
+        totalsubphase = getTotalsubphase(phase_ID, totalsubphase);
+        total_subphase.setText(String.valueOf(totalsubphase));
+        spinner_init(totalsubphase);
+        return totalsubphase;
+    }
+
+    private int getTotalsubphase(int phase_ID, int totalsubphase) {
+        try {
+            totalsubphase= Integer.parseInt(String.valueOf(jsonObject.getJSONArray("step").getJSONObject(phase_ID).get("subphase_count")));
+            Log.d("subphase_spiner_", "subphase_spiner_init: "+jsonObject.getJSONArray("step").getJSONObject(phase_ID).getString("subphase_count").toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return totalsubphase;
+    }
+
 
     private void spinner_init(int totalsubphase) {
         String adpter_name="total_subphase_"+ String.format("%d", totalsubphase);
@@ -128,7 +163,13 @@ Spinner subphase_spin;
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     void send_page_num(int position) {
+        Log.d("!!!!!!!", "send_page_num: page="+position+1);
         EventBus.getDefault().post(new MessageEvent_subphase(position));
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    void change_phaseorder(int phaseID) {
+        Log.d("!!!!", "change_phaseorder: ");
+        EventBus.getDefault().post(new MessageEvent_phaseorder(phaseID));
     }
 
 

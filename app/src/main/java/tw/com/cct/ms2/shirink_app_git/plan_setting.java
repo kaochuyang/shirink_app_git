@@ -63,16 +63,13 @@ public class plan_setting extends Base_activity {
         //  arrayAdapter_tod_spinner
         segmenttype_select.setAdapter(arrayAdapter_segmenttype_select_spinner);
 
-
-
         segmenttype_select.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
             change_segmenttype(position+1);
 
-            //finish();
-            }
+                   }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {

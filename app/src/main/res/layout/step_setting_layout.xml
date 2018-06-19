@@ -88,18 +88,18 @@
                 android:textSize="25dp"
                 android:textStyle="bold" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/phaseorder_select"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:clickable="true"
-                android:editable="false"
+
+
                 android:hint="XX"
                 android:textSize="25dp"
                 android:textStyle="bold">
 
-            </EditText>
+            </Spinner>
 
             <TextView
                 android:layout_width="wrap_content"

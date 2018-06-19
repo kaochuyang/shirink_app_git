@@ -49,24 +49,39 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
     V3_tc_data A = V3_tc_data.getV3_tc_data();
     final JSONObject jsonObject = A.getV3_json_data();
     JSONObject[] step_object=new JSONObject[256];
-    int light_board_count;
     TextView []board_=new TextView[6];
+
+    static int phaseorder=0;
+    int subphase=0;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         System.out.println("hello page=" + page);
         rootView = inflater.inflate(R.layout.step_setting_fragment1, container, false);
-        
-        Button_findview();
-        light_state_get(jsonObject, step_object,light_board_count,page-1,0);
-        Button_color_init();
+        Button_findview();//連結xml
+        Button_color_init();//給按鈕變色功能
 
-        button_color_start_state();
-        light_board_count=4;
-        button_visible_control(light_board_count);
-  //board_[5].setVisibility(rootView.GONE);
+        view_state_init();//初始化按鈕狀態和顏色
+
         return getView(inflater, container);
     }
 
+    private void view_state_init() {
+        light_state_get(jsonObject, step_object,light_board_decide(phaseorder),page-1,subphase,phaseorder);
+        button_color_start_state();//初始化按鈕顏色
+        button_visible_control(light_board_decide(phaseorder));//決定按鈕隱藏與否
+    }
+
+    private int  light_board_decide(int phaseorder) {
+        int  count=0;
+        try {//////決定幾張燈卡
+           count=
+                    jsonObject.getJSONArray("step").getJSONObject(phaseorder).getInt("signal_count");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
     private void button_visible_control(int light_board_count) {
         for(int i=light_board_count;i<6;i++) {
             Button_red_[i].setVisibility(rootView.GONE);
@@ -120,25 +135,29 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void step_set_select(MessageEvent_subphase messageEvent)
     {
-        int index=messageEvent.getsubphase();
-
-        light_state_get(jsonObject, step_object,light_board_count,step_num,index);
-        Button_color_init();
+        //Log.d(TAG, "step_set_select: ");
+        subphase=messageEvent.getsubphase();
+        light_state_get(jsonObject, step_object,light_board_decide(phaseorder),step_num,subphase,phaseorder);
         button_color_start_state();
     }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void phaseorder_set_select(MessageEvent_phaseorder messageEvent)
+    {
+        phaseorder=messageEvent.getphaseorder();
+        view_state_init();
+    }
 
-    private void light_state_get(JSONObject jsonObject, JSONObject[] step_object, int light_board_count,int step_num,int subphase_num) {//i 代表第i+1排燈卡
+    private void light_state_get(JSONObject jsonObject, JSONObject[] step_object,
+                                 int light_board_count,int step_num,
+                                 int subphase_num,int phaseorder) {//i 代表第i+1排燈卡
         try {
-int plan_num=0;
-
-
 
             for (int light_board_num=0;light_board_num<light_board_count;light_board_num++)
             {
                 //light_state[]順序(每兩個byte為一個燈態狀態):行人綠 行人紅 → ↑ 綠燈 ← 黃燈 紅燈
-            step_object[plan_num]=jsonObject.getJSONArray("step").getJSONObject(plan_num);
-
-            String[]light_state=String.format("%16s",Integer.toBinaryString(Integer.parseInt(step_object[plan_num].getJSONObject("stepcontext")
+                step_object[phaseorder]=jsonObject.getJSONArray("step").getJSONObject(phaseorder);
+                Log.d("SUBPHASE", "light_state_get: phaseorder="+phaseorder+" subphase="+subphase_num);
+            String[]light_state=String.format("%16s",Integer.toBinaryString(Integer.parseInt(step_object[phaseorder].getJSONObject("stepcontext")
                     .getJSONArray("subphase")
                     .getJSONObject(subphase_num)
                     .getJSONArray("stepdetail")
@@ -146,22 +165,22 @@ int plan_num=0;
                     .getJSONArray("light")
                     .get(light_board_num)
                     .toString()))).split("");
-            Log.d(TAG, "light_state_get: origin="+step_object[plan_num].getJSONObject("stepcontext")
-                    .getJSONArray("subphase")
-                    .getJSONObject(subphase_num)
-                    .getJSONArray("stepdetail")
-                    .getJSONObject(step_num)
-                    .getJSONArray("light")
-                    .get(light_board_num)
-                    .toString());
-            Log.d(TAG, "light_state_get: "+Integer.toString(Integer.parseInt(step_object[plan_num].getJSONObject("stepcontext")
-                    .getJSONArray("subphase")
-                    .getJSONObject(subphase_num)
-                    .getJSONArray("stepdetail")
-                    .getJSONObject(step_num)
-                    .getJSONArray("light")
-                    .get(light_board_num)
-                    .toString()),2));
+//            Log.d(TAG, "light_state_get: origin="+step_object[phaseorder].getJSONObject("stepcontext")
+//                    .getJSONArray("subphase")
+//                    .getJSONObject(subphase_num)
+//                    .getJSONArray("stepdetail")
+//                    .getJSONObject(step_num)
+//                    .getJSONArray("light")
+//                    .get(light_board_num)
+//                    .toString());
+//            Log.d(TAG, "light_state_get: "+Integer.toString(Integer.parseInt(step_object[phaseorder].getJSONObject("stepcontext")
+//                    .getJSONArray("subphase")
+//                    .getJSONObject(subphase_num)
+//                    .getJSONArray("stepdetail")
+//                    .getJSONObject(step_num)
+//                    .getJSONArray("light")
+//                    .get(light_board_num)
+//                    .toString()),2));
 
              ped_green_state_[light_board_num]=state_check(light_state,1);
             ped_red_state_[light_board_num]=state_check(light_state,3);
@@ -201,7 +220,6 @@ int plan_num=0;
             yellow_button(Button_yellow_, yellow_state_, i);
         }
     }
-
     private void red_button(final Button []Button_red_,final int[]red_state_,final int i ) {
         Button_red_[i].setOnClickListener(new View.OnClickListener() {
 
@@ -214,8 +232,6 @@ int plan_num=0;
             }
         });
     }
-
-
     private void green_button(final Button []Button_green_,final int[]green_state_,final int i ) {
         Button_green_[i].setOnClickListener(new View.OnClickListener() {
 
@@ -253,7 +269,6 @@ int plan_num=0;
                 if(red_state_[i]==1)Button_red_[i].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
            
     }
-    
     private void yellow_button(final Button []Button_yellow_,final int[]yellow_state_,final int i ) {
         Button_yellow_[i].setOnClickListener(new View.OnClickListener() {
 
@@ -267,15 +282,11 @@ int plan_num=0;
             }
         });
     }
-    
-
-
     private int button_state(int state) {
         state++;
         if(state==3)state=0;
         return state;
     }
-
     private void Button_findview() {
         for (int i = 1; i < 7; i++) {
             String idname_red = "Button_red_" + String.format("%d", i);
