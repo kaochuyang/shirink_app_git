@@ -155,5 +155,11 @@ public class plan_setting extends Base_activity {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
+    @Override
+    public void onStop() {
+        super.onStop();
 
+        //反注册
+        EventBus.getDefault().unregister(this);
+    }
     }

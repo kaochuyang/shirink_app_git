@@ -52,21 +52,38 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
     TextView []board_=new TextView[6];
 
     static int phaseorder=0;
-    int subphase=0;
+    static int subphase=0;
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        System.out.println("hello page=" + page);
+        System.out.println("onCreateView page=" + page);
         rootView = inflater.inflate(R.layout.step_setting_fragment1, container, false);
+
         Button_findview();//連結xml
         Button_color_init();//給按鈕變色功能
-
         view_state_init();//初始化按鈕狀態和顏色
+        Log.d("!!!!!!!", "onCreateView: PAGE_NUM="+page+"  phaseorder="+phaseorder+" subphase="+subphase);
+
 
         return getView(inflater, container);
     }
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
 
+
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+
+        }else{
+            // fragment is no longer visible
+        }
+
+    }
     private void view_state_init() {
         light_state_get(jsonObject, step_object,light_board_decide(phaseorder),page-1,subphase,phaseorder);
+        Log.d("!!!!!!!", "view_state_init: PAGE_NUM="+page+"  phaseorder="+phaseorder+" subphase="+subphase);
         button_color_start_state();//初始化按鈕顏色
         button_visible_control(light_board_decide(phaseorder));//決定按鈕隱藏與否
     }
@@ -132,13 +149,16 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
         super.onStop();
         EventBus.getDefault().unregister(this);
     }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void step_set_select(MessageEvent_subphase messageEvent)
     {
         //Log.d(TAG, "step_set_select: ");
         subphase=messageEvent.getsubphase();
         light_state_get(jsonObject, step_object,light_board_decide(phaseorder),step_num,subphase,phaseorder);
-        button_color_start_state();
+       // button_color_start_state();
+        view_state_init();
+
     }
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void phaseorder_set_select(MessageEvent_phaseorder messageEvent)
@@ -151,12 +171,12 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
                                  int light_board_count,int step_num,
                                  int subphase_num,int phaseorder) {//i 代表第i+1排燈卡
         try {
-
+            //subphase_num=1;
+            Log.d("!!!!!!!!!!!!!!!!!!!!! ","---------: step="+step_num);
+            step_object[phaseorder]=jsonObject.getJSONArray("step").getJSONObject(phaseorder);
             for (int light_board_num=0;light_board_num<light_board_count;light_board_num++)
-            {
-                //light_state[]順序(每兩個byte為一個燈態狀態):行人綠 行人紅 → ↑ 綠燈 ← 黃燈 紅燈
-                step_object[phaseorder]=jsonObject.getJSONArray("step").getJSONObject(phaseorder);
-                Log.d("SUBPHASE", "light_state_get: phaseorder="+phaseorder+" subphase="+subphase_num);
+            {                //light_state[]順序(每兩個byte為一個燈態狀態):行人綠 行人紅 → ↑ 綠燈 ← 黃燈 紅燈
+                Log.d("SUBPHASE", "light_state_get: phaseorder="+phaseorder+" subphase="+subphase_num+" lightboard="+light_board_num+" step="+step_num);
             String[]light_state=String.format("%16s",Integer.toBinaryString(Integer.parseInt(step_object[phaseorder].getJSONObject("stepcontext")
                     .getJSONArray("subphase")
                     .getJSONObject(subphase_num)
@@ -181,7 +201,6 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
 //                    .getJSONArray("light")
 //                    .get(light_board_num)
 //                    .toString()),2));
-
              ped_green_state_[light_board_num]=state_check(light_state,1);
             ped_red_state_[light_board_num]=state_check(light_state,3);
             right_state_[light_board_num]=state_check(light_state,5);
@@ -325,38 +344,38 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
     @Nullable
     private View getView(LayoutInflater inflater, ViewGroup container) {
 
-        switch (page) {
-            case 1:
-
-                System.out.println("hello  2");
-
+//        switch (page) {
+//            case 1:
+//
+//                System.out.println("hello  2");
+//
+//                return rootView;
+////            case 2:
+////                rootView = inflater.inflate(R.layout.step_setting_fragment2, container, false);
+////                return rootView;
+////            case 3:
+////                rootView = inflater.inflate(R.layout.step_setting_fragment3, container, false);
+////                return rootView;
+////            case 4:
+////                rootView = inflater.inflate(R.layout.step_setting_fragment4, container, false);
+////                return rootView;
+////            case 5:
+////                rootView = inflater.inflate(R.layout.step_setting_fragment5, container, false);
+////                return rootView;
+////            case 6:
+////                rootView = inflater.inflate(R.layout.step_setting_fragment6, container, false);
+////                return rootView;
+////            case 7:
+////                rootView = inflater.inflate(R.layout.step_setting_fragment7, container, false);
+////                return rootView;
+////            case 8:
+////                rootView = inflater.inflate(R.layout.step_setting_fragment8, container, false);
+////                System.out.println("hello  3");
+////                return rootView;
+//            default:
                 return rootView;
-//            case 2:
-//                rootView = inflater.inflate(R.layout.step_setting_fragment2, container, false);
-//                return rootView;
-//            case 3:
-//                rootView = inflater.inflate(R.layout.step_setting_fragment3, container, false);
-//                return rootView;
-//            case 4:
-//                rootView = inflater.inflate(R.layout.step_setting_fragment4, container, false);
-//                return rootView;
-//            case 5:
-//                rootView = inflater.inflate(R.layout.step_setting_fragment5, container, false);
-//                return rootView;
-//            case 6:
-//                rootView = inflater.inflate(R.layout.step_setting_fragment6, container, false);
-//                return rootView;
-//            case 7:
-//                rootView = inflater.inflate(R.layout.step_setting_fragment7, container, false);
-//                return rootView;
-//            case 8:
-//                rootView = inflater.inflate(R.layout.step_setting_fragment8, container, false);
-//                System.out.println("hello  3");
-//                return rootView;
-            default:
-                return rootView;
 
-        }
+//        }
     }
 
     public int getPagenum(int page_num) {

@@ -7,6 +7,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+//import android.support.v4.view.ViewPager;
+
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
@@ -60,22 +62,14 @@ public class step_setting extends Base_activity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-//    static int[] red_state_=new int[6];
-//    static int[] green_state_=new int[6];
-//    static int[] yellow_state_=new int[6];
-//    static int[] left_state_=new int[6];
-//    static int[] right_state_=new int[6];
-//    static int[] straight_state_=new int[6];
-//    static int[] ped_red_state_=new int[6];
-//    static int[] ped_green_state_=new int[6];
 Light_State lightState;
 Spinner subphase_spin;
     V3_tc_data A = V3_tc_data.getV3_tc_data();
     final JSONObject jsonObject = A.getV3_json_data();
     JSONObject[] step_object=new JSONObject[256];
-    final int phase_ID=0;
-    final int totalsubphase=6;//init
-
+    static int phase_ID=0;
+    static int totalsubphase=6;//init
+    boolean isFragmentLoaded = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +82,13 @@ Spinner subphase_spin;
         // Set up the ViewPager with the sections adapter.
 
         mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager.setOffscreenPageLimit(0);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        mSectionsPagerAdapter.notifyDataSetChanged();
+
+
+
+        //ViewPager 強制重載 Fragment  http://kaihgcode.blogspot.com/2013/09/viewpager-fragment.html
         final TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
@@ -110,6 +110,7 @@ Spinner subphase_spin;
         getTotalsubphase(total_subphase,position, totalsubphase);
         subphase_spin.setSelection(0);
      tabLayout.getTabAt(0).select();
+        Log.d("!!!!!", "phaseorder_select onItemSelected: phase_order="+position);
     }
 
     @Override
@@ -124,6 +125,7 @@ Spinner subphase_spin;
 
                 send_page_num(position);
                 tabLayout.getTabAt(0).select();
+                Log.d("!!!!!", "subphase_spin onItemSelected: subphase="+position);
                           }
 
             @Override
@@ -135,14 +137,12 @@ Spinner subphase_spin;
     }
 
 
-
     private int getTotalsubphase(TextView total_subphase, int phase_ID, int totalsubphase) {//include subphase spinner init
         totalsubphase = getTotalsubphase(phase_ID, totalsubphase);
         total_subphase.setText(String.valueOf(totalsubphase));
         spinner_init(totalsubphase);
         return totalsubphase;
     }
-
     private int getTotalsubphase(int phase_ID, int totalsubphase) {
         try {
             totalsubphase= Integer.parseInt(String.valueOf(jsonObject.getJSONArray("step").getJSONObject(phase_ID).get("subphase_count")));
@@ -152,15 +152,12 @@ Spinner subphase_spin;
         }
         return totalsubphase;
     }
-
-
     private void spinner_init(int totalsubphase) {
         String adpter_name="total_subphase_"+ String.format("%d", totalsubphase);
         int resID = getResources().getIdentifier(adpter_name, "array", getPackageName());
         ArrayAdapter<CharSequence> arrayAdapter_select_spinner=ArrayAdapter.createFromResource(this,resID,R.layout.myspinner_style);
         subphase_spin.setAdapter(arrayAdapter_select_spinner);
     }
-
     @Subscribe(threadMode = ThreadMode.MAIN)
     void send_page_num(int position) {
         Log.d("!!!!!!!", "send_page_num: page="+position+1);
@@ -171,19 +168,12 @@ Spinner subphase_spin;
         Log.d("!!!!", "change_phaseorder: ");
         EventBus.getDefault().post(new MessageEvent_phaseorder(phaseID));
     }
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_step_setting, menu);
         return true;
     }
-
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -198,36 +188,28 @@ Spinner subphase_spin;
 
         return super.onOptionsItemSelected(item);
     }
-
     /**
      * A placeholder fragment containing a simple view.
      */
-
-
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
-
             @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class belo
             step_setting_fragment step_page = new step_setting_fragment();
 
-            Log.d(String.valueOf(position), "getItem:postion ");
+            Log.d("!!!!getItem", "getItem:postion=PAGE ="+position);
             step_page.getPagenum(position + 1);
 //                send_page_num(position);
             return step_page;
-
-
         }
-
         @Override
         public int getCount() {
             // Show 3 total pages.
@@ -243,6 +225,12 @@ Spinner subphase_spin;
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+    @Override
+    public void onStop()
+    {
+        super.onStop();
         EventBus.getDefault().unregister(this);
     }
 
