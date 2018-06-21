@@ -107,8 +107,8 @@ public class V3_connection_activity extends Base_activity {
                        json_read=new JSONObject(line);
                        jsonObject=merge(jsonObject,json_read);
                        JSONArray jsonArray;
-                        jsonArray=json_read.getJSONArray("weekdaysegment");
-                        Log.d("JSON", "doInBackground: WeekDayArray "+jsonArray.toString());
+                       // jsonArray=json_read.getJSONArray("weekdaysegment");
+                        Log.d("JSON", "doInBackground: WeekDayArray "+jsonObject.toString());
                         A.put_tc_data(json_read);
                         //json_read.getString("Data")
                        // json_read.getJSONObject(line);
