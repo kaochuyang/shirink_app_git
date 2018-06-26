@@ -53,12 +53,78 @@ public class V3_connection_activity extends Base_activity {
         final TextView textB = findViewById(R.id.state_v3);
         EditText textC = findViewById(R.id.edit);
 
+        final JSONObject tes = new JSONObject();
 
         send_m.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 textB.append("手機說:"+textA.getText().toString()+"\n");
-                send(textA.getText().toString());
+//                send(textA.getText().toString());
+
+                try {
+                    tes.put("test",123);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                JSONObject trans_obj;
+                if(textA.getText().toString().equals("0"))
+                    send("hello");
+                if(textA.getText().toString().equals("1"))
+                {send(tes.toString());}
+
+
+                    try {
+                        if(textA.getText().toString().equals("2")) {
+                            trans_obj=new JSONObject();
+//                            A.getV3_json_data().getJSONArray("plancontext").get(0)
+                            trans_obj.put("plancontext",A.getV3_json_data().getJSONArray("plancontext").get(0));
+                            Log.d("plancontext", "onClick: "+trans_obj.toString());
+                            send(trans_obj.toString());
+                            trans_obj=null;
+                        }
+                        if(textA.getText().toString().equals("3")) {
+                            trans_obj=new JSONObject();
+                            trans_obj.put("weekdaysegment",A.getV3_json_data().getJSONArray("weekdaysegment"));
+                            send(trans_obj.toString());
+                            Log.d("weekdaysegment", "onClick: "+trans_obj.toString());
+                        trans_obj=null;
+                        }
+
+                            if(textA.getText().toString().equals("4"))
+                            {trans_obj=new JSONObject();
+                                trans_obj.put("specialdaycontext",A.getV3_json_data().getJSONArray("specialdaycontext"));
+                            send(trans_obj.toString());
+                            Log.d("specialdaycontext", "onClick: "+trans_obj.toString());
+                                trans_obj=null;
+                            }
+                            if(textA.getText().toString().equals("5"))
+                            {trans_obj=new JSONObject();
+                                trans_obj.put("plancontext",A.getV3_json_data().getJSONArray("plancontext").getJSONObject(0));
+                            send(trans_obj.toString());
+                            Log.d("plancontext", "onClick: "+trans_obj.toString());
+                                trans_obj=null;
+                            }
+                            if(textA.getText().toString().equals("6"))
+                            {
+                                trans_obj=new JSONObject();
+                                trans_obj.put("step",A.getV3_json_data().getJSONArray("step").getJSONObject(128));
+                            send(trans_obj.toString());
+                            Log.d("step", "onClick: "+trans_obj.toString());
+                                trans_obj=null;
+                            }
+                        if(textA.getText().toString().equals("7"))
+                        {
+                            trans_obj=new JSONObject();
+                            trans_obj.put("segmentinfo",A.getV3_json_data().getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(3));
+                            send(trans_obj.toString());
+                            Log.d("segmentinfo", "onClick: "+trans_obj.toString());
+                            trans_obj=null;
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
                 textA.setText("");
             }
         });
