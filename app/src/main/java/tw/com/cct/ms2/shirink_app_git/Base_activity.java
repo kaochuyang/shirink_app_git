@@ -33,9 +33,7 @@ public abstract class Base_activity extends AppCompatActivity {
 
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-
 //                         Do something...
-
                         switch (item.getItemId()) {
                             case R.id.enter:
                                 Snackbar.make(view, "下傳", Snackbar.LENGTH_LONG)
@@ -47,12 +45,10 @@ public abstract class Base_activity extends AppCompatActivity {
                                         .setAction("Action", null).show();
 //            ... code ...
                                 return true;
-
                             case R.id.reset:
                                 Snackbar.make(view, "重新整理", Snackbar.LENGTH_LONG)
                                         .setAction("Action", null).show();
                                 return true;
-
                             default:
                                 return false;
                         }
