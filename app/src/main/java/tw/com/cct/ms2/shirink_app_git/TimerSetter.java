@@ -14,6 +14,8 @@ public class TimerSetter implements View.OnFocusChangeListener, TimePickerDialog
     private EditText mEditText;
     private Calendar mCalendar;
     private SimpleDateFormat mFormat;
+    private int out_hour;
+    private int out_minute;
 
     public TimerSetter(EditText editText){
         this.mEditText = editText;
@@ -38,8 +40,9 @@ public class TimerSetter implements View.OnFocusChangeListener, TimePickerDialog
             mCalendar = Calendar.getInstance();
 
         int hour = mCalendar.get(Calendar.HOUR_OF_DAY);
+        out_hour=hour;
         int minute = mCalendar.get(Calendar.MINUTE);
-
+        out_minute=minute;
         new TimePickerDialog(view.getContext(), this, hour, minute, true).show();
     }
 
@@ -51,7 +54,17 @@ public class TimerSetter implements View.OnFocusChangeListener, TimePickerDialog
         if (mFormat == null)
             mFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
 
+        out_hour=hourOfDay;
+        out_minute=minute;
+
         this.mEditText.setText(mFormat.format(mCalendar.getTime()));
     }
 
+    public int getOut_hour() {
+        return out_hour;
+    }
+
+    public int getOut_minute() {
+        return out_minute;
+    }
 }

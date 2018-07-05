@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <LinearLayout
 
@@ -241,13 +245,14 @@
 
         <TableRow>
 
-            <Button
+           <Button android:background="@android:drawable/btn_default"
+                
                 android:id="@+id/segmenttype_button_8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+
                 android:text="@string/segmenttype_8"
                 android:textSize="15sp" />
 
@@ -274,13 +279,13 @@
 
         <TableRow>
 
-            <Button
+           <Button android:background="@android:drawable/btn_default"
                 android:id="@+id/segmenttype_button_9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+
                 android:text="@string/segmenttype_9"
                 android:textSize="15sp" />
 
@@ -307,13 +312,13 @@
 
         <TableRow>
 
-            <Button
+           <Button android:background="@android:drawable/btn_default"
                 android:id="@+id/segmenttype_button_10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+
                 android:text="@string/segmenttype_10"
                 android:textSize="15sp" />
 
@@ -340,13 +345,13 @@
 
         <TableRow>
 
-            <Button
+           <Button android:background="@android:drawable/btn_default"
                 android:id="@+id/segmenttype_button_11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+
                 android:text="@string/segmenttype_11"
                 android:textSize="15sp" />
 
@@ -374,13 +379,13 @@
 
         <TableRow>
 
-            <Button
+           <Button android:background="@android:drawable/btn_default"
                 android:id="@+id/segmenttype_button_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+
                 android:text="@string/segmenttype_12"
                 android:textSize="15sp" />
 
@@ -408,13 +413,13 @@
 
         <TableRow>
 
-            <Button
+           <Button android:background="@android:drawable/btn_default"
                 android:id="@+id/segmenttype_button_13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+
                 android:text="@string/segmenttype_13"
                 android:textSize="15sp" />
 
@@ -442,13 +447,13 @@
 
         <TableRow>
 
-            <Button
+           <Button android:background="@android:drawable/btn_default"
                 android:id="@+id/segmenttype_button_14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+
                 android:text="@string/segmenttype_14"
                 android:textSize="15sp" />
 
@@ -476,13 +481,13 @@
 
         <TableRow>
 
-            <Button
+           <Button android:background="@android:drawable/btn_default"
                 android:id="@+id/segmenttype_button_15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+
                 android:text="@string/segmenttype_15"
                 android:textSize="15sp" />
 
@@ -510,13 +515,13 @@
 
         <TableRow>
 
-            <Button
+           <Button android:background="@android:drawable/btn_default"
                 android:id="@+id/segmenttype_button_16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+
                 android:text="@string/segmenttype_16"
                 android:textSize="15sp" />
 
@@ -544,13 +549,13 @@
 
         <TableRow>
 
-            <Button
+           <Button android:background="@android:drawable/btn_default"
                 android:id="@+id/segmenttype_button_17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+
                 android:text="@string/segmenttype_17"
                 android:textSize="15sp" />
 
@@ -578,13 +583,13 @@
 
         <TableRow>
 
-            <Button
+           <Button android:background="@android:drawable/btn_default"
                 android:id="@+id/segmenttype_button_18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+
                 android:text="@string/segmenttype_18"
                 android:textSize="15sp" />
 
@@ -612,13 +617,13 @@
 
         <TableRow>
 
-            <Button
+           <Button android:background="@android:drawable/btn_default"
                 android:id="@+id/segmenttype_button_19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+
                 android:text="@string/segmenttype_19"
                 android:textSize="15sp" />
 
@@ -646,13 +651,13 @@
 
         <TableRow>
 
-            <Button
+           <Button android:background="@android:drawable/btn_default"
                 android:id="@+id/segmenttype_button_20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+
                 android:text="@string/segmenttype_20"
                 android:textSize="13sp" />
 
@@ -679,9 +684,9 @@
 
         <TableRow>
 
-            <include layout="@layout/enter_button_group" />
 
-            <Button
+
+           <Button android:background="@android:drawable/btn_default"
                 android:id="@+id/goto_plan_button"
 
                 android:layout_width="wrap_content"
@@ -699,5 +704,15 @@
 
 
     <!--</TableRow>-->
-
 </TableLayout>
+
+<android.support.design.widget.FloatingActionButton
+android:id="@+id/setting_button_group"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_gravity="bottom|right"
+android:layout_margin="16dp"
+app:srcCompat="@android:drawable/ic_dialog_dialer"
+app:layout_anchorGravity="bottom|right|end" />
+
+    </android.support.design.widget.CoordinatorLayout>

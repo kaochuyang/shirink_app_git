@@ -1,123 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/label_select_segmenttype_group"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/label_set_segmenttype"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-            android:layout_gravity="center_horizontal"
-            android:text="@string/segmenttype_select"
-            android:textSize="27sp" />
-        <Spinner
-            android:id="@+id/segmenttype_select"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+        <LinearLayout
+            android:id="@+id/label_select_segmenttype_group"
 
-            />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/label_set_segmenttype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:text="@string/segmenttype_select"
+                android:textSize="27sp" />
+
+            <Spinner
+                android:id="@+id/segmenttype_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+
+                />
 
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/link_to_plan_detail"
-            android:text="@string/plan_content_set"/>
+            <Button
+                android:id="@+id/link_to_plan_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/plan_content_set" />
 
-    </LinearLayout>
+        </LinearLayout>
 
 
-    <View
-        android:id="@+id/gap_line_plan_xml"
-        android:layout_below="@+id/label_select_segmenttype_group"
-        android:layout_width="fill_parent"
-        android:layout_height="3dp"
-        android:layout_marginTop="20sp"
-        android:background="#000000" />
-    <LinearLayout
-        android:id="@+id/num_series_mark"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/gap_line_plan_xml"
-        >
-        <TextView
-            android:id="@+id/textView"
-            android:layout_height="wrap_content"
-
+        <View
+            android:id="@+id/gap_line_plan_xml"
             android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            android:layout_below="@+id/label_select_segmenttype_group"
+            android:background="#000000" />
 
-            android:shadowColor="@color/colorAccent"
-            android:text="@string/serial_num"
-            android:gravity="center_horizontal"
-            android:layout_weight="1"
-            android:textSize="20sp"/>
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="fill_parent" android:layout_weight="1"
+        <LinearLayout
+            android:id="@+id/num_series_mark"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/start_time"
-            android:textSize="20sp"/>
+            android:layout_below="@+id/gap_line_plan_xml"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="fill_parent" android:layout_weight="1"
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:shadowColor="@color/colorAccent"
+                android:text="@string/serial_num"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/start_time"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/plan_num"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+        <!--//////////////////////////////////////-->
+        <LinearLayout
+            android:id="@+id/fragment_content"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/plan_num"
-            android:textSize="20sp"/>
-    </LinearLayout>
-    <!--需要再model中再佈一個expandablelistAdapter-->
-    <!--http://mrraybox.blogspot.tw/2014/01/android-expandablelist.html  可參考這邊-->
-    <!--<LinearLayout-->
-    <!--android:layout_below="@id/num_series_mark"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content">-->
-    <!--<ExpandableListView-->
-    <!--android:id="@+id/expandlist"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:background="#00FF00"-->
-    <!--android:layout_weight="1"-->
-    <!--android:drawSelectorOnTop="false"/>-->
-    <!--</LinearLayout>-->
+            android:layout_below="@+id/num_series_mark">
+            <!--<ScrollView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+            <android.support.v4.view.ViewPager
+                android:id="@+id/container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            <!--</ScrollView>-->
+        </LinearLayout>
+        <!--//////////////////////////////////////-->
 
 
+    </RelativeLayout>
 
-
-    <!--//////////////////////////////////////-->
-<LinearLayout
-    android:id="@+id/fragment_content"
-    android:layout_below="@+id/num_series_mark"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <android.support.v4.view.ViewPager
-        android:id="@+id/container"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/setting_button_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-</LinearLayout>
-    <!--//////////////////////////////////////-->
-
-
-
-
-    <LinearLayout
-        android:layout_below="@+id/num_series_mark"
-        android:layout_marginTop="500sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <include layout="@layout/enter_button_group" />
-    </LinearLayout>
-
-</RelativeLayout>
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        app:layout_anchorGravity="bottom|right|end"
+        app:srcCompat="@android:drawable/ic_dialog_dialer" />
+</android.support.design.widget.CoordinatorLayout>

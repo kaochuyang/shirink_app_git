@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -19,6 +20,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 
 import org.greenrobot.eventbus.EventBus;
@@ -56,6 +58,46 @@ public class plan_setting extends Base_activity {
         Intent plan_detail = new Intent(plan_setting.this, plan_detail.class);
         Button_goto_where(link_to_plan_detail, plan_detail);
         FloatingActionButton setting_button_group = (FloatingActionButton) findViewById(R.id.setting_button_group);
+        setting_button_group.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(final View view) {
+//應該要全頁面拿來共用此按鈕
+                PopupMenu button_popmenu = new PopupMenu(plan_setting.this, view);
+                button_popmenu.getMenuInflater().inflate(R.menu.button_popmenu, button_popmenu.getMenu());
+                button_popmenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+//                         Do something...
+                        switch (item.getItemId()) {
+                            case R.id.enter:
+                                Snackbar.make(view, "設定", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+
+                                return true;
+                            case R.id.cancel:
+                                Snackbar.make(view, "取消", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+
+                                return true;
+                            case R.id.reset:
+                                Snackbar.make(view, "重新整理", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+                                return true;
+                            default:
+                                return false;
+                        }
+
+                    }
+
+                });
+
+                button_popmenu.show();
+            }
+
+
+        });
 
 
         Spinner segmenttype_select=findViewById(R.id.segmenttype_select);

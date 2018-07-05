@@ -3,6 +3,7 @@ package tw.com.cct.ms2.shirink_app_git;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,6 +21,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -94,7 +96,9 @@ Spinner subphase_spin;
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
         FloatingActionButton setting_button_group = (FloatingActionButton) findViewById(R.id.setting_button_group);
-        floating_button_function(setting_button_group, step_setting.this);
+
+
+
         subphase_spin=findViewById(R.id.subphase_spin);
         final TextView  total_subphase=findViewById(R.id.total_subphase);
 

@@ -25,6 +25,9 @@ public class plan_setting_fragment extends android.support.v4.app.Fragment {
     final EditText[] plan_start_num = new EditText[16];
     JSONObject[] segcontext = new JSONObject[16];
     Spinner plan_spin_num[] = new Spinner[16];
+    int []hour=new int[16];
+    int []minute=new int[16];
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,6 +80,7 @@ public class plan_setting_fragment extends android.support.v4.app.Fragment {
     }
     private void plan_spin_init_value(Spinner[] plan_spin_num,int segmenttype)  {
         try {
+
             plan_spin_num[0].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(16));
             plan_spin_num[1].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(17));
             plan_spin_num[2].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(18));
