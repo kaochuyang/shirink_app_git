@@ -169,12 +169,7 @@ public class tod_setting extends Base_activity {
             for (int i = 0; i < 7; i++)
             {weekday[i]=(Integer) weekdayArray.get(i);
                 spin_common_day[i].setSelection(weekday[i]);}
-//            spin_common_day[1].setSelection((Integer) jsonArray.get(1));
-//            spin_common_day[2].setSelection((Integer) jsonArray.get(2));
-//            spin_common_day[3].setSelection((Integer) jsonArray.get(3));
-//            spin_common_day[4].setSelection((Integer) jsonArray.get(4));
-//            spin_common_day[5].setSelection((Integer) jsonArray.get(5));
-//            spin_common_day[6].setSelection((Integer) jsonArray.get(6));
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

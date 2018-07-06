@@ -1,17 +1,23 @@
 package tw.com.cct.ms2.shirink_app_git;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
@@ -21,63 +27,38 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 /**
  * Created by user on 2018/4/17.
  */
 
-
 public class plan_setting_content extends android.support.v4.app.Fragment {
     final EditText[] plan_start_num = new EditText[16];
-   JSONObject[] segcontext = new JSONObject[16];
     Spinner plan_spin_num[] = new Spinner[16];
-    int []hour=new int[16];
-    int []minute=new int[16];
+    int record_segment;
+    V3_tc_data A = V3_tc_data.getV3_tc_data();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.plan_setting_content, container, false);
-        V3_tc_data A = V3_tc_data.getV3_tc_data();
-        JSONObject jsonObject = A.getV3_json_data();
         ArrayAdapter<CharSequence> arrayAdapter_plan_spinner = ArrayAdapter.createFromResource(this.getActivity(), R.array.plan, R.layout.myspinner_style);
-
                       plan_spin_num_view_init(rootView, plan_spin_num);
-
-
         plan_spin_adapter_init(plan_spin_num, arrayAdapter_plan_spinner);
-
-
-        init_segcontext(jsonObject, segcontext);
-
         plan_start_time_link_view(rootView, plan_start_num);
-        plan_start_num_set_init_text(plan_start_num, segcontext,1);
+        plan_start_num_set_init_text(plan_start_num, 1);
         for(int i=0;i<16;i++)
         plan_start_time_setonclick(plan_start_num,i);
-
-
         return rootView;
     }
 
     private void plan_spin_init_value(Spinner[] plan_spin_num,int segmenttype)  {
-        try {
-            for(int i=0;i<16;i++)
-        plan_spin_num[i].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(i));
-//        plan_spin_num[1].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(1));
-//        plan_spin_num[2].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(2));
-//        plan_spin_num[3].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(3));
-//        plan_spin_num[4].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(4));
-//        plan_spin_num[5].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(5));
-//        plan_spin_num[6].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(6));
-//        plan_spin_num[7].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(7));
-//        plan_spin_num[8].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(8));
-//        plan_spin_num[9].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(9));
-//        plan_spin_num[10].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(10));
-//        plan_spin_num[11].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(11));
-//        plan_spin_num[12].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(12));
-//        plan_spin_num[13].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(13));
-//        plan_spin_num[14].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(14));
-//        plan_spin_num[15].setSelection((Integer) segcontext[segmenttype].getJSONArray("plan").get(15));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+            for(int i=0;i<16;i++) {
+                plan_spin_num[i].setSelection(A.getPlan_num_record(segmenttype, i));
+                plan_spinner_setting(plan_spin_num[i],segmenttype,i);
+            }
+    }
+    private String getText_plan_start_time(int segment, int segment_count) {
+        return  A.getHour(segment,segment_count)+ ":" + A.getMinute(segment,segment_count);
     }
 
     @Override
@@ -96,182 +77,34 @@ public class plan_setting_content extends android.support.v4.app.Fragment {
     public void plan_set_select(MessageEvent messageEvent)
     {
         int index=messageEvent.getSegmenttype();
-        plan_start_num_set_init_text(plan_start_num, segcontext,index);
+        record_segment=index;
+        plan_start_num_set_init_text(plan_start_num,index);
         plan_spin_init_value(plan_spin_num,index);
-
-
     }
-    private void plan_start_num_set_init_text(EditText[] plan_start_num, JSONObject[] segcontext,int segmenttype) {
-        try {
-            for(int i=0;i<16;i++)
-            plan_start_num[i].setText(getText_plan_start_time(segcontext[segmenttype], i));
-//            plan_start_num[1].setText(getText_plan_start_time(segcontext[segmenttype], 1));
-//            plan_start_num[2].setText(getText_plan_start_time(segcontext[segmenttype],2));
-//            plan_start_num[3].setText(getText_plan_start_time(segcontext[segmenttype],3));
-//            plan_start_num[4].setText(getText_plan_start_time(segcontext[segmenttype],4));
-//            plan_start_num[5].setText(getText_plan_start_time(segcontext[segmenttype],5));
-//            plan_start_num[6].setText(getText_plan_start_time(segcontext[segmenttype],6));
-//            plan_start_num[7].setText(getText_plan_start_time(segcontext[segmenttype],7));
-//            plan_start_num[8].setText(getText_plan_start_time(segcontext[segmenttype],8));
-//            plan_start_num[9].setText(getText_plan_start_time(segcontext[segmenttype],9));
-//            plan_start_num[10].setText(getText_plan_start_time(segcontext[segmenttype],10));
-//            plan_start_num[11].setText(getText_plan_start_time(segcontext[segmenttype],11));
-//            plan_start_num[12].setText(getText_plan_start_time(segcontext[segmenttype],12));
-//            plan_start_num[13].setText(getText_plan_start_time(segcontext[segmenttype],13));
-//            plan_start_num[14].setText(getText_plan_start_time(segcontext[segmenttype],14));
-//            plan_start_num[15].setText(getText_plan_start_time(segcontext[segmenttype],15));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+    private void plan_start_num_set_init_text(EditText[] plan_start_num, int segmenttype) {
+        for(int i=0;i<16;i++)
+        plan_start_num[i].setText(getText_plan_start_time(segmenttype, i));
     }
-    private String getText_plan_start_time(JSONObject jsonObject, int array_index) throws JSONException {
+    private void plan_start_time_setonclick(final EditText[] plan_start_num,final int SegmentCount) {
+     plan_start_num[SegmentCount].setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             final Calendar c = Calendar.getInstance();
+             int hour = c.get(Calendar.HOUR_OF_DAY);
+             int minute = c.get(Calendar.MINUTE);
+             // Create a new instance of TimePickerDialog and return it
+             new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener(){
 
-        hour[array_index]=jsonObject.getJSONArray("hour").getInt(array_index);
-        minute[array_index]=jsonObject.getJSONArray("minute").getInt(array_index);
-
-                return jsonObject.getJSONArray("hour").getString(array_index) + ":" + jsonObject.getJSONArray("minute").getString(array_index);
-        }
-    private void init_segcontext(JSONObject jsonObject, JSONObject[] segcontext) {
-        try {
-            for(int i=0;i<16;i++)
-            segcontext[i] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(i);
-//            segcontext[1] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(1);
-//            segcontext[2] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(2);
-//            segcontext[3] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(3);
-//            segcontext[4] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(4);
-//            segcontext[5] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(5);
-//            segcontext[6] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(6);
-//            segcontext[7] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(7);
-//            segcontext[8] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(8);
-//            segcontext[9] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(9);
-//            segcontext[10] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(10);
-//            segcontext[11] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(11);
-//            segcontext[12] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(12);
-//            segcontext[13] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(13);
-//            segcontext[14] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(14);
-//            segcontext[15] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(15);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-    private void plan_start_time_setonclick(final EditText[] plan_start_num,final int i) {
+                 @Override
+                 public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                     String format=setTimeFormat(hourOfDay,minute,record_segment,SegmentCount);
+                     plan_start_num[SegmentCount].setText(format);
+                 }
+             }, hour, minute, true).show();
+         }
+     });
 
 
-            plan_start_num[i].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TimerSetter object=new TimerSetter(plan_start_num[i]);
-                hour[i]=object.getOut_hour();
-                minute[i]=object.getOut_minute();
-            }
-
-        });
-//        plan_start_num[1].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[1]);
-//            }
-//
-//        });
-//        plan_start_num[2].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[2]);
-//            }
-//
-//        });
-//        plan_start_num[3].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[3]);
-//            }
-//
-//        });
-//        plan_start_num[4].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[4]);
-//            }
-//
-//        });
-//        plan_start_num[5].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[5]);
-//            }
-//
-//        });
-//        plan_start_num[6].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[6]);
-//            }
-//
-//        });
-//        plan_start_num[7].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[7]);
-//            }
-//
-//        });
-//        plan_start_num[8].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[8]);
-//            }
-//
-//        });
-//        plan_start_num[9].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[9]);
-//            }
-//
-//        });
-//        plan_start_num[10].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[10]);
-//            }
-//
-//        });
-//        plan_start_num[11].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[11]);
-//            }
-//
-//        });
-//        plan_start_num[12].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[12]);
-//            }
-//
-//        });
-//        plan_start_num[13].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[13]);
-//            }
-//
-//        });
-//        plan_start_num[14].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[14]);
-//            }
-//
-//        });
-//        plan_start_num[15].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new TimerSetter(plan_start_num[15]);
-//            }
-//
-//        });
     }
     private void plan_start_time_link_view(View rootView, EditText[] plan_start_num) {
         plan_start_num[0] = rootView.findViewById(R.id.plan_start_num_1);
@@ -310,23 +143,30 @@ public class plan_setting_content extends android.support.v4.app.Fragment {
         plan_spin_num[15] = rootView.findViewById(R.id.plan_spin_num_16);
     }
     private void plan_spin_adapter_init(Spinner[] plan_spin_num, ArrayAdapter<CharSequence> arrayAdapter_plan_spinner) {
-for(int i=0;i<15;i++)
+for(int i=0;i<16;i++)
         plan_spin_num[i].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[1].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[2].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[3].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[4].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[5].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[6].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[7].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[8].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[9].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[10].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[11].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[12].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[13].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[14].setAdapter(arrayAdapter_plan_spinner);
-//        plan_spin_num[15].setAdapter(arrayAdapter_plan_spinner);
+
+    }
+    public String setTimeFormat(int hour, int minute,int Segment,int SegmentCount) {
+
+
+        A.setHour(Segment,SegmentCount,hour);
+        A.setMinute(Segment,SegmentCount,minute);
+
+
+        return String.valueOf(hour) + ":" + String.valueOf(minute) ;
+    }
+    private void plan_spinner_setting(final Spinner spinner, final int Segment, final int SegmentCount) {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+             A.setPlan_num_record(Segment,SegmentCount,position);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
 

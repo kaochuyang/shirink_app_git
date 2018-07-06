@@ -26,6 +26,8 @@ import android.widget.Spinner;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class plan_setting extends Base_activity {
     /**
@@ -36,9 +38,11 @@ public class plan_setting extends Base_activity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-
-
-
+//    int [][]hour=new int[21][32];//segment,segment_count
+//    int [][]minute=new int[21][32];//segment,segment_count
+//    int [][]plan_num_record=new int[21][32];//segment,segment_count
+//    JSONObject[] segcontext = new JSONObject[21];////segment
+    V3_tc_data A=V3_tc_data.getV3_tc_data();
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
@@ -51,7 +55,7 @@ public class plan_setting extends Base_activity {
 //         Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
+        //init_segcontext(A.getV3_json_data(), segcontext);
 
 
         Button link_to_plan_detail = findViewById(R.id.link_to_plan_detail);
@@ -74,7 +78,7 @@ public class plan_setting extends Base_activity {
                             case R.id.enter:
                                 Snackbar.make(view, "設定", Snackbar.LENGTH_LONG)
                                         .setAction("Action", null).show();
-
+A.print_plan();
                                 return true;
                             case R.id.cancel:
                                 Snackbar.make(view, "取消", Snackbar.LENGTH_LONG)
@@ -204,4 +208,52 @@ public class plan_setting extends Base_activity {
         //反注册
         EventBus.getDefault().unregister(this);
     }
+/*
+
+    private void init_segcontext(JSONObject jsonObject, JSONObject[] segcontext) {
+        try {
+            for (int i = 0; i < 21; i++)
+            {       segcontext[i] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(i);
+            for(int segment_count=0;segment_count<32;segment_count++) {
+                hour[i][segment_count] = segcontext[i].getJSONArray("hour").getInt(segment_count);
+                minute[i][segment_count] = segcontext[i].getJSONArray("minute").getInt(segment_count);
+                plan_num_record[i][segment_count]=segcontext[i].getJSONArray("plan").getInt(i);
+            
+            }       
+        }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
+
+
+
+    public void setHour(int segment,int segment_count, int input_hour)
+    {
+        hour[segment][segment_count]=input_hour;
+    }
+
+    public void setMinute(int segment,int segment_count,int input_minute)
+    {
+        minute[segment][segment_count]=input_minute;
+
+    }
+
+    public void setPlan_num_record(int segment,int segment_count,int input_plan_num) {
+        this.plan_num_record[segment][segment_count] = input_plan_num;
+    }
+
+    public int getPlan_num_record(int segment,int segment_count) {
+        return plan_num_record[segment][segment_count];
+    }
+
+    public int getHour(int segment,int segment_count) {
+        return this.hour[segment][segment_count];
+    }
+
+    public int getMinute(int segment,int segment_count) {
+        return this.minute[segment][segment_count];
+    }
+*/
+
+}
