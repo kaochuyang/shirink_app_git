@@ -45,7 +45,7 @@ public class plan_setting extends Base_activity {
     V3_tc_data A=V3_tc_data.getV3_tc_data();
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
-
+    int segmenttype_record=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -78,7 +78,9 @@ public class plan_setting extends Base_activity {
                             case R.id.enter:
                                 Snackbar.make(view, "設定", Snackbar.LENGTH_LONG)
                                         .setAction("Action", null).show();
-A.print_plan();
+                                A.plan_sort(segmenttype_record);
+                                A.print_plan();
+                                change_segmenttype(segmenttype_record);
                                 return true;
                             case R.id.cancel:
                                 Snackbar.make(view, "取消", Snackbar.LENGTH_LONG)
@@ -104,7 +106,7 @@ A.print_plan();
         });
 
 
-        Spinner segmenttype_select=findViewById(R.id.segmenttype_select);
+        final Spinner segmenttype_select=findViewById(R.id.segmenttype_select);
         ArrayAdapter<CharSequence> arrayAdapter_segmenttype_select_spinner=ArrayAdapter.createFromResource(this,R.array.segmenttype,R.layout.myspinner_style);
         //  arrayAdapter_tod_spinner
         segmenttype_select.setAdapter(arrayAdapter_segmenttype_select_spinner);
@@ -114,7 +116,7 @@ A.print_plan();
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
             change_segmenttype(position+1);
-
+            segmenttype_record=position+1;
                    }
 
             @Override

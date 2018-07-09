@@ -31,7 +31,7 @@
                     android:gravity="center_horizontal"
                     android:text="1"
                     android:textSize="20sp" />
-
+<!--/*第一分段要從0開始不能給設定時間*/-->
                 <EditText
                     android:id="@+id/plan_start_num_1"
                     android:layout_width="fill_parent"
@@ -39,7 +39,7 @@
 
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="1"
-                    android:clickable="true"
+
                     android:editable="false"
                     android:gravity="center_horizontal"
                     android:hint="@string/plan_time_setting"
