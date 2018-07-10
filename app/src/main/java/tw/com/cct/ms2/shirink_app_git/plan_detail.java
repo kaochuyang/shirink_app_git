@@ -348,7 +348,6 @@ int plan_num;//目前plan
 
     private void Edittext_findview() {
         for (int i = 1; i < 9; i++) {
-
             String idname_g = "green_light_" + String.format("%d", i);
             String idname_r = "red_light_" + String.format("%d", i);
             String idname_y = "yellow_light_" + String.format("%d", i);

@@ -13,6 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static org.greenrobot.eventbus.EventBus.TAG;
+import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.phaseorder;
 
 class V3_tc_data {
 
@@ -21,22 +22,106 @@ class V3_tc_data {
     }
 
     private static V3_tc_data tc_data = new V3_tc_data();
-
-    static int[][] hour = new int[21][32];//segment,segment_count
-    static int[][] minute = new int[21][32];//segment,segment_count
-    static int[][] plan_num_record = new int[21][32];//segment,segment_count
-
+/* 時段型態的時制計畫設定*/
+    private static int[][] hour = new int[21][32];//segment,segment_count
+    private static int[][] minute = new int[21][32];//segment,segment_count
+    private static int[][] plan_num_record = new int[21][32];//segment,segment_count
+/*-------------------------------------------------------------------*/
+/*時制計畫中的時間設定*/
+    static int[][][][] red = new int[256][8][5][6];//phase_order,subphase,step,lightboard
+    static int[][][][] green = new int[256][8][5][6];
+    static int[][][][] yellow = new int[256][8][5][6];
+    static int[][][][] pedR = new int[256][8][5][6];
+    static int[][][][] pedF = new int[256][8][5][6];
+    static int[][][][]maxG = new int[256][8][5][6];
+    static int[][][][]vminG = new int[256][8][5][6];
+    static int []getCycle_value=new int[256];
+    static int []getOffset=new int[256];
+/*-----------------------------------------------*/
+/*點燈步階中的燈態狀態 0:不亮 1:亮 2:閃爍 因為用split拆解，懶得再轉成int 所以直接用string*/
+    private static int [][][][]ped_green_state=new int[256][8][5][6];//phase_order,subphasecount,lightboard_num
+    private static int [][][][]ped_red_state=new int[256][8][5][6];//phase_order,subphasecount,lightboard_num
+    private static int [][][][]right_state=new int[256][8][5][6];//phase_order,subphasecount,lightboard_num
+    private static int [][][][]straight_state=new int[256][8][5][6];//phase_order,subphasecount,lightboard_num
+    private static int [][][][]green_state=new int[256][8][5][6];//phase_order,subphasecount,lightboard_num
+    private static int [][][][]left_state=new int[256][8][5][6];//phase_order,subphasecount,lightboard_num
+    private static int [][][][]yellow_state=new int[256][8][5][6];//phase_order,subphasecount,lightboard_num
+    private static int [][][][]red_state=new int[256][8][5][6];//phase_order,subphasecount,lightboard_num
+    private static int []total_subphasecount=new int[256];//phase_order
+    private static int []light_board_count=new int[256];//phase_order
+/*----------------------------------------------------------*/
     static JSONObject jsonObject = new JSONObject();
-    static JSONObject[] segcontext = new JSONObject[21];
+    private static JSONObject[] segcontext = new JSONObject[21];
+    static JSONObject[] step_object=new JSONObject[256];//for step_setting
+    private void init_setp_object() {
+        for(int phaseorder=0;phaseorder<256;phaseorder++) {
+            try {
+                step_object[phaseorder] = jsonObject.getJSONArray("step").getJSONObject(phaseorder);
+                total_subphasecount[phaseorder]= Integer.parseInt(String.valueOf(jsonObject.getJSONArray("step").getJSONObject(phaseorder).get("subphase_count")));
+                light_board_count[phaseorder]=jsonObject.getJSONArray("step").getJSONObject(phaseorder).getInt("signal_count");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        for (int light_board_num=0;light_board_num<light_board_count[phaseorder];light_board_num++) {
+//Log.d("SUBPHASE", "light_state_get: phaseorder="+phaseorder+" subphase="+subphase_num+" lightboard="+light_board_num+" step="+step_num);
+
+
+            for (int phaseorder = 0; phaseorder < 256; phaseorder++) {
+                for (int subphase_num = 0; subphase_num < total_subphasecount[phaseorder]; subphase_num++) {
+                    for (int step_num = 0; step_num < 5; step_num++) {
+                        try {
+    String[] light_state = String.format("%16s",
+            Integer.toBinaryString(Integer.parseInt(
+                            step_object[phaseorder]
+                            .getJSONObject("stepcontext")
+                            .getJSONArray("subphase")
+                            .getJSONObject(subphase_num)
+                            .getJSONArray("stepdetail")
+                            .getJSONObject(step_num)
+                            .getJSONArray("light").get(light_board_num).toString()))).split("");
+                            for (int LightBoardNum = 0; LightBoardNum < light_board_count[phaseorder]; LightBoardNum++) {
+                                /*light_state[]順序(每兩個byte為一個燈態狀態):行人綠 行人紅 → ↑ 綠燈 ← 黃燈 紅燈*/
+                                ped_green_state[phaseorder][subphase_num][step_num][LightBoardNum]= state_check(light_state, 1);
+                                ped_red_state[phaseorder][subphase_num][step_num][LightBoardNum] = state_check(light_state, 3);
+                                right_state[phaseorder][subphase_num][step_num][LightBoardNum] = state_check(light_state, 5);
+                                straight_state[phaseorder][subphase_num][step_num][LightBoardNum]= state_check(light_state, 7);
+                                green_state[phaseorder][subphase_num][step_num][LightBoardNum]= state_check(light_state, 9);
+                                left_state[phaseorder][subphase_num][step_num][LightBoardNum]= state_check(light_state, 11);
+                                yellow_state[phaseorder][subphase_num][step_num][LightBoardNum]= state_check(light_state, 13);
+                                red_state[phaseorder][subphase_num][step_num][LightBoardNum]= state_check(light_state, 15);
+                            }
+
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                }
+            }
+
+
+        }
+    }
+    private int state_check(String[]strings,int i)
+    {
+        int state=0;
+        if(strings[i].equals(strings[i+1])){
+            state = strings[i].equals("1") ? 1 : 0;
+        }
+        else state=2;
+
+        return state;
+    }
 
     public static V3_tc_data getV3_tc_data() {
         return tc_data;
     }
 
-    public boolean put_tc_data(JSONObject object) {
+    public void put_tc_data(JSONObject object) {
         jsonObject = object;
         init_segcontext();
-        return true;
+        init_setp_object();
+
     }
 
     public JSONObject getV3_json_data() {
@@ -45,11 +130,17 @@ class V3_tc_data {
 
     public boolean save_edit_data(JSONObject object) {
         jsonObject = object;
-
-
         return true;
     }
 
+
+    public void copySegment(int SourceSegment,int TargetSegment)//幫plan_setting準備的
+    {
+        hour[TargetSegment]=hour[SourceSegment];
+        minute[TargetSegment]=minute[SourceSegment];
+        plan_num_record[TargetSegment]=plan_num_record[SourceSegment];
+
+    }
 
     private void init_segcontext() {
         try {

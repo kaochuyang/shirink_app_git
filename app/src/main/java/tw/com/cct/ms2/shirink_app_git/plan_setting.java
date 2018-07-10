@@ -68,7 +68,7 @@ public class plan_setting extends Base_activity {
             public void onClick(final View view) {
 //應該要全頁面拿來共用此按鈕
                 PopupMenu button_popmenu = new PopupMenu(plan_setting.this, view);
-                button_popmenu.getMenuInflater().inflate(R.menu.button_popmenu, button_popmenu.getMenu());
+                button_popmenu.getMenuInflater().inflate(R.menu.button_popmenu_plan_setting, button_popmenu.getMenu());
                 button_popmenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 
                     @Override
@@ -85,10 +85,12 @@ public class plan_setting extends Base_activity {
                             case R.id.cancel:
                                 Snackbar.make(view, "取消", Snackbar.LENGTH_LONG)
                                         .setAction("Action", null).show();
-
                                 return true;
                             case R.id.reset:
                                 Snackbar.make(view, "重新整理", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+                            case R.id.copy:
+                                Snackbar.make(view, "複製", Snackbar.LENGTH_LONG)
                                         .setAction("Action", null).show();
                                 return true;
                             default:
@@ -131,6 +133,14 @@ public class plan_setting extends Base_activity {
 
 
     }
+
+    private void CopySegment(int segment)
+    {
+
+      A.copySegment(segmenttype_record,segment);
+
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void change_segmenttype(int segmenttype)
     {

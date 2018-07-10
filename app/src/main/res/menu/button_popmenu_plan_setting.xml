@@ -11,6 +11,7 @@
             />
         <item android:title="@string/cancel"
             android:id="@+id/cancel"/>
-
+        <item android:title="@string/copy"
+            android:id="@+id/copy"/>
     </group>
 </menu>

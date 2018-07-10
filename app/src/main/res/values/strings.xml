@@ -137,6 +137,7 @@
     <string name="subphase_mark">分相</string>
     <string name="total_subphase_mark">總分相:</string>
     <string name="phaseorder_mark">時相編號:</string>
+    <string name="copy">複製</string>
 
 
 </resources>
