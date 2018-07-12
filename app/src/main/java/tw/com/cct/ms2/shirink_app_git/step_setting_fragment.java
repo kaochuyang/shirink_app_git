@@ -28,7 +28,7 @@ import static tw.com.cct.ms2.shirink_app_git.V3_tc_data.jsonObject;
 public class step_setting_fragment extends android.support.v4.app.Fragment {
 
     private int page;
-    public static View rootView;
+    public View rootView;
     Button[] Button_red_ = new Button[6];
     Button[] Button_yellow_ = new Button[6];
     Button[] Button_left_ = new Button[6];
@@ -37,18 +37,9 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
     Button[] Button_right_ = new Button[6];
     Button[] Button_ped_red_ = new Button[6];
     Button[] Button_ped_flash_ = new Button[6];
-    static int[] red_state_=new int[6];
-    static int[] green_state_=new int[6];
-    static int[] yellow_state_=new int[6];
-    static int[] left_state_=new int[6];
-    static int[] right_state_=new int[6];
-    static int[] straight_state_=new int[6];
-    static int[] ped_red_state_=new int[6];
-    static int[] ped_green_state_=new int[6];
-    int step_num;
+
     V3_tc_data A = V3_tc_data.getV3_tc_data();
-    final JSONObject jsonObject = A.getV3_json_data();
-    JSONObject[] step_object=new JSONObject[256];
+
     TextView []board_=new TextView[6];
 
     static int phaseorder=0;
@@ -62,67 +53,63 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
         rootView = inflater.inflate(R.layout.step_setting_fragment1, container, false);
 
         Button_findview();//連結xml
-        Button_color_init();//給按鈕變色功能
-        view_state_init();//初始化按鈕狀態和顏色
-        Log.d("!!!!!!!", "onCreateView: PAGE_NUM="+page+"  phaseorder="+phaseorder+" subphase="+subphase);
+        Button_color_init(phaseorder,subphase,page-1);//給按鈕變色功能
 
+        view_state_init();//初始化按鈕狀態和顏色
+
+
+
+        Log.d("!!!!!!!", "onCreateView: PAGE_NUM="+page+"  phaseorder="+phaseorder+" subphase="+subphase);
 
         return getView(inflater, container);
     }
 
     private void view_state_init() {
-        light_state_get(jsonObject, step_object,light_board_decide(phaseorder),page-1,subphase,phaseorder);
+        //light_state_get(jsonObject, step_object,light_board_decide(phaseorder),page-1,subphase,phaseorder);
         Log.d("!!!!!!!", "view_state_init: PAGE_NUM="+page+"  phaseorder="+phaseorder+" subphase="+subphase);
-        button_color_start_state();//初始化按鈕顏色
+        button_color_start_state(phaseorder,subphase,page-1);//初始化按鈕顏色
         button_visible_control(light_board_decide(phaseorder));//決定按鈕隱藏與否
     }
 
     private int  light_board_decide(int phaseorder) {
-        int  count=0;
-        try {//////決定幾張燈卡
-           count=
-                    jsonObject.getJSONArray("step").getJSONObject(phaseorder).getInt("signal_count");
 
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return count;
+    return A.getTotalLightBoardCount(phaseorder);     
     }
     private void button_visible_control(int light_board_count) {
         for(int i=light_board_count;i<6;i++) {
-            Button_red_[i].setVisibility(rootView.GONE);
-            Button_green_[i].setVisibility(rootView.GONE);
-            Button_left_[i].setVisibility(rootView.GONE);
-            Button_right_[i].setVisibility(rootView.GONE);
-            Button_straight_[i].setVisibility(rootView.GONE);
-            Button_yellow_[i].setVisibility(rootView.GONE);
-            Button_ped_flash_[i].setVisibility(rootView.GONE);
-            Button_ped_red_[i].setVisibility(rootView.GONE);
-            board_[i].setVisibility(rootView.GONE);
+            Button_red_[i].setVisibility(View.GONE);
+            Button_green_[i].setVisibility(View.GONE);
+            Button_left_[i].setVisibility(View.GONE);
+            Button_right_[i].setVisibility(View.GONE);
+            Button_straight_[i].setVisibility(View.GONE);
+            Button_yellow_[i].setVisibility(View.GONE);
+            Button_ped_flash_[i].setVisibility(View.GONE);
+            Button_ped_red_[i].setVisibility(View.GONE);
+            board_[i].setVisibility(View.GONE);
         }
         for(int i=0;i<light_board_count;i++) {
-            Button_red_[i].setVisibility(rootView.VISIBLE);
-            Button_green_[i].setVisibility(rootView.VISIBLE);
-            Button_left_[i].setVisibility(rootView.VISIBLE);
-            Button_right_[i].setVisibility(rootView.VISIBLE);
-            Button_straight_[i].setVisibility(rootView.VISIBLE);
-            Button_yellow_[i].setVisibility(rootView.VISIBLE);
-            Button_ped_flash_[i].setVisibility(rootView.VISIBLE);
-            Button_ped_red_[i].setVisibility(rootView.VISIBLE);
-            board_[i].setVisibility(rootView.VISIBLE);
+            Button_red_[i].setVisibility(View.VISIBLE);
+            Button_green_[i].setVisibility(View.VISIBLE);
+            Button_left_[i].setVisibility(View.VISIBLE);
+            Button_right_[i].setVisibility(View.VISIBLE);
+            Button_straight_[i].setVisibility(View.VISIBLE);
+            Button_yellow_[i].setVisibility(View.VISIBLE);
+            Button_ped_flash_[i].setVisibility(View.VISIBLE);
+            Button_ped_red_[i].setVisibility(View.VISIBLE);
+            board_[i].setVisibility(View.VISIBLE);
         }
     }
 
-    private void button_color_start_state() {
-        for(int i=0;i<6;i++) {
-                  red_color_state(Button_red_, red_state_, i);
-            green_color_state(Button_green_, green_state_, i);
-            green_color_state(Button_left_, left_state_, i);
-            green_color_state(Button_straight_, straight_state_, i);
-            green_color_state(Button_ped_flash_, ped_green_state_, i);
-            red_color_state(Button_ped_red_, ped_red_state_, i);
-            green_color_state(Button_right_, right_state_, i);
-            yellow_color_state(Button_yellow_, yellow_state_, i);
+    private void button_color_start_state(int PhaseOrder, int SubphaseCount, int StepNum) {
+        for(int LightBoard=0;LightBoard<6;LightBoard++) {
+            red_color_state(Button_red_, V3_tc_data.red_state[PhaseOrder][SubphaseCount][StepNum][LightBoard], LightBoard);
+            green_color_state(Button_green_, V3_tc_data.green_state[PhaseOrder][SubphaseCount][StepNum][LightBoard], LightBoard);
+            green_color_state(Button_left_, V3_tc_data.left_state[PhaseOrder][SubphaseCount][StepNum][LightBoard], LightBoard);
+            green_color_state(Button_straight_, V3_tc_data.straight_state[PhaseOrder][SubphaseCount][StepNum][LightBoard], LightBoard);
+            green_color_state(Button_ped_flash_, V3_tc_data.ped_green_state[PhaseOrder][SubphaseCount][StepNum][LightBoard], LightBoard);
+            red_color_state(Button_ped_red_, V3_tc_data.ped_red_state[PhaseOrder][SubphaseCount][StepNum][LightBoard], LightBoard);
+            green_color_state(Button_right_, V3_tc_data.right_state[PhaseOrder][SubphaseCount][StepNum][LightBoard], LightBoard);
+            yellow_color_state(Button_yellow_, V3_tc_data.yellow_state[PhaseOrder][SubphaseCount][StepNum][LightBoard], LightBoard);
         }
     }
 
@@ -144,8 +131,8 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
     {
         //Log.d(TAG, "step_set_select: ");
         subphase=messageEvent.getsubphase();
-        light_state_get(jsonObject, step_object,light_board_decide(phaseorder),step_num,subphase,phaseorder);
-       // button_color_start_state();
+        //light_state_get(jsonObject, step_object,light_board_decide(phaseorder),step_num,subphase,phaseorder);
+        //button_color_start_state(PhaseOrder,SubphaseCount,StepNum);
         view_state_init();
 
     }
@@ -156,132 +143,87 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
         view_state_init();
     }
 
-    private void light_state_get(JSONObject jsonObject, JSONObject[] step_object,
-                                 int light_board_count,int step_num,
-                                 int subphase_num,int phaseorder) {//i 代表第i+1排燈卡
-        try {
-            //subphase_num=1;
-            Log.d("!!!!!!!!!!!!!!!!!!!!! ","---------: step="+step_num);
-            step_object[phaseorder]=jsonObject.getJSONArray("step").getJSONObject(phaseorder);
-            for (int light_board_num=0;light_board_num<light_board_count;light_board_num++)
-            {    //light_state[]順序(每兩個byte為一個燈態狀態):行人綠 行人紅 → ↑ 綠燈 ← 黃燈 紅燈
-                Log.d("SUBPHASE", "light_state_get: phaseorder="+phaseorder+" subphase="+subphase_num+" lightboard="+light_board_num+" step="+step_num);
-
-                String[]light_state=String.format("%16s",Integer.toBinaryString(Integer.parseInt(
-                    step_object[phaseorder].getJSONObject("stepcontext")
-                    .getJSONArray("subphase")
-                    .getJSONObject(subphase_num)
-                    .getJSONArray("stepdetail")
-                    .getJSONObject(step_num)
-                    .getJSONArray("light")
-                    .get(light_board_num)
-                    .toString()))).split("");
-
-             ped_green_state_[light_board_num]=state_check(light_state,1);
-            ped_red_state_[light_board_num]=state_check(light_state,3);
-            right_state_[light_board_num]=state_check(light_state,5);
-            straight_state_[light_board_num]=state_check(light_state,7);
-            green_state_[light_board_num]=state_check(light_state,9);
-            left_state_[light_board_num]=state_check(light_state,11);
-            yellow_state_[light_board_num]=state_check(light_state,13);
-            red_state_[light_board_num]=state_check(light_state,15);}
 
 
-        } catch (JSONException e) {
-            e.printStackTrace();
+    private void Button_color_init(int PhaseOrder, int SubphaseCount, int StepNum) {
+        for(int LightBoardNum=0;LightBoardNum<6;LightBoardNum++) {
+            red_button(Button_red_, V3_tc_data.red_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum);
+            green_button(Button_green_, V3_tc_data.green_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum);
+            green_button(Button_left_, V3_tc_data.left_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum);
+            green_button(Button_straight_, V3_tc_data.straight_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum);
+            green_button(Button_ped_flash_, V3_tc_data.ped_green_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum);
+           red_button(Button_ped_red_, V3_tc_data.ped_red_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum);
+            green_button(Button_right_, V3_tc_data.right_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum);
+            yellow_button(Button_yellow_, V3_tc_data.yellow_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum);
+
+
         }
     }
-    private int state_check(String[]strings,int i)
-    {
-        int state=0;
-             if(strings[i].equals(strings[i+1])){
-            state = strings[i].equals("1") ? 1 : 0;
-       }
-        else state=2;
-
-        return state;
-    }
-
-
-    private void Button_color_init() {
-        for(int i=0;i<6;i++) {
-            red_button(Button_red_, red_state_, i);
-            green_button(Button_green_, green_state_, i);
-            green_button(Button_left_, left_state_, i);
-            green_button(Button_straight_, straight_state_, i);
-            green_button(Button_ped_flash_, ped_green_state_, i);
-            red_button(Button_ped_red_, ped_red_state_, i);
-            green_button(Button_right_, right_state_, i);
-            yellow_button(Button_yellow_, yellow_state_, i);
-        }
-    }
-    private void red_button(final Button []Button_red_,final int[]red_state_,final int i ) {
-        Button_red_[i].setOnClickListener(new View.OnClickListener() {
-
+    private void red_button(final Button []Button_red_,final int[]red_state_,final int LightBoardNum ) {
+        Button_red_[LightBoardNum].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                red_state_[i]=button_state(red_state_[i]);
-                if(red_state_[i]==0)Button_red_[i].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-                if(red_state_[i]==2)Button_red_[i].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_OUT);
-                if(red_state_[i]==1)Button_red_[i].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
+                button_state(red_state_,LightBoardNum);
+                if(red_state_[LightBoardNum]==0)Button_red_[LightBoardNum].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+                if(red_state_[LightBoardNum]==2)Button_red_[LightBoardNum].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_OUT);
+                if(red_state_[LightBoardNum]==1)Button_red_[LightBoardNum].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
             }
         });
     }
-    private void green_button(final Button []Button_green_,final int[]green_state_,final int i ) {
-        Button_green_[i].setOnClickListener(new View.OnClickListener() {
-
+    private void green_button(final Button []Button_green_,final int[]green_state_,final int LightBoardNum ) {
+        Button_green_[LightBoardNum].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                green_state_[i]=button_state(green_state_[i]);
-
-                if(green_state_[i]==0)Button_green_[i].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-                if(green_state_[i]==2)Button_green_[i].getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_OUT);
-                if(green_state_[i]==1)Button_green_[i].getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
+                button_state(green_state_,LightBoardNum);
+                if(green_state_[LightBoardNum]==0)Button_green_[LightBoardNum].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+                if(green_state_[LightBoardNum]==2)Button_green_[LightBoardNum].getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_OUT);
+                if(green_state_[LightBoardNum]==1)Button_green_[LightBoardNum].getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
             }
         });
     }
-    private void green_color_state(final Button []Button_green_,final int[]green_state_,final int i ) {
+    private void yellow_button(final Button []Button_yellow_,final int[]yellow_state_,final int LightBoardNum ) {
+        Button_yellow_[LightBoardNum].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button_state(yellow_state_,LightBoardNum);
+                if(yellow_state_[LightBoardNum]==0)Button_yellow_[LightBoardNum].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+                if(yellow_state_[LightBoardNum]==2)Button_yellow_[LightBoardNum].getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_OUT);
+                if(yellow_state_[LightBoardNum]==1)Button_yellow_[LightBoardNum].getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.MULTIPLY);
+            }
+        });
+    }
+    private void button_state(final int []state,int LightBoardNum) {
+        state[LightBoardNum]++;
+        if(state[LightBoardNum]==3)state[LightBoardNum]=0;
+//        return state[LightBoardNum];
+    }
+
+    private void green_color_state(final Button []Button_green_,final int green_state_,final int i ) {
           
 
-                if(green_state_[i]==0)Button_green_[i].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-                if(green_state_[i]==2)Button_green_[i].getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_OUT);
-                if(green_state_[i]==1)Button_green_[i].getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
+                if(green_state_==0)Button_green_[i].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+                if(green_state_==2)Button_green_[i].getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_OUT);
+                if(green_state_==1)Button_green_[i].getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
 
     }
-    private void yellow_color_state(final Button []Button_yellow_,final int[]yellow_state_,final int i ) {
+    private void yellow_color_state(final Button []Button_yellow_,final int yellow_state_,final int LightboardNum ) {
 
 
-                if(yellow_state_[i]==0)Button_yellow_[i].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-                if(yellow_state_[i]==2)Button_yellow_[i].getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_OUT);
-                if(yellow_state_[i]==1)Button_yellow_[i].getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.MULTIPLY);
+                if(yellow_state_==0)Button_yellow_[LightboardNum].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+                if(yellow_state_==2)Button_yellow_[LightboardNum].getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_OUT);
+                if(yellow_state_==1)Button_yellow_[LightboardNum].getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.MULTIPLY);
      
     }
-    private void red_color_state(final Button []Button_red_,final int[]red_state_,final int i ) {
+    private void red_color_state(final Button []Button_red_,int red_state_,final int LightboardNum ) {
 
 
-                if(red_state_[i]==0)Button_red_[i].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-                if(red_state_[i]==2)Button_red_[i].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_OUT);
-                if(red_state_[i]==1)Button_red_[i].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
+        if(red_state_==1)Button_red_[LightboardNum].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
+        if(red_state_==0)Button_red_[LightboardNum].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+        if(red_state_==2)Button_red_[LightboardNum].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_OUT);
            
     }
-    private void yellow_button(final Button []Button_yellow_,final int[]yellow_state_,final int i ) {
-        Button_yellow_[i].setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                yellow_state_[i]=button_state(yellow_state_[i]);
-
-                if(yellow_state_[i]==0)Button_yellow_[i].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-                if(yellow_state_[i]==2)Button_yellow_[i].getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_OUT);
-                if(yellow_state_[i]==1)Button_yellow_[i].getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.MULTIPLY);
-            }
-        });
-    }
-    private int button_state(int state) {
-        state++;
-        if(state==3)state=0;
-        return state;
-    }
+   
     private void Button_findview() {
         for (int i = 1; i < 7; i++) {
             String idname_red = "Button_red_" + String.format("%d", i);

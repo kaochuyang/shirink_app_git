@@ -34,21 +34,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static tw.com.cct.ms2.shirink_app_git.R.array.total_subphase_1;
-import static tw.com.cct.ms2.shirink_app_git.R.array.total_subphase_2;
-import static tw.com.cct.ms2.shirink_app_git.R.array.total_subphase_3;
-import static tw.com.cct.ms2.shirink_app_git.R.array.total_subphase_4;
-import static tw.com.cct.ms2.shirink_app_git.R.array.total_subphase_5;
-import static tw.com.cct.ms2.shirink_app_git.R.array.total_subphase_8;
-import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.green_state_;
-import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.left_state_;
-import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.ped_green_state_;
-import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.ped_red_state_;
-import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.red_state_;
-import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.right_state_;
-import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.straight_state_;
-import static tw.com.cct.ms2.shirink_app_git.step_setting_fragment.yellow_state_;
-
 public class step_setting extends Base_activity {
 
     /**
@@ -67,8 +52,8 @@ public class step_setting extends Base_activity {
 Light_State lightState;
 Spinner subphase_spin;
     V3_tc_data A = V3_tc_data.getV3_tc_data();
-    final JSONObject jsonObject = A.getV3_json_data();
-    JSONObject[] step_object=new JSONObject[256];
+//    final JSONObject jsonObject = A.getV3_json_data();
+//    JSONObject[] step_object=new JSONObject[256];
     static int phase_ID=0;
     static int totalsubphase=6;//init
     boolean isFragmentLoaded = false;
@@ -76,14 +61,14 @@ Spinner subphase_spin;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.step_setting_layout);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         // Set up the ViewPager with the sections adapter.
 
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = findViewById(R.id.container);
         mViewPager.setOffscreenPageLimit(0);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mSectionsPagerAdapter.notifyDataSetChanged();
@@ -95,7 +80,47 @@ Spinner subphase_spin;
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        FloatingActionButton setting_button_group = (FloatingActionButton) findViewById(R.id.setting_button_group);
+        FloatingActionButton setting_button_group = findViewById(R.id.setting_button_group);
+        setting_button_group.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(final View view) {
+//應該要全頁面拿來共用此按鈕
+                PopupMenu button_popmenu = new PopupMenu(step_setting.this, view);
+                button_popmenu.getMenuInflater().inflate(R.menu.button_popmenu, button_popmenu.getMenu());
+                button_popmenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+//                         Do something...
+                        switch (item.getItemId()) {
+                            case R.id.enter:
+                                Snackbar.make(view, "設定", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+//                           A.print_step();
+                                return true;
+                            case R.id.cancel:
+                                Snackbar.make(view, "取消", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+                                return true;
+                            case R.id.reset:
+                                Snackbar.make(view, "重新整理", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+
+                                return true;
+                            default:
+                                return false;
+                        }
+
+                    }
+
+                });
+
+                button_popmenu.show();
+            }
+
+
+        });
 
 
 
@@ -105,13 +130,13 @@ Spinner subphase_spin;
         Spinner phaseorder_select=findViewById(R.id.phaseorder_select);
         ArrayAdapter<CharSequence> arrayAdapter_select_spinner=ArrayAdapter.createFromResource(this,R.array.plan,R.layout.myspinner_style);
         phaseorder_select.setAdapter(arrayAdapter_select_spinner);
-        getTotalsubphase(total_subphase, phase_ID, totalsubphase);
+        getTotalsubphase(total_subphase, phase_ID);
 
         phaseorder_select.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         change_phaseorder(position);
-        getTotalsubphase(total_subphase,position, totalsubphase);
+        getTotalsubphase(total_subphase,position);
         subphase_spin.setSelection(0);
      tabLayout.getTabAt(0).select();
         Log.d("!!!!!", "phaseorder_select onItemSelected: phase_order="+position);
@@ -141,21 +166,13 @@ Spinner subphase_spin;
     }
 
 
-    private int getTotalsubphase(TextView total_subphase, int phase_ID, int totalsubphase) {//include subphase spinner init
-        totalsubphase = getTotalsubphase(phase_ID, totalsubphase);
+    private int getTotalsubphase(TextView total_subphase, int PhaseOrder) {//include subphase spinner init
+        totalsubphase = A.getTotalSubphaseCount(PhaseOrder);
         total_subphase.setText(String.valueOf(totalsubphase));
         spinner_init(totalsubphase);
         return totalsubphase;
     }
-    private int getTotalsubphase(int phase_ID, int totalsubphase) {
-        try {
-            totalsubphase= Integer.parseInt(String.valueOf(jsonObject.getJSONArray("step").getJSONObject(phase_ID).get("subphase_count")));
-            Log.d("subphase_spiner_", "subphase_spiner_init: "+jsonObject.getJSONArray("step").getJSONObject(phase_ID).getString("subphase_count").toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return totalsubphase;
-    }
+
     private void spinner_init(int totalsubphase) {
         String adpter_name="total_subphase_"+ String.format("%d", totalsubphase);
         int resID = getResources().getIdentifier(adpter_name, "array", getPackageName());
