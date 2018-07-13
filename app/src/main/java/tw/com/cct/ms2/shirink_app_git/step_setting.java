@@ -1,7 +1,10 @@
 package tw.com.cct.ms2.shirink_app_git;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.support.annotation.ColorLong;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -20,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.Spinner;
@@ -49,13 +53,16 @@ public class step_setting extends Base_activity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-Light_State lightState;
+
 Spinner subphase_spin;
+     Spinner  total_subphase;
+    Spinner phaseorder_select;
+    Spinner LightBoardNum;
     V3_tc_data A = V3_tc_data.getV3_tc_data();
-//    final JSONObject jsonObject = A.getV3_json_data();
-//    JSONObject[] step_object=new JSONObject[256];
+
+
     static int phase_ID=0;
-    static int totalsubphase=6;//init
+    //static int totalsubphase=6;//init
     boolean isFragmentLoaded = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,24 +87,150 @@ Spinner subphase_spin;
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+        FloatButton_init();
+
+
+
+        SubphaseSpin_init(tabLayout);
+        TotalSubphaseSpin_init();
+        LightBoardSpin_init();
+        PhaseOrderSpin_init(tabLayout);
+
+
+        EditViewModeButtonGroup_init();//編輯和檢視模式的切換內容
+
+    }
+
+    private void SubphaseSpin_init(final TabLayout tabLayout) {
+        subphase_spin=findViewById(R.id.subphase_spin);
+        subphase_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                send_page_num(position);
+                tabLayout.getTabAt(0).select();
+                Log.d("!!!!!", "subphase_spin onItemSelected: subphase="+position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
+    private void PhaseOrderSpin_init(final TabLayout tabLayout) {
+        phaseorder_select=findViewById(R.id.phaseorder_select);
+        ArrayAdapter<CharSequence> arrayAdapter_select_spinner=ArrayAdapter.createFromResource(this,R.array.plan,R.layout.myspinner_style);
+        phaseorder_select.setAdapter(arrayAdapter_select_spinner);
+        phaseorder_select.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        change_phaseorder(position);
+        phase_ID=position;
+        //getTotalsubphase(total_subphase,position);
+        total_subphase.setSelection(A.getTotalSubphaseCount(phase_ID));
+        subphase_spin.setSelection(0);
+        LightBoardNum.setSelection(A.getTotalLightBoardCount(phase_ID));
+     tabLayout.getTabAt(0).select();
+        Log.d("!!!!!", "phaseorder_select onItemSelected: phase_order="+position);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+});
+    }
+
+    private void TotalSubphaseSpin_init() {
+        total_subphase=findViewById(R.id.total_subphase);
+        ArrayAdapter<CharSequence> adapterTotalSubphase=ArrayAdapter.createFromResource(this,R.array.totalsubphase,R.layout.myspinner_style);
+        total_subphase.setAdapter(adapterTotalSubphase);
+        total_subphase.setSelection(A.getTotalSubphaseCount(phase_ID));
+        SubphaseAdapter_init(A.getTotalSubphaseCount(phase_ID));
+        total_subphase.setEnabled(false);
+        total_subphase.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position==0){A.setTotalSubphaseCount(1,phase_ID);
+                total_subphase.setSelection(1);}
+                else A.setTotalSubphaseCount(position,phase_ID);
+                SubphaseAdapter_init(A.getTotalSubphaseCount(phase_ID));
+                         }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
+    private void LightBoardSpin_init() {
+        LightBoardNum=findViewById(R.id.LightBoardNum);
+        ArrayAdapter<CharSequence> AdapterLightBoard=ArrayAdapter.createFromResource(this,R.array.LightBoardArray,R.layout.myspinner_style);
+        LightBoardNum.setAdapter(AdapterLightBoard);
+        LightBoardNum.setSelection(A.getTotalLightBoardCount(phase_ID));
+        LightBoardNum.setEnabled(false);
+        LightBoardNum.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position==0){LightBoardNum.setSelection(1);A.setLightBoardCount(1,phase_ID);}
+                else A.setLightBoardCount(position,phase_ID);
+                change_phaseorder(phase_ID);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
+    private void EditViewModeButtonGroup_init() {
+        final Button ViewMode=findViewById(R.id.ViewMode);
+        final Button EditMode=findViewById(R.id.EditMode);
+        Editbutton_state_init(ViewMode, EditMode);
+        ViewMode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            change_Editable(false);
+            LightBoardNum.setEnabled(false);
+            total_subphase.setEnabled(false);
+                Editbutton_state_init(ViewMode, EditMode);
+            }
+        });
+        EditMode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LightBoardNum.setEnabled(true);
+                total_subphase.setEnabled(true);
+                change_Editable(true);
+                Editbutton_state_init(EditMode, ViewMode);
+            }
+        });
+    }
+
+    private void FloatButton_init() {
         FloatingActionButton setting_button_group = findViewById(R.id.setting_button_group);
         setting_button_group.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(final View view) {
-//應該要全頁面拿來共用此按鈕
+        //應該要全頁面拿來共用此按鈕
                 PopupMenu button_popmenu = new PopupMenu(step_setting.this, view);
                 button_popmenu.getMenuInflater().inflate(R.menu.button_popmenu, button_popmenu.getMenu());
                 button_popmenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-//                         Do something...
+            //                         Do something...
                         switch (item.getItemId()) {
                             case R.id.enter:
                                 Snackbar.make(view, "設定", Snackbar.LENGTH_LONG)
                                         .setAction("Action", null).show();
-//                           A.print_step();
+A.sendStepSettingToTc(0);
                                 return true;
                             case R.id.cancel:
                                 Snackbar.make(view, "取消", Snackbar.LENGTH_LONG)
@@ -121,59 +254,25 @@ Spinner subphase_spin;
 
 
         });
-
-
-
-        subphase_spin=findViewById(R.id.subphase_spin);
-        final TextView  total_subphase=findViewById(R.id.total_subphase);
-
-        Spinner phaseorder_select=findViewById(R.id.phaseorder_select);
-        ArrayAdapter<CharSequence> arrayAdapter_select_spinner=ArrayAdapter.createFromResource(this,R.array.plan,R.layout.myspinner_style);
-        phaseorder_select.setAdapter(arrayAdapter_select_spinner);
-        getTotalsubphase(total_subphase, phase_ID);
-
-        phaseorder_select.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        change_phaseorder(position);
-        getTotalsubphase(total_subphase,position);
-        subphase_spin.setSelection(0);
-     tabLayout.getTabAt(0).select();
-        Log.d("!!!!!", "phaseorder_select onItemSelected: phase_order="+position);
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
-});
-
-        subphase_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                send_page_num(position);
-                tabLayout.getTabAt(0).select();
-                Log.d("!!!!!", "subphase_spin onItemSelected: subphase="+position);
-                          }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
+    private void Editbutton_state_init(Button UseMode, Button NotUseMode) {
+        NotUseMode.setClickable(true);
+        NotUseMode.setBackgroundColor(Color.WHITE);
+        UseMode.setClickable(false);
+        UseMode.setBackgroundColor(Color.YELLOW);
     }
 
 
     private int getTotalsubphase(TextView total_subphase, int PhaseOrder) {//include subphase spinner init
-        totalsubphase = A.getTotalSubphaseCount(PhaseOrder);
-        total_subphase.setText(String.valueOf(totalsubphase));
-        spinner_init(totalsubphase);
-        return totalsubphase;
+//        totalsubphase = A.getTotalSubphaseCount(PhaseOrder);
+//        total_subphase.setText(String.valueOf(totalsubphase));
+//        spinner_init(totalsubphase);
+        //return totalsubphase;
+        return 0;
     }
 
-    private void spinner_init(int totalsubphase) {
+    private void SubphaseAdapter_init(int totalsubphase) {
         String adpter_name="total_subphase_"+ String.format("%d", totalsubphase);
         int resID = getResources().getIdentifier(adpter_name, "array", getPackageName());
         ArrayAdapter<CharSequence> arrayAdapter_select_spinner=ArrayAdapter.createFromResource(this,resID,R.layout.myspinner_style);
@@ -189,6 +288,14 @@ Spinner subphase_spin;
         Log.d("!!!!", "change_phaseorder: ");
         EventBus.getDefault().post(new MessageEvent_phaseorder(phaseID));
     }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    void change_Editable(boolean EditableFlag) {
+
+        EventBus.getDefault().post(new MessageEvent_Editable(EditableFlag));
+    }
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -239,18 +346,21 @@ Spinner subphase_spin;
     }
     @Override
     protected void onResume() {
+        //change_Editable(false);
         super.onResume();
         EventBus.getDefault().register(this);
     }
 
     @Override
     protected void onDestroy() {
+        //change_Editable(false);
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
     @Override
     public void onStop()
     {
+        //change_Editable(false);
         super.onStop();
         EventBus.getDefault().unregister(this);
     }

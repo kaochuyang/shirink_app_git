@@ -30,18 +30,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class plan_setting extends Base_activity {
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
-//    int [][]hour=new int[21][32];//segment,segment_count
-//    int [][]minute=new int[21][32];//segment,segment_count
-//    int [][]plan_num_record=new int[21][32];//segment,segment_count
-//    JSONObject[] segcontext = new JSONObject[21];////segment
+
     V3_tc_data A=V3_tc_data.getV3_tc_data();
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
@@ -127,7 +116,7 @@ public class plan_setting extends Base_activity {
             }
         });
 
-      //  floating_button_function(setting_button_group, plan_setting.this);
+
 
 
 
@@ -220,52 +209,5 @@ public class plan_setting extends Base_activity {
         //反注册
         EventBus.getDefault().unregister(this);
     }
-/*
-
-    private void init_segcontext(JSONObject jsonObject, JSONObject[] segcontext) {
-        try {
-            for (int i = 0; i < 21; i++)
-            {       segcontext[i] = jsonObject.getJSONObject("segmentinfo").getJSONArray("segcontext").getJSONObject(i);
-            for(int segment_count=0;segment_count<32;segment_count++) {
-                hour[i][segment_count] = segcontext[i].getJSONArray("hour").getInt(segment_count);
-                minute[i][segment_count] = segcontext[i].getJSONArray("minute").getInt(segment_count);
-                plan_num_record[i][segment_count]=segcontext[i].getJSONArray("plan").getInt(i);
-            
-            }       
-        }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-
-    public void setHour(int segment,int segment_count, int input_hour)
-    {
-        hour[segment][segment_count]=input_hour;
-    }
-
-    public void setMinute(int segment,int segment_count,int input_minute)
-    {
-        minute[segment][segment_count]=input_minute;
-
-    }
-
-    public void setPlan_num_record(int segment,int segment_count,int input_plan_num) {
-        this.plan_num_record[segment][segment_count] = input_plan_num;
-    }
-
-    public int getPlan_num_record(int segment,int segment_count) {
-        return plan_num_record[segment][segment_count];
-    }
-
-    public int getHour(int segment,int segment_count) {
-        return this.hour[segment][segment_count];
-    }
-
-    public int getMinute(int segment,int segment_count) {
-        return this.minute[segment][segment_count];
-    }
-*/
 
 }

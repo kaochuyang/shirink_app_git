@@ -41,7 +41,7 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
     V3_tc_data A = V3_tc_data.getV3_tc_data();
 
     TextView []board_=new TextView[6];
-
+   static boolean EditableFlag=false;
     static int phaseorder=0;
     static int subphase=0;
 
@@ -69,6 +69,7 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
         Log.d("!!!!!!!", "view_state_init: PAGE_NUM="+page+"  phaseorder="+phaseorder+" subphase="+subphase);
         button_color_start_state(phaseorder,subphase,page-1);//初始化按鈕顏色
         button_visible_control(light_board_decide(phaseorder));//決定按鈕隱藏與否
+        edittext_switch_group(EditableFlag);
     }
 
     private int  light_board_decide(int phaseorder) {
@@ -100,6 +101,35 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
         }
     }
 
+    private void edittext_switch_group(boolean editbla_flag) {
+        for(int i=0;i<6;i++) {
+            Button_red_[i].setClickable(editbla_flag);
+            Button_green_[i].setClickable(editbla_flag);
+            Button_left_[i].setClickable(editbla_flag);
+            Button_right_[i].setClickable(editbla_flag);
+            Button_straight_[i].setClickable(editbla_flag);
+            Button_yellow_[i].setClickable(editbla_flag);
+            Button_ped_flash_[i].setClickable(editbla_flag);
+            Button_ped_red_[i].setClickable(editbla_flag);
+
+//            if(editbla_flag){
+//                Button_red_[i].setVisibility(View.VISIBLE);
+//                Button_green_[i].setVisibility(View.VISIBLE);
+//                Button_left_[i].setVisibility(View.VISIBLE);
+//                Button_right_[i].setVisibility(View.VISIBLE);
+//                Button_straight_[i].setVisibility(View.VISIBLE);
+//                Button_yellow_[i].setVisibility(View.VISIBLE);
+//                Button_ped_flash_[i].setVisibility(View.VISIBLE);
+//                Button_ped_red_[i].setVisibility(View.VISIBLE);
+//                board_[i].setVisibility(View.VISIBLE);
+//            }
+
+        }
+
+
+    }
+    
+    
     private void button_color_start_state(int PhaseOrder, int SubphaseCount, int StepNum) {
         for(int LightBoard=0;LightBoard<6;LightBoard++) {
             red_color_state(Button_red_, V3_tc_data.red_state[PhaseOrder][SubphaseCount][StepNum][LightBoard], LightBoard);
@@ -124,6 +154,14 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
     {
         super.onStop();
         EventBus.getDefault().unregister(this);
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void editable_select(MessageEvent_Editable messageEvent)
+    {
+  EditableFlag=messageEvent.getStepEditable();
+
+           view_state_init();
+
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
