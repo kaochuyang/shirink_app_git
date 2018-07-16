@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.ColorLong;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -16,20 +17,29 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.text.method.CharacterPickerDialog;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
+import com.hamsa.twosteppickerdialog.OnStepDataRequestedListener;
+import com.hamsa.twosteppickerdialog.OnStepPickListener;
+import com.hamsa.twosteppickerdialog.TwoStepPickerDialog;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -37,6 +47,11 @@ import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 
 public class step_setting extends Base_activity {
 
@@ -57,6 +72,8 @@ public class step_setting extends Base_activity {
 Spinner subphase_spin;
      Spinner  total_subphase;
     Spinner phaseorder_select;
+//    FrameLayout phaseorder_select;
+    EditText wheelView;
     Spinner LightBoardNum;
     V3_tc_data A = V3_tc_data.getV3_tc_data();
 
@@ -87,6 +104,9 @@ Spinner subphase_spin;
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+
+
+
         FloatButton_init();
 
 
@@ -94,8 +114,8 @@ Spinner subphase_spin;
         SubphaseSpin_init(tabLayout);
         TotalSubphaseSpin_init();
         LightBoardSpin_init();
-        PhaseOrderSpin_init(tabLayout);
-
+//        PhaseOrderSpin_init(tabLayout);
+        PhaseOrderSelect_init();
 
         EditViewModeButtonGroup_init();//編輯和檢視模式的切換內容
 
@@ -119,30 +139,92 @@ Spinner subphase_spin;
         });
     }
 
-    private void PhaseOrderSpin_init(final TabLayout tabLayout) {
-        phaseorder_select=findViewById(R.id.phaseorder_select);
-        ArrayAdapter<CharSequence> arrayAdapter_select_spinner=ArrayAdapter.createFromResource(this,R.array.plan,R.layout.myspinner_style);
-        phaseorder_select.setAdapter(arrayAdapter_select_spinner);
-        phaseorder_select.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        change_phaseorder(position);
-        phase_ID=position;
-        //getTotalsubphase(total_subphase,position);
-        total_subphase.setSelection(A.getTotalSubphaseCount(phase_ID));
-        subphase_spin.setSelection(0);
-        LightBoardNum.setSelection(A.getTotalLightBoardCount(phase_ID));
-     tabLayout.getTabAt(0).select();
-        Log.d("!!!!!", "phaseorder_select onItemSelected: phase_order="+position);
-    }
+//    private void PhaseOrderSpin_init(final TabLayout tabLayout) {
+//
+////
+//
+//        phaseorder_select=findViewById(R.id.phaseorder_select);
+//        ArrayAdapter<CharSequence> arrayAdapter_select_spinner=ArrayAdapter.createFromResource(this,R.array.plan,R.layout.myspinner_style);
+//        phaseorder_select.setAdapter(arrayAdapter_select_spinner);
+//        phaseorder_select.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//    @Override
+//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//        change_phaseorder(position);
+//        phase_ID=position;
+//        //getTotalsubphase(total_subphase,position);
+//        total_subphase.setSelection(A.getTotalSubphaseCount(phase_ID));
+//        subphase_spin.setSelection(0);
+//        LightBoardNum.setSelection(A.getTotalLightBoardCount(phase_ID));
+//     tabLayout.getTabAt(0).select();
+//        Log.d("!!!!!", "phaseorder_select onItemSelected: phase_order="+position);
+//    }
+//
+//    @Override
+//    public void onNothingSelected(AdapterView<?> parent) {
+//
+//    }
+//});
+//    }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+    public void PhaseOrderSelect_init()
+    {
+        wheelView=findViewById(R.id.phaseorder_select);
+        wheelView.setText(Integer.toHexString(phase_ID));
+        final List<String> hexData = getHexStrings();
+        final TwoStepPickerDialog pickPhaseOrder = new TwoStepPickerDialog
+                .Builder(this)
+                .withBaseData(hexData)
+                .withOkButton("確定")
+                .withCancelButton("取消")
+                .withInitialBaseSelected(phase_ID%16)//右邊
+                .withInitialStepSelected(phase_ID/16)//左邊
+                .withOnStepDataRequested(new OnStepDataRequestedListener() {
+                    @Override
+                    public List<String> onStepDataRequest(int useless) {//不用參數 當void 用
+                        return hexData;
+                    }
+                })
+                .withDialogListener(new OnStepPickListener() {
+                    @Override
+                    public void onStepPicked(int firstWord, int secondWord) {//左邊 右邊
+                    int position=secondWord+firstWord*16;
+                        change_phaseorder(position);
 
-    }
-});
-    }
+                        phase_ID=position;
+                        //getTotalsubphase(total_subphase,position);
+                        total_subphase.setSelection(A.getTotalSubphaseCount(phase_ID));
+                        subphase_spin.setSelection(0);
+                        LightBoardNum.setSelection(A.getTotalLightBoardCount(phase_ID));
+                     //   tabLayout.getTabAt(0).select();
+                        Log.d("!!!!!", "phaseorder_select onItemSelected: phase_order="+position);
+                        wheelView.setText(Integer.toHexString(position));
 
+                        Toast.makeText(getApplicationContext(),"時相編號="+hexData.get(firstWord)  + " "+secondWord  , Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onDismissed() {
+                        Toast.makeText(getApplicationContext(), "Dismised!", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .build();
+
+
+        wheelView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                pickPhaseOrder.setDefaultBaseSelected(phase_ID/16);//左邊
+                pickPhaseOrder.setDefaultStepSelected(phase_ID%16);//右邊
+                                                pickPhaseOrder.show();
+            }
+        });
+    }
+    
+    
+    
+    
+    
     private void TotalSubphaseSpin_init() {
         total_subphase=findViewById(R.id.total_subphase);
         ArrayAdapter<CharSequence> adapterTotalSubphase=ArrayAdapter.createFromResource(this,R.array.totalsubphase,R.layout.myspinner_style);
@@ -363,6 +445,18 @@ A.sendStepSettingToTc(0);
         //change_Editable(false);
         super.onStop();
         EventBus.getDefault().unregister(this);
+    }
+
+
+
+
+
+    @NonNull
+    private List<String> getHexStrings() {
+        final List<String> Hex = new ArrayList<>();
+        for(int i=0;i<16;i++)
+            Hex.add(Integer.toHexString(i));
+        return Hex;
     }
 
 
