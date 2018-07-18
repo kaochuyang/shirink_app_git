@@ -12,6 +12,8 @@ import java.util.Collections;
 
 import static org.greenrobot.eventbus.EventBus.TAG;
 
+import static tw.com.cct.ms2.shirink_app_git.V3_connection_activity.send;
+
 class V3_tc_data {
 
 
@@ -93,7 +95,7 @@ class V3_tc_data {
     }
 
 
-    public void sendStepSettingToTc(int PhaseOrder) {
+    public String sendStepSettingToTc(int PhaseOrder) {
         try {
             Log.d(TAG, "sendStepSettingToTc: " + step_object[PhaseOrder].toString());
             step_object[PhaseOrder].put("subphase_count", total_subphasecount[PhaseOrder]);
@@ -155,11 +157,14 @@ class V3_tc_data {
 //                    .getJSONArray("light").put();
 
 
+
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-
+return step_object[PhaseOrder].toString();
     }
 
 
@@ -210,6 +215,8 @@ class V3_tc_data {
 
     }
 
+
+    /*for step state check*/
     private int state_check(String[] strings, int i) {
         int state;
         if (strings[i].equals(strings[i + 1])) {
@@ -225,6 +232,13 @@ class V3_tc_data {
 
     public void put_tc_data(JSONObject object) {
         jsonObject = object;
+        init_segcontext();
+        init_setp_object();
+
+    }
+
+    public void refreshdata()//只是把jsonObject 的內容重新放過
+    {
         init_segcontext();
         init_setp_object();
 
@@ -263,7 +277,7 @@ class V3_tc_data {
             e.printStackTrace();
         }
     }
-
+    
 
     public void setHour(int segment, int segment_count, int input_hour) {
         hour[segment][segment_count] = input_hour;
