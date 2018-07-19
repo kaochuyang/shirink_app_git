@@ -48,7 +48,7 @@ public class plan_detail extends Base_activity {
     TextView[]subphase_name=new TextView[8];
 int subphase_count;
 int plan_num;//目前plan
-
+    V3_tc_data A = V3_tc_data.getV3_tc_data();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,12 +59,9 @@ int plan_num;//目前plan
         //floating_button_function(setting_button_group, plan_detail.this);
 
 
-
-
-
         final Spinner plan_select = getSpinner_plan();
         link_to_step_setting();
-        V3_tc_data A = V3_tc_data.getV3_tc_data();
+
         final JSONObject jsonObject = A.getV3_json_data();
         final JSONObject[] plancontext = new JSONObject[49];
 
