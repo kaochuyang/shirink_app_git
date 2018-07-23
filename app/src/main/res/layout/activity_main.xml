@@ -36,7 +36,7 @@
             android:text="系統日期:" />
 
         <TextView
-            android:id="@+id/content"
+            android:id="@+id/systemDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="          " />
@@ -57,7 +57,7 @@
             android:text="@string/in_time_stratage" />
 
         <TextView
-            android:id="@+id/in_time_stratage_content"
+            android:id="@+id/StratageType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="          " />
@@ -78,7 +78,7 @@
             android:text="中心連線狀態:" />
 
         <TextView
-            android:id="@+id/content4"
+            android:id="@+id/LinkStateWithCenter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="          " />
@@ -103,7 +103,7 @@
             android:text="設備編號:" />
 
         <TextView
-            android:id="@+id/content1"
+            android:id="@+id/LCN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="          " />
@@ -116,7 +116,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/mark_ip"
+            android:id="@+id/HostIP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="主機IP:" />
@@ -229,7 +229,7 @@
             android:text="韌體版本:" />
 
         <TextView
-            android:id="@+id/conten2t"
+            android:id="@+id/HardwareVersion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="          " />
@@ -252,7 +252,7 @@
             android:text="韌體修改時間:" />
 
         <TextView
-            android:id="@+id/content5"
+            android:id="@+id/LastUpdateTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="          " />
@@ -273,7 +273,7 @@
             android:text="上次斷電時間:" />
 
         <TextView
-            android:id="@+id/content3"
+            android:id="@+id/LastShutDownTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="          " />
@@ -295,7 +295,7 @@
             android:text="訊息等級:" />
 
         <TextView
-            android:id="@+id/content6"
+            android:id="@+id/MessageLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="          " />

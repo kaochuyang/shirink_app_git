@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TableLayout
+    android:layout_width="wrap_content"
+    android:verticalScrollbarPosition="defaultPosition"
+    android:layout_height="wrap_content">
+<TableRow>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+
+        android:text="時段型態"
+        />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/ResourceSegmenttype"
+        android:hint="某時段型態"
+        />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="複製到"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="4"
+        android:hint="時段型態"
+        android:inputType="number"
+        android:id="@+id/DestSegmenttype"/>
+</TableRow>
+</TableLayout>
+</android.support.constraint.ConstraintLayout>

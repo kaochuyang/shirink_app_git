@@ -607,4 +607,19 @@ class V3_tc_data {
         }
     }
 
+    private int []HostIP=new int[4];
+    private int HostPort;
+    private int []DestIP0=new int[4];
+    private int DestPort0;
+    private int []DestIP1=new int[4];
+    private int DestPort1;
+    private int Netmask;
+    private int Gateway;
+    private int LCN;
+    private int []HWVersion=new int[2];
+    private int HWmodifyYear;
+    private int HWmodifyMonth;
+    private int HWmodifyDay;
+    java.util.Date uDate=new java.util.Date();
+
 }

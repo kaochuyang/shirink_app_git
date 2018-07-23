@@ -55,10 +55,7 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
 
         Button_findview();//連結xml
         Button_init(phaseorder,subphase,page-1);//給按鈕變色功能
-
         view_state_init();//初始化按鈕狀態和顏色
-
-
 
         Log.d("!!!!!!!", "onCreateView: PAGE_NUM="+page+"  phaseorder="+phaseorder+" subphase="+subphase);
 
@@ -113,18 +110,6 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
             Button_ped_flash_[i].setClickable(editbla_flag);
             Button_ped_red_[i].setClickable(editbla_flag);
 
-//            if(editbla_flag){
-//                Button_red_[i].setVisibility(View.VISIBLE);
-//                Button_green_[i].setVisibility(View.VISIBLE);
-//                Button_left_[i].setVisibility(View.VISIBLE);
-//                Button_right_[i].setVisibility(View.VISIBLE);
-//                Button_straight_[i].setVisibility(View.VISIBLE);
-//                Button_yellow_[i].setVisibility(View.VISIBLE);
-//                Button_ped_flash_[i].setVisibility(View.VISIBLE);
-//                Button_ped_red_[i].setVisibility(View.VISIBLE);
-//                board_[i].setVisibility(View.VISIBLE);
-//            }
-
         }
 
 
@@ -168,10 +153,9 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void step_set_select(MessageEvent_subphase messageEvent)
     {
-        //Log.d(TAG, "step_set_select: ");
+
         subphase=messageEvent.getsubphase();
-        //light_state_get(jsonObject, step_object,light_board_decide(phaseorder),step_num,subphase,phaseorder);
-        //button_color_start_state(PhaseOrder,SubphaseCount,StepNum);
+
         view_state_init();
 
     }
@@ -179,8 +163,7 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
     public void phaseorder_set_select(MessageEvent_phaseorder messageEvent)
     {
         phaseorder=messageEvent.getphaseorder();
-        //view_state_init();
-        Button_init(phaseorder,subphase,page-1);//給按鈕變色功能
+          Button_init(phaseorder,subphase,page-1);//給按鈕變色功能
 
 
     }
@@ -200,54 +183,6 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
 
         }
     }
-//    private void Button_color_init(int PhaseOrder, int SubphaseCount, int StepNum) {
-//        for(int LightBoardNum=0;LightBoardNum<6;LightBoardNum++) {
-//            red_button(Button_red_, V3_tc_data.red_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum,Color.RED);
-//            green_button(Button_green_, V3_tc_data.green_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum,Color.GREEN);
-//            green_button(Button_left_, V3_tc_data.left_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum,Color.GREEN);
-//            green_button(Button_straight_, V3_tc_data.straight_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum,Color.GREEN);
-//            green_button(Button_ped_flash_, V3_tc_data.ped_green_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum,Color.GREEN);
-//           red_button(Button_ped_red_, V3_tc_data.ped_red_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum,Color.RED);
-//            green_button(Button_right_, V3_tc_data.right_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum,Color.GREEN);
-//            yellow_button(Button_yellow_, V3_tc_data.yellow_state[PhaseOrder][SubphaseCount][StepNum], LightBoardNum,,Color.YELLOW);
-//
-//
-//        }
-//    }
-//    private void red_button(final Button []Button_red_,final int[]red_state_,final int LightBoardNum ) {
-//        Button_red_[LightBoardNum].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                button_state(red_state_,LightBoardNum);
-//                if(red_state_[LightBoardNum]==0)Button_red_[LightBoardNum].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-//                if(red_state_[LightBoardNum]==2)Button_red_[LightBoardNum].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_OUT);
-//                if(red_state_[LightBoardNum]==1)Button_red_[LightBoardNum].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
-//            }
-//        });
-//    }
-//    private void green_button(final Button []Button_green_,final int[]green_state_,final int LightBoardNum ) {
-//        Button_green_[LightBoardNum].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                button_state(green_state_,LightBoardNum);
-//                if(green_state_[LightBoardNum]==0)Button_green_[LightBoardNum].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-//                if(green_state_[LightBoardNum]==2)Button_green_[LightBoardNum].getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_OUT);
-//                if(green_state_[LightBoardNum]==1)Button_green_[LightBoardNum].getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
-//            }
-//        });
-//    }
-//    private void yellow_button(final Button []Button_yellow_,final int[]yellow_state_,final int LightBoardNum ) {
-//        Button_yellow_[LightBoardNum].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                button_state(yellow_state_,LightBoardNum);
-//                if(yellow_state_[LightBoardNum]==0)Button_yellow_[LightBoardNum].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-//                if(yellow_state_[LightBoardNum]==2)Button_yellow_[LightBoardNum].getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_OUT);
-//                if(yellow_state_[LightBoardNum]==1)Button_yellow_[LightBoardNum].getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.MULTIPLY);
-//            }
-//        });
-//    }
-//
     private void button_color_init(final Button []Button_color_,final int[]color_state_,final int LightBoardNum,@ColorInt final int color ) {
         Button_color_[LightBoardNum].setOnClickListener(new View.OnClickListener() {
             @Override
@@ -259,13 +194,10 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
             }
         });
     }
-    
-    
-    
     private void button_state(final int []state,int LightBoardNum) {
         state[LightBoardNum]++;
         if(state[LightBoardNum]==3)state[LightBoardNum]=0;
-//        return state[LightBoardNum];
+
     }
     private void button_color_state(final Button []Button_,final int state,final int LightBoardNum,@ColorInt final int color  ) {
 
@@ -275,32 +207,7 @@ public class step_setting_fragment extends android.support.v4.app.Fragment {
         if(state==1)Button_[LightBoardNum].getBackground().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
 
     }
-//    private void green_color_state(final Button []Button_green_,final int green_state_,final int i ) {
-//
-//
-//                if(green_state_==0)Button_green_[i].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-//                if(green_state_==2)Button_green_[i].getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_OUT);
-//                if(green_state_==1)Button_green_[i].getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
-//
-//    }
-//    private void yellow_color_state(final Button []Button_yellow_,final int yellow_state_,final int LightboardNum ) {
-//
-//
-//                if(yellow_state_==0)Button_yellow_[LightboardNum].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-//                if(yellow_state_==2)Button_yellow_[LightboardNum].getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_OUT);
-//                if(yellow_state_==1)Button_yellow_[LightboardNum].getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.MULTIPLY);
-//
-//    }
-//    private void red_color_state(final Button []Button_red_,int red_state_,final int LightboardNum ) {
-//
-//
-//        if(red_state_==1)Button_red_[LightboardNum].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
-//        if(red_state_==0)Button_red_[LightboardNum].getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-//        if(red_state_==2)Button_red_[LightboardNum].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_OUT);
-//
-//    }
 
-   
     private void Button_findview() {
         for (int i = 1; i < 7; i++) {
             String idname_red = "Button_red_" + String.format("%d", i);

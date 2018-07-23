@@ -372,7 +372,6 @@ editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                         Log.d("6546", "onStepPicked: count="+planContext.subphase_count[PlanNum]);
                         phase_order_value.setText(Integer.toHexString(position));
 
-                       
                     }
 
                     @Override

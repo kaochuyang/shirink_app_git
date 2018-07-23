@@ -67,6 +67,7 @@ public abstract class Base_activity extends AppCompatActivity {
     public void Button_goto_where(Button button, final Intent intent) {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
                 startActivity(intent);
             }
         });

@@ -36,12 +36,8 @@ public class MainActivity extends Base_activity {
 
         Button Uart_select = findViewById(R.id.Uart_select);
         Button goto_tod_setting = (Button) findViewById(R.id.go_to_tod_setting);
-       //Intent intent_tod_setting_xml = new Intent(this, tod_setting.class);
-        Intent intent_tod_setting_xml = new Intent(this,plan_detail.class);
-
-
-
-
+       Intent intent_tod_setting_xml = new Intent(this, tod_setting.class);
+//        Intent intent_tod_setting_xml = new Intent(this,plan_detail.class);
 
 
         Button_goto_where(goto_tod_setting, intent_tod_setting_xml);
@@ -59,7 +55,6 @@ public class MainActivity extends Base_activity {
         Button hardware_state_report_cycle_set = findViewById(R.id.hardware_state_report_cycle_set);
         floating_button_function(setting_button_group, MainActivity.this);
         Button light_direction_setting = findViewById(R.id.light_direction_setting);
-
         Button GPS_check_time = findViewById(R.id.GPS_check_time);
         Button firmware_update = findViewById(R.id.firmware_update);
         Button Reboot = findViewById(R.id.Reboot);
@@ -70,6 +65,7 @@ public class MainActivity extends Base_activity {
 
         Button redcount_setting = findViewById(R.id.redcount_setting);
         final Button chain_setting = findViewById(R.id.chain_setting);
+
 
 
         light_direction_setting.setOnClickListener(new View.OnClickListener() {

@@ -123,32 +123,6 @@ public class step_setting extends Base_activity {
         });
     }
 
-//    private void PhaseOrderSpin_init(final TabLayout tabLayout) {
-//
-////
-//
-//        phaseorder_select=findViewById(R.id.phaseorder_select);
-//        ArrayAdapter<CharSequence> arrayAdapter_select_spinner=ArrayAdapter.createFromResource(this,R.array.plan,R.layout.myspinner_style);
-//        phaseorder_select.setAdapter(arrayAdapter_select_spinner);
-//        phaseorder_select.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//    @Override
-//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//        change_phaseorder(position);
-//        phase_ID=position;
-//        //getTotalsubphase(total_subphase,position);
-//        total_subphase.setSelection(A.getTotalSubphaseCount(phase_ID));
-//        subphase_spin.setSelection(0);
-//        LightBoardNum.setSelection(A.getTotalLightBoardCount(phase_ID));
-//     tabLayout.getTabAt(0).select();
-//        Log.d("!!!!!", "phaseorder_select onItemSelected: phase_order="+position);
-//    }
-//
-//    @Override
-//    public void onNothingSelected(AdapterView<?> parent) {
-//
-//    }
-//});
-//    }
 
     public void PhaseOrderSelect_init() {
 //參考自  https://github.com/aliab/Two-Step-Picker-Dialog
@@ -243,6 +217,7 @@ public class step_setting extends Base_activity {
             }
         });
     }
+
     private void EditViewModeButtonGroup_init() {
         ViewMode = findViewById(R.id.ViewMode);
         EditMode = findViewById(R.id.EditMode);
@@ -260,14 +235,12 @@ public class step_setting extends Base_activity {
             }
         });
     }
-
     private void EditModeScript(Button editMode, Button viewMode) {
         LightBoardNum.setEnabled(true);
         total_subphase.setEnabled(true);
         change_Editable(true);
         Editbutton_state_init(editMode, viewMode);
     }
-
     private void ViewModeScript(Button viewMode, Button editMode) {
         change_Editable(false);
         LightBoardNum.setEnabled(false);
