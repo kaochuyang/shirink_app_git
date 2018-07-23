@@ -99,41 +99,52 @@ public class plan_setting_content extends android.support.v4.app.Fragment {
     }
 
     private void plan_start_time_link_view(View rootView, EditText[] plan_start_num) {
-        plan_start_num[0] = rootView.findViewById(R.id.plan_start_num_1);
-        plan_start_num[1] = rootView.findViewById(R.id.plan_start_num_2);
-        plan_start_num[2] = rootView.findViewById(R.id.plan_start_num_3);
-        plan_start_num[3] = rootView.findViewById(R.id.plan_start_num_4);
-        plan_start_num[4] = rootView.findViewById(R.id.plan_start_num_5);
-        plan_start_num[5] = rootView.findViewById(R.id.plan_start_num_6);
-        plan_start_num[6] = rootView.findViewById(R.id.plan_start_num_7);
-        plan_start_num[7] = rootView.findViewById(R.id.plan_start_num_8);
-        plan_start_num[8] = rootView.findViewById(R.id.plan_start_num_9);
-        plan_start_num[9] = rootView.findViewById(R.id.plan_start_num_10);
-        plan_start_num[10] = rootView.findViewById(R.id.plan_start_num_11);
-        plan_start_num[11] = rootView.findViewById(R.id.plan_start_num_12);
-        plan_start_num[12] = rootView.findViewById(R.id.plan_start_num_13);
-        plan_start_num[13] = rootView.findViewById(R.id.plan_start_num_14);
-        plan_start_num[14] = rootView.findViewById(R.id.plan_start_num_15);
-        plan_start_num[15] = rootView.findViewById(R.id.plan_start_num_16);
+        for (int i = 1; i < 17; i++) {
+            String idname = "plan_start_num_" + String.format("%d", i);
+            int resID = getResources().getIdentifier(idname, "id", getActivity().getPackageName());
+            plan_start_num[i-1] = rootView.findViewById(resID);
+        }
+//        plan_start_num[0] = rootView.findViewById(R.id.plan_start_num_1);
+//        plan_start_num[1] = rootView.findViewById(R.id.plan_start_num_2);
+//        plan_start_num[2] = rootView.findViewById(R.id.plan_start_num_3);
+//        plan_start_num[3] = rootView.findViewById(R.id.plan_start_num_4);
+//        plan_start_num[4] = rootView.findViewById(R.id.plan_start_num_5);
+//        plan_start_num[5] = rootView.findViewById(R.id.plan_start_num_6);
+//        plan_start_num[6] = rootView.findViewById(R.id.plan_start_num_7);
+//        plan_start_num[7] = rootView.findViewById(R.id.plan_start_num_8);
+//        plan_start_num[8] = rootView.findViewById(R.id.plan_start_num_9);
+//        plan_start_num[9] = rootView.findViewById(R.id.plan_start_num_10);
+//        plan_start_num[10] = rootView.findViewById(R.id.plan_start_num_11);
+//        plan_start_num[11] = rootView.findViewById(R.id.plan_start_num_12);
+//        plan_start_num[12] = rootView.findViewById(R.id.plan_start_num_13);
+//        plan_start_num[13] = rootView.findViewById(R.id.plan_start_num_14);
+//        plan_start_num[14] = rootView.findViewById(R.id.plan_start_num_15);
+//        plan_start_num[15] = rootView.findViewById(R.id.plan_start_num_16);
     }
 
     private void plan_spin_num_view_init(View rootView, Spinner[] plan_spin_num) {
-        plan_spin_num[0] = rootView.findViewById(R.id.plan_spin_num_1);
-        plan_spin_num[1] = rootView.findViewById(R.id.plan_spin_num_2);
-        plan_spin_num[2] = rootView.findViewById(R.id.plan_spin_num_3);
-        plan_spin_num[3] = rootView.findViewById(R.id.plan_spin_num_4);
-        plan_spin_num[4] = rootView.findViewById(R.id.plan_spin_num_5);
-        plan_spin_num[5] = rootView.findViewById(R.id.plan_spin_num_6);
-        plan_spin_num[6] = rootView.findViewById(R.id.plan_spin_num_7);
-        plan_spin_num[7] = rootView.findViewById(R.id.plan_spin_num_8);
-        plan_spin_num[8] = rootView.findViewById(R.id.plan_spin_num_9);
-        plan_spin_num[9] = rootView.findViewById(R.id.plan_spin_num_10);
-        plan_spin_num[10] = rootView.findViewById(R.id.plan_spin_num_11);
-        plan_spin_num[11] = rootView.findViewById(R.id.plan_spin_num_12);
-        plan_spin_num[12] = rootView.findViewById(R.id.plan_spin_num_13);
-        plan_spin_num[13] = rootView.findViewById(R.id.plan_spin_num_14);
-        plan_spin_num[14] = rootView.findViewById(R.id.plan_spin_num_15);
-        plan_spin_num[15] = rootView.findViewById(R.id.plan_spin_num_16);
+        for (int i = 1; i < 17; i++) {
+            String idname = "plan_spin_num_" + String.format("%d", i);
+            int resID = getResources().getIdentifier(idname, "id", getActivity().getPackageName());
+            plan_spin_num[i-1] = rootView.findViewById(resID);
+        }
+       
+//        plan_spin_num[0] = rootView.findViewById(R.id.plan_spin_num_1);
+//        plan_spin_num[1] = rootView.findViewById(R.id.plan_spin_num_2);
+//        plan_spin_num[2] = rootView.findViewById(R.id.plan_spin_num_3);
+//        plan_spin_num[3] = rootView.findViewById(R.id.plan_spin_num_4);
+//        plan_spin_num[4] = rootView.findViewById(R.id.plan_spin_num_5);
+//        plan_spin_num[5] = rootView.findViewById(R.id.plan_spin_num_6);
+//        plan_spin_num[6] = rootView.findViewById(R.id.plan_spin_num_7);
+//        plan_spin_num[7] = rootView.findViewById(R.id.plan_spin_num_8);
+//        plan_spin_num[8] = rootView.findViewById(R.id.plan_spin_num_9);
+//        plan_spin_num[9] = rootView.findViewById(R.id.plan_spin_num_10);
+//        plan_spin_num[10] = rootView.findViewById(R.id.plan_spin_num_11);
+//        plan_spin_num[11] = rootView.findViewById(R.id.plan_spin_num_12);
+//        plan_spin_num[12] = rootView.findViewById(R.id.plan_spin_num_13);
+//        plan_spin_num[13] = rootView.findViewById(R.id.plan_spin_num_14);
+//        plan_spin_num[14] = rootView.findViewById(R.id.plan_spin_num_15);
+//        plan_spin_num[15] = rootView.findViewById(R.id.plan_spin_num_16);
     }
 
     private void plan_spin_adapter_init(Spinner[] plan_spin_num, ArrayAdapter<CharSequence> arrayAdapter_plan_spinner) {

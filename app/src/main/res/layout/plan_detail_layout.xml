@@ -57,7 +57,6 @@
             android:clickable="true"
             android:editable="false"
             android:hint="@string/segment_num"
-            android:imeOptions="actionDone"
             android:inputType="text"
             android:textSize="20sp" />
 
@@ -206,7 +205,6 @@
 
                         <EditText
                             android:id="@+id/green_light_1"
-
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"

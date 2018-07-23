@@ -12,8 +12,6 @@ import java.util.Collections;
 
 import static org.greenrobot.eventbus.EventBus.TAG;
 
-import static tw.com.cct.ms2.shirink_app_git.V3_connection_activity.send;
-
 class V3_tc_data {
 
 
@@ -21,21 +19,264 @@ class V3_tc_data {
     }
 
     private static V3_tc_data tc_data = new V3_tc_data();
+    /*一般日、特別日時段型態設定*/
+    private static int[] start_year = new int[13];
+    private static int[] start_month = new int[13];
+    private static int[] start_day = new int[13];
+    private static int[] end_year = new int[13];
+    private static int[] end_month = new int[13];
+    private static int[] end_day = new int[13];
+    private static int[] weekday = new int[14];//一般日時段型態
+    private JSONArray SpecialdaySegmentArray = new JSONArray();
+    private JSONArray WeekdaySegmentArray = new JSONArray();
+    private JSONObject[] specialdaycontext = new JSONObject[13];
+
+    private void TodInfo_init() {
+        try {
+            SpecialdaySegmentArray = jsonObject.getJSONArray("specialdaycontext");
+            WeekdaySegmentArray = jsonObject.getJSONArray("weekdaysegment");
+            SpecialdayContent_init(SpecialdaySegmentArray, specialdaycontext);
+            WeekDaySegment_init();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String sendSegmentInfoToTc() {
+        JSONObject json = new JSONObject();
+
+
+        for (int i = 0; i < 13; i++) {
+            try {
+                SpecialdaySegmentArray.optJSONObject(i).put("start_year", start_year[i]);
+                SpecialdaySegmentArray.optJSONObject(i).put("start_month", start_month[i]);
+                SpecialdaySegmentArray.optJSONObject(i).put("start_day", start_day[i]);
+                SpecialdaySegmentArray.optJSONObject(i).put("end_year", end_year[i]);
+                SpecialdaySegmentArray.optJSONObject(i).put("end_month", end_month[i]);
+                SpecialdaySegmentArray.optJSONObject(i).put("end_day", end_day[i]);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+        try {
+            json.put("specialdaycontext", SpecialdaySegmentArray);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return json.toString();
+    }
+
+    public String sendTODinfoToTc() {
+        for (int i = 0; i < 7; i++) {
+            try {
+                WeekdaySegmentArray.put(i, weekday[i]);
+                WeekdaySegmentArray.put(i + 7, weekday[i]);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        JSONObject json = new JSONObject();
+        try {
+            json.put("weekdaysegment", WeekdaySegmentArray);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return json.toString();
+    }
+
+    private void WeekDaySegment_init() {
+        for (int segmenttype = 0; segmenttype < 7; segmenttype++) {
+            try {
+                weekday[segmenttype] = (Integer) WeekdaySegmentArray.get(segmenttype);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static int getWeekday(int Weekday) {
+        return weekday[Weekday];
+    }
+
+    public static void setWeekday(int Weekday, int Segmenttype) {
+        weekday[Weekday] = Segmenttype;
+    }
+
+    private void SpecialdayContent_init(JSONArray jsonArray, final JSONObject[] specialdaycontext) {
+        try {
+            for (int i = 0; i < 13; i++) {
+                specialdaycontext[i] = jsonArray.getJSONObject(i);
+                start_year[i] = Integer.valueOf(specialdaycontext[i].getString("start_year"));
+                start_month[i] = Integer.valueOf(specialdaycontext[i].getString("start_month"));
+                start_day[i] = Integer.valueOf(specialdaycontext[i].getString("start_day"));
+                end_year[i] = Integer.valueOf(specialdaycontext[i].getString("end_year"));
+                end_month[i] = Integer.valueOf(specialdaycontext[i].getString("end_month"));
+                end_day[i] = Integer.valueOf(specialdaycontext[i].getString("end_day"));
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public int getSpecialDay(int Segmenttype, boolean StartOrEnd) {
+        Segmenttype = Segmenttype - 8;
+        int day;
+        if (StartOrEnd)//Start ==true ,End==False
+            day = start_day[Segmenttype];
+        else day = end_day[Segmenttype];
+        return day;
+    }
+
+    public void setSpecialDay(int Segmenttype, int NewDay, boolean StartOrEnd) {
+        Segmenttype = Segmenttype - 8;
+        if (StartOrEnd) start_day[Segmenttype] = NewDay;
+        else end_day[Segmenttype] = NewDay;
+    }
+
+    public int getSpecialMonth(int Segmenttype, boolean StartOrEnd) {
+        Segmenttype = Segmenttype - 8;
+        int month;
+        if (StartOrEnd)//Start ==true ,End==False
+            month = start_month[Segmenttype];
+        else month = end_month[Segmenttype];
+        return month;
+    }
+
+    public void setSpecialMonth(int Segmenttype, int Newmonth, boolean StartOrEnd) {
+        Segmenttype = Segmenttype - 8;
+        if (StartOrEnd) start_month[Segmenttype] = Newmonth;
+        else end_month[Segmenttype] = Newmonth;
+    }
+
+    public int getSpecialYear(int Segmenttype, boolean StartOrEnd) {
+        Segmenttype = Segmenttype - 8;
+        int year;
+        if (StartOrEnd)//Start ==true ,End==False
+            year = start_year[Segmenttype];
+        else year = end_year[Segmenttype];
+        return year;
+    }
+
+    public void setSpecialYear(int Segmenttype, int Newyear, boolean StartOrEnd) {
+        Segmenttype = Segmenttype - 8;
+        if (StartOrEnd) start_year[Segmenttype] = Newyear;
+        else end_year[Segmenttype] = Newyear;
+    }
+
+
     /* 時段型態的時制計畫設定*/
     private static int[][] hour = new int[21][32];//segment,segment_count
     private static int[][] minute = new int[21][32];//segment,segment_count
     private static int[][] plan_num_record = new int[21][32];//segment,segment_count
     /*-------------------------------------------------------------------*/
     /*時制計畫中的時間設定*/
-    static int[][][][] red = new int[256][8][5][6];//phase_order,subphase,step,lightboard
-    static int[][][][] green = new int[256][8][5][6];
-    static int[][][][] yellow = new int[256][8][5][6];
-    static int[][][][] pedR = new int[256][8][5][6];
-    static int[][][][] pedF = new int[256][8][5][6];
-    static int[][][][] maxG = new int[256][8][5][6];
-    static int[][][][] vminG = new int[256][8][5][6];
-    static int[] getCycle_value = new int[256];
-    static int[] getOffset = new int[256];
+    static private PlanContext planContext=new PlanContext();
+  private   JSONObject[] plancontext = new JSONObject[49];
+    private void plancontext_init(JSONObject[] plancontext) {
+        for (int i = 0; i < 49; i++) {
+            try {
+                plancontext[i] = jsonObject.getJSONArray("plancontext").optJSONObject(i);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        PlanDetailValue_init(plancontext);
+    }
+    private void PlanDetailValue_init(JSONObject[] plancontext) {
+        for (int PlanNum = 0; PlanNum < 49; PlanNum++)
+        {
+            try {
+                Log.d("!!!!!", "PlanDetailValue_init: num="+PlanNum+" "+plancontext[PlanNum].toString());
+                planContext.Cycle_value[PlanNum] = Integer.valueOf(plancontext[PlanNum].getString("cycle_time"));
+                planContext.Offset[PlanNum] = Integer.valueOf(plancontext[PlanNum].getString("offset"));
+                planContext.PhaseOrderOfPlan[PlanNum]= Integer.valueOf(plancontext[PlanNum].getString("phase_order"));
+                planContext.subphase_count[PlanNum] =total_subphasecount[planContext.PhaseOrderOfPlan[PlanNum]];
+                //Integer.valueOf(plancontext[PlanNum].getString("subphase_count"));
+                //這個參數要和step_setting的total_subphasecount[phaseorder]相等
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            for (int subphase = 0; subphase < 8; subphase++) {
+
+                try {
+                    planContext.green[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum]
+                            .getJSONArray("subphase_green").get(subphase).toString());
+                    planContext.red[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum]
+                            .getJSONArray("subphase_allred").get(subphase).toString());
+                    planContext.yellow[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum]
+                            .getJSONArray("subphase_yellow").get(subphase).toString());
+                    planContext.pedF[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum]
+                            .getJSONArray("subphase_pedgreen_flash").get(subphase).toString());
+                    planContext.pedR[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum]
+                            .getJSONArray("subphase_pedred").get(subphase).toString());
+                    planContext.minG[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum]
+                            .getJSONArray("subphase_min_green").get(subphase).toString());
+                    planContext.maxG[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum]
+                            .getJSONArray("subphase_max_green").get(subphase).toString());
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+    }
+    public String sendPlanContextToTc(int PlanNum)
+    {
+        try {
+
+
+            plancontext[PlanNum].put("cycle_time",planContext.Cycle_value[PlanNum]);
+            plancontext[PlanNum].put("offset",planContext.Offset[PlanNum]);
+            plancontext[PlanNum].put("subphase_count",planContext.subphase_count[PlanNum]);
+            plancontext[PlanNum].put("phase_order",planContext.PhaseOrderOfPlan[PlanNum]);
+            for(int Subphase=0;Subphase<planContext.subphase_count[PlanNum];Subphase++) {
+                plancontext[PlanNum].optJSONArray("subphase_allred").put(Subphase,planContext.red[PlanNum][Subphase]);
+                plancontext[PlanNum].optJSONArray("subphase_green").put(Subphase,planContext.green[PlanNum][Subphase]);
+                plancontext[PlanNum].optJSONArray("subphase_yellow").put(Subphase,planContext.yellow[PlanNum][Subphase]);
+                plancontext[PlanNum].optJSONArray("subphase_pedgreen_flash").put(Subphase,planContext.pedF[PlanNum][Subphase]);
+                plancontext[PlanNum].optJSONArray("subphase_pedred").put(Subphase,planContext.pedR[PlanNum][Subphase]);
+                plancontext[PlanNum].optJSONArray("subphase_min_green").put(Subphase,planContext.minG[PlanNum][Subphase]);
+                plancontext[PlanNum].optJSONArray("subphase_max_green").put(Subphase,planContext.maxG[PlanNum][Subphase]);
+            }
+            for(int Subphase=planContext.subphase_count[PlanNum];Subphase<8;Subphase++) {
+                plancontext[PlanNum].optJSONArray("subphase_allred").put(Subphase,0);
+                planContext.red[PlanNum][Subphase]=0;
+                plancontext[PlanNum].optJSONArray("subphase_green").put(Subphase,0);
+                planContext.green[PlanNum][Subphase]=0;
+                plancontext[PlanNum].optJSONArray("subphase_yellow").put(Subphase,0);
+                planContext.yellow[PlanNum][Subphase]=0;
+                plancontext[PlanNum].optJSONArray("subphase_pedgreen_flash").put(Subphase,0);
+                planContext.pedF[PlanNum][Subphase]=0;
+                plancontext[PlanNum].optJSONArray("subphase_pedred").put(Subphase,0);
+                planContext.pedR[PlanNum][Subphase]=0;
+                plancontext[PlanNum].optJSONArray("subphase_min_green").put(Subphase,0);
+                planContext.minG[PlanNum][Subphase]=0;
+                plancontext[PlanNum].optJSONArray("subphase_max_green").put(Subphase,999);
+                planContext.maxG[PlanNum][Subphase]=0;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject json=new JSONObject();
+        try {
+            json.put("plancontext",plancontext[PlanNum]);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return json.toString();
+    }
+    public static PlanContext getPlanContext() {
+        return planContext;
+    }
+    public static void setPlanContext(PlanContext planContext) {
+        V3_tc_data.planContext = planContext;
+    }
+
     /*-----------------------------------------------*/
     /*點燈步階中的燈態狀態 0:不亮 1:亮 2:閃爍 因為用split拆解，懶得再轉成int 所以直接用string*/
     public static int[][][][] ped_green_state = new int[256][8][5][6];//phase_order,subphasecount,lightboard_num
@@ -94,40 +335,39 @@ class V3_tc_data {
         light_board_count[PhaseOrder] = TotalLioghtBoardCount;
     }
 
-
     public String sendStepSettingToTc(int PhaseOrder) {
         try {
             Log.d(TAG, "sendStepSettingToTc: " + step_object[PhaseOrder].toString());
             step_object[PhaseOrder].put("subphase_count", total_subphasecount[PhaseOrder]);
             step_object[PhaseOrder].put("signal_count", light_board_count[PhaseOrder]);
             JSONArray subphase = new JSONArray();
-            JSONArray light= null;
-            JSONObject o_light= null;
+            JSONArray light = null;
+            JSONObject o_light = null;
             JSONArray stepdetail = null;
-            JSONObject o_stepdetail= null;
-            JSONArray sub_stepcount=new JSONArray();
+            JSONObject o_stepdetail = null;
+            JSONArray sub_stepcount = new JSONArray();
             for (int SPN = 0; SPN < total_subphasecount[PhaseOrder]; SPN++) {//SPN = SubPhaseNum
-                stepdetail=new JSONArray();
-                sub_stepcount.put(SPN,5);
+                stepdetail = new JSONArray();
+                sub_stepcount.put(SPN, 5);
                 for (int step = 0; step < 5; step++) {
-                     light = new JSONArray();
-                                         for (int LBN = 0; LBN < light_board_count[PhaseOrder]; LBN++) {//LBN = Light Board Num
+                    light = new JSONArray();
+                    for (int LBN = 0; LBN < light_board_count[PhaseOrder]; LBN++) {//LBN = Light Board Num
                         light.put(LBN, CombineLightState(PhaseOrder, SPN, step, LBN));
                     }
-                     o_light = new JSONObject();
+                    o_light = new JSONObject();
                     o_light.put("light", light);
                     //Log.d(TAG, "sendStepSettingToTc: step"+step+" ="+light.toString());
-                    stepdetail.put(step,o_light);
+                    stepdetail.put(step, o_light);
                 }
-                o_stepdetail=new JSONObject();
-                o_stepdetail.put("stepdetail",stepdetail);
-                subphase.put(SPN,o_stepdetail);
+                o_stepdetail = new JSONObject();
+                o_stepdetail.put("stepdetail", stepdetail);
+                subphase.put(SPN, o_stepdetail);
             }
-            step_object[PhaseOrder].optJSONObject("stepcontext").put("subphase",subphase);
+            step_object[PhaseOrder].optJSONObject("stepcontext").put("subphase", subphase);
 
-            for(int SPN=total_subphasecount[PhaseOrder];SPN<8;SPN++)
-                sub_stepcount.put(SPN,0);
-            step_object[PhaseOrder].put("sub_stepcount",sub_stepcount);
+            for (int SPN = total_subphasecount[PhaseOrder]; SPN < 8; SPN++)
+                sub_stepcount.put(SPN, 0);
+            step_object[PhaseOrder].put("sub_stepcount", sub_stepcount);
 
 
             Log.d(TAG, "sendStepSettingToTc:2222 " + step_object[PhaseOrder].toString());
@@ -157,14 +397,11 @@ class V3_tc_data {
 //                    .getJSONArray("light").put();
 
 
-
-
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-return step_object[PhaseOrder].toString();
+        return step_object[PhaseOrder].toString();
     }
 
 
@@ -232,16 +469,15 @@ return step_object[PhaseOrder].toString();
 
     public void put_tc_data(JSONObject object) {
         jsonObject = object;
-        init_segcontext();
-        init_setp_object();
-
+       refreshdata();
     }
 
-    public void refreshdata()//只是把jsonObject 的內容重新放過
+    public void refreshdata()//只是把jsonObject 的內容重新讀取過
     {
         init_segcontext();
         init_setp_object();
-
+        TodInfo_init();
+        plancontext_init(plancontext);
     }
 
     public JSONObject getV3_json_data() {
@@ -277,7 +513,25 @@ return step_object[PhaseOrder].toString();
             e.printStackTrace();
         }
     }
-    
+
+    public String SendSegcontextToTc(int segmenttype) {
+        for (int SegmentCount = 0; SegmentCount < 32; SegmentCount++) {
+            try {
+                segcontext[segmenttype].optJSONArray("hour").put(SegmentCount, hour[segmenttype][SegmentCount]);
+                segcontext[segmenttype].optJSONArray("minute").put(SegmentCount, minute[segmenttype][SegmentCount]);
+                segcontext[segmenttype].optJSONArray("plan").put(SegmentCount, plan_num_record[segmenttype][SegmentCount]);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        JSONObject json = new JSONObject();
+        try {
+            json.put("segmentinfo", segcontext[segmenttype]);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return json.toString();
+    }
 
     public void setHour(int segment, int segment_count, int input_hour) {
         hour[segment][segment_count] = input_hour;

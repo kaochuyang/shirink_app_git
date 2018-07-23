@@ -28,50 +28,6 @@
 
         </android.support.v7.widget.Toolbar>
 
-
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/segment_num_mark"-->
-        <!--android:textSize="25sp"-->
-        <!--android:textStyle="bold"/>-->
-        <!--<EditText-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/segment_num"-->
-        <!--android:textSize="25sp"-->
-        <!--android:hint="@string/segment_num"-->
-        <!--/>-->
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-
-        <!--android:text="@string/subsegment_"-->
-        <!--android:textSize="25sp"-->
-        <!--android:textStyle="bold" />-->
-
-        <!--<EditText-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textSize="25sp"-->
-        <!--android:id="@+id/subsegment_X"-->
-        <!--android:hint="@string/subsegment_X">-->
-
-        <!--</EditText>-->
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textSize="25sp"-->
-        <!--android:textStyle="bold"-->
-        <!--android:text="@string/total_subsegment"-->
-        <!--/>-->
-        <!--<EditText-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textSize="25sp"-->
-        <!--android:hint="總分相數"/>-->
-
-
         <LinearLayout
             android:id="@+id/a123"
             android:layout_width="match_parent"

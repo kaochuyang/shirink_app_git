@@ -30,7 +30,7 @@ import static tw.com.cct.ms2.shirink_app_git.V3_tc_data.jsonObject;
 
 public class plan_setting_fragment extends android.support.v4.app.Fragment {
     final EditText[] plan_start_num = new EditText[16];
-    JSONObject[] segcontext = new JSONObject[16];
+
     Spinner plan_spin_num[] = new Spinner[16];
     int record_segment;
     V3_tc_data A = V3_tc_data.getV3_tc_data();
@@ -40,19 +40,14 @@ public class plan_setting_fragment extends android.support.v4.app.Fragment {
         View rootView = inflater.inflate(R.layout.plan_setting_fragment, container, false);
         ArrayAdapter<CharSequence> arrayAdapter_plan_spinner=ArrayAdapter.createFromResource(this.getActivity(),R.array.plan,R.layout.myspinner_style);
         //  arrayAdapter_tod_spinner
-               JSONObject jsonObject = A.getV3_json_data();
-
         plan_spin_num_view_init(rootView, plan_spin_num);
         plan_spin_adapter_init(plan_spin_num, arrayAdapter_plan_spinner);
 
-   //     init_segcontext(jsonObject, segcontext);
         plan_start_time_link_view(rootView, plan_start_num);
 
         plan_start_num_set_init_text(plan_start_num,1);
         for (int SegmentCount = 16; SegmentCount < 32; SegmentCount++)
             plan_start_time_setonclick(plan_start_num, SegmentCount);
-
-
         return rootView;
     }
 
@@ -75,9 +70,6 @@ public class plan_setting_fragment extends android.support.v4.app.Fragment {
         record_segment = index;
         plan_start_num_set_init_text(plan_start_num,index);
         plan_spin_init_value(plan_spin_num,index);
-
-
-
     }
     private void plan_spin_init_value(Spinner[] plan_spin_num,int segmenttype)  {
         for (int i = 0; i < 16; i++) {
@@ -168,59 +160,32 @@ public class plan_setting_fragment extends android.support.v4.app.Fragment {
     }
 
     public String setTimeFormat(int hour, int minute, int Segment, int SegmentCount) {
-
-
         A.setHour(Segment, SegmentCount, hour);
         A.setMinute(Segment, SegmentCount, minute);
-
-
         return String.valueOf(hour) + ":" + String.valueOf(minute);
     }
 
 
     private void plan_start_time_link_view(View rootView, EditText[] plan_start_num) {
-        plan_start_num[0] = rootView.findViewById(R.id.plan_start_num_17);
-        plan_start_num[1] = rootView.findViewById(R.id.plan_start_num_18);
-        plan_start_num[2] = rootView.findViewById(R.id.plan_start_num_19);
-        plan_start_num[3] = rootView.findViewById(R.id.plan_start_num_20);
-        plan_start_num[4] = rootView.findViewById(R.id.plan_start_num_21);
-        plan_start_num[5] = rootView.findViewById(R.id.plan_start_num_22);
-        plan_start_num[6] = rootView.findViewById(R.id.plan_start_num_23);
-        plan_start_num[7] = rootView.findViewById(R.id.plan_start_num_24);
-        plan_start_num[8] = rootView.findViewById(R.id.plan_start_num_25);
-        plan_start_num[9] = rootView.findViewById(R.id.plan_start_num_26);
-        plan_start_num[10] = rootView.findViewById(R.id.plan_start_num_27);
-        plan_start_num[11] = rootView.findViewById(R.id.plan_start_num_28);
-        plan_start_num[12] = rootView.findViewById(R.id.plan_start_num_29);
-        plan_start_num[13] = rootView.findViewById(R.id.plan_start_num_30);
-        plan_start_num[14] = rootView.findViewById(R.id.plan_start_num_31);
-        plan_start_num[15] = rootView.findViewById(R.id.plan_start_num_32);
+        for (int i = 17; i < 33; i++) {
+            String idname = "plan_start_num_" + String.format("%d", i);
+            int resID = getResources().getIdentifier(idname, "id", getActivity().getPackageName());
+            plan_start_num[i-17] = rootView.findViewById(resID);
+        }
+
     }
 
     private void plan_spin_num_view_init(View rootView, Spinner[] plan_spin_num) {
-        plan_spin_num[0]=rootView.findViewById(R.id.plan_spin_num_17);
-        plan_spin_num[1]=rootView.findViewById(R.id.plan_spin_num_18);
-        plan_spin_num[2]=rootView.findViewById(R.id.plan_spin_num_19);
-        plan_spin_num[3]=rootView.findViewById(R.id.plan_spin_num_20);
-        plan_spin_num[4]=rootView.findViewById(R.id.plan_spin_num_21);
-        plan_spin_num[5]=rootView.findViewById(R.id.plan_spin_num_22);
-        plan_spin_num[6]=rootView.findViewById(R.id.plan_spin_num_23);
-        plan_spin_num[7]=rootView.findViewById(R.id.plan_spin_num_24);
-        plan_spin_num[8]=rootView.findViewById(R.id.plan_spin_num_25);
-        plan_spin_num[9]=rootView.findViewById(R.id.plan_spin_num_26);
-        plan_spin_num[10]=rootView.findViewById(R.id.plan_spin_num_27);
-        plan_spin_num[11]=rootView.findViewById(R.id.plan_spin_num_28);
-        plan_spin_num[12]=rootView.findViewById(R.id.plan_spin_num_29);
-        plan_spin_num[13]=rootView.findViewById(R.id.plan_spin_num_30);
-        plan_spin_num[14]=rootView.findViewById(R.id.plan_spin_num_31);
-        plan_spin_num[15]=rootView.findViewById(R.id.plan_spin_num_32);
+        for (int i = 17; i < 33; i++) {
+            String idname = "plan_spin_num_" + String.format("%d", i);
+            int resID = getResources().getIdentifier(idname, "id", getActivity().getPackageName());
+            plan_spin_num[i-17] = rootView.findViewById(resID);
+        }
     }
 
     private void plan_spin_adapter_init(Spinner[] plan_spin_num, ArrayAdapter<CharSequence> arrayAdapter_plan_spinner) {
         for (int i = 0; i < 16; i++)
         plan_spin_num[i].setAdapter(arrayAdapter_plan_spinner);
-
-
     }
 
 }

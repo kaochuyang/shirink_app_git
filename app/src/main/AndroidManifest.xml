@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tw.com.cct.ms2.shirink_app_git">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,31 +22,46 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".V3_connection_activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".tod_setting"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".plan_setting"
-            android:screenOrientation="portrait"/>
         <activity
-            android:screenOrientation="portrait"
+            android:name=".V3_connection_activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tod_setting"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".plan_setting"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Main3Activity"
             android:label="@string/title_activity_main3"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".plan_detail"
-            android:screenOrientation="portrait"/>
-        <activity
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".plan_detail"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".step_setting"
             android:label="@string/title_activity_step_setting"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:screenOrientation="portrait"
             android:name=".Direction_setting"
             android:label="@string/title_activity_direction_setting"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
 
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".TcpService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
+
 </manifest>

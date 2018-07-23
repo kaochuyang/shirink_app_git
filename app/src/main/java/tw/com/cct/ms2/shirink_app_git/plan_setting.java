@@ -68,8 +68,11 @@ public class plan_setting extends Base_activity {
                                 Snackbar.make(view, "設定", Snackbar.LENGTH_LONG)
                                         .setAction("Action", null).show();
                                 A.plan_sort(segmenttype_record);
-                                A.print_plan();
+                      //          A.print_plan();
+
                                 change_segmenttype(segmenttype_record);
+                                Log.d("12323213213", "onMenuItemClick: "+A.SendSegcontextToTc(segmenttype_record));
+tcpClass.send(A.SendSegcontextToTc(segmenttype_record));
                                 return true;
                             case R.id.cancel:
                                 Snackbar.make(view, "取消", Snackbar.LENGTH_LONG)
@@ -195,17 +198,20 @@ public class plan_setting extends Base_activity {
     protected void onResume() {
         super.onResume();
         EventBus.getDefault().register(this);
+        tcpClass.connect();
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        tcpClass.SocketDestroy();
         EventBus.getDefault().unregister(this);
     }
     @Override
     public void onStop() {
         super.onStop();
-
+        tcpClass.SocketDestroy();
         //反注册
         EventBus.getDefault().unregister(this);
     }
