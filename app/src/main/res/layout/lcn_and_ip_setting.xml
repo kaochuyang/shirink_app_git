@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:id="@+id/editLCN_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/lable_LCN"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:gravity="center_horizontal"
+                android:text="設備編號:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/editLCN"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:hint="LCN"
+                android:inputType="number"
+                android:maxLength="5" />
+        </TableRow>
+    </TableLayout>
+
+
+    <TableLayout
+        android:id="@+id/host_IP_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editLCN_group"
+        android:orientation="horizontal">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/host_lable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="本機IP:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/host_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/host_1_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="." />
+
+            <EditText
+                android:id="@+id/host_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/host_2_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="." />
+
+            <EditText
+                android:id="@+id/host_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/host_3_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="." />
+
+            <EditText
+                android:id="@+id/host_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/host_4_colon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text=":" />
+
+            <EditText
+                android:id="@+id/host_port"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="port"
+
+                android:inputType="number"
+                android:maxLength="5" />
+        </TableRow>
+    </TableLayout>
+
+    <View
+        android:id="@+id/view_host_IP_line"
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/host_IP_group"
+        android:background="#000000" />
+
+    <TableLayout
+        android:id="@+id/remote1_ip_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/host_IP_group"
+        android:orientation="horizontal">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/remote1_lable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="目標IP1:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/remote1_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/remote1_1_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="." />
+
+            <EditText
+                android:id="@+id/remote1_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/remote1_2_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="." />
+
+            <EditText
+                android:id="@+id/remote1_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/remote1_3_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="." />
+
+            <EditText
+                android:id="@+id/remote1_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/remote1_4_colon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text=":" />
+
+            <EditText
+                android:id="@+id/remote1_port"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:hint="port"
+
+                android:inputType="number"
+                android:maxLength="5" />
+        </TableRow>
+
+    </TableLayout>
+
+    <View
+        android:id="@+id/view_remote0_IP_line"
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/remote0_ip_group"
+        android:background="#000000" />
+
+    <TableLayout
+        android:id="@+id/netmask_ip_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/remote0_ip_group"
+        android:orientation="horizontal">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/netmask_lable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="網路遮罩:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/netmask_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/netmask_1_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="." />
+
+            <EditText
+                android:id="@+id/netmask_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/netmask_2_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="." />
+
+            <EditText
+                android:id="@+id/netmask_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/netmask_3_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="." />
+
+            <EditText
+                android:id="@+id/netmask_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+        </TableRow>
+    </TableLayout>
+
+    <View
+        android:id="@+id/view_netmask_IP_line"
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/netmask_ip_group"
+        android:background="#000000" />
+
+    <TableLayout
+        android:id="@+id/gateway_ip_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/netmask_ip_group"
+        android:orientation="horizontal">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/gateway_lable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="預設閘道:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/gateway_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/gateway_1_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="." />
+
+            <EditText
+                android:id="@+id/gateway_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/gateway_2_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="." />
+
+            <EditText
+                android:id="@+id/gateway_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/gateway_3_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="." />
+
+            <EditText
+                android:id="@+id/gateway_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+        </TableRow>
+    </TableLayout>
+
+    <View
+        android:id="@+id/view_gateway_IP_line"
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/gateway_ip_group"
+        android:background="#000000" />
+
+    <TableLayout
+        android:id="@+id/remote0_ip_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/remote1_ip_group"
+        android:orientation="horizontal">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/remote0_lable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="目標IP2:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/remote0_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/remote0_1_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="." />
+
+            <EditText
+                android:id="@+id/remote0_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/remote0_2_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="." />
+
+            <EditText
+                android:id="@+id/remote0_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/remote0_3_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text="." />
+
+            <EditText
+                android:id="@+id/remote0_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+
+                android:maxLength="3" />
+
+            <TextView
+                android:id="@+id/remote0_4_colon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+
+                android:text=":" />
+
+            <EditText
+                android:id="@+id/remote0_port"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="port"
+
+
+                android:inputType="number"
+                android:maxLength="5" />
+        </TableRow>
+
+    </TableLayout>
+
+    <View
+        android:id="@+id/view_remote1_IP_line"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/remote1_ip_group"
+        android:background="#000000" />
+
+</RelativeLayout>

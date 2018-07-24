@@ -122,7 +122,7 @@
             android:text="主機IP:" />
 
         <TextView
-            android:id="@+id/content_"
+            android:id="@+id/content_hostIP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="          " />
@@ -408,6 +408,13 @@
             android:layout_height="wrap_content"
             android:text="紅燈倒數模組設定" />
 
+    </TableRow>
+    <TableRow>
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/IPGrou_setting"
+            android:text="設備編號及IP設定"/>
     </TableRow>
     <!--以上是靜態內容-->
     <!--區分內容和功能的分隔線-->

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,7 +39,8 @@ public abstract class Base_activity extends AppCompatActivity {
                             case R.id.enter:
                                 Snackbar.make(view, "下傳", Snackbar.LENGTH_LONG)
                                         .setAction("Action", null).show();
-//            ... code ...
+
+
                                 return true;
                             case R.id.cancel:
                                 Snackbar.make(view, "取消", Snackbar.LENGTH_LONG)

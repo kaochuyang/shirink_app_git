@@ -5,18 +5,27 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.PopupMenu;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.greenrobot.eventbus.EventBus;
+import org.json.JSONException;
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static tw.com.cct.ms2.shirink_app_git.V3_tc_data.jsonObject;
 
 public class MainActivity extends Base_activity {
 
@@ -27,7 +36,19 @@ public class MainActivity extends Base_activity {
 
 
     private final CharSequence[] items = {"允許現場設定", "不允許現場設定", "只允許現場查看"};
-
+V3_tc_data A=V3_tc_data.getV3_tc_data();
+    TextView systemDate;
+    TextView StratageType;
+    TextView LinkStateWithCenter;
+    TextView LCN;
+    TextView HostIP;
+    TextView Netmask;
+    TextView Gateway;
+    TextView DestIP1;
+    TextView DestIP2;
+    TextView HardwareVersion;
+    TextView LastUpdateTime;
+    TextView LastShutDownTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +86,103 @@ public class MainActivity extends Base_activity {
 
         Button redcount_setting = findViewById(R.id.redcount_setting);
         final Button chain_setting = findViewById(R.id.chain_setting);
+Button IPGroup_setting=findViewById(R.id.IPGrou_setting);
+IPGroup_setting.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        final View DialogLayout= LayoutInflater.from(MainActivity.this).inflate(R.layout.lcn_and_ip_setting, null);
+        //TextView ResourseSegmenttype= DialogLayout.findViewById(R.id.ResourceSegmenttype);
+        //ResourseSegmenttype.setText(String.valueOf(segmenttype_record));
+        //final EditText DestSegmenttype= DialogLayout.findViewById(R.id.DestSegmenttype);
+        AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+                .setTitle("時段型態內容複製")
+                //.setMessage("是否要離開?")
+                .setView(DialogLayout)
+                //  .setCancelable(false)
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(), "無複製內容" , Toast.LENGTH_SHORT).show();
+
+                    }
+                })
+//                .setNeutralButton("忽略", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                })
+                .setPositiveButton("確認", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+//                        int destSegment=Integer.parseInt(String.valueOf(DestSegmenttype.getText()));
+//                        if((destSegment<1)||(destSegment>20))
+//                            Toast.makeText(getApplicationContext(), "輸入錯誤，時段型態範圍1~20",Toast.LENGTH_LONG).show();
+//                        else {                        A.copySegment(segmenttype_record,destSegment);
+//                            //可能要把下傳功能也放進這段
+//                            Toast.makeText(getApplicationContext(), "將時段型態"+segmenttype_record+"內容複製到時段型態"+DestSegmenttype.getText(), Toast.LENGTH_SHORT).show();}
+                    }
+                }).create();
+        dialog.show();
+    }
+});
 
 
+         systemDate=findViewById(R.id.systemDate);
+         StratageType=findViewById(R.id.StratageType);
+         LinkStateWithCenter=findViewById(R.id.LinkStateWithCenter);
+         LCN=findViewById(R.id.LCN);
+         HostIP=findViewById(R.id.content_hostIP);
+         Netmask=findViewById(R.id.content_netmask);
+         Gateway=findViewById(R.id.content_gateway);
+         DestIP1=findViewById(R.id.content_remote_ip1);
+         DestIP2=findViewById(R.id.content_remote_ip2);
+         HardwareVersion=findViewById(R.id.HardwareVersion);
+         LastUpdateTime=findViewById(R.id.LastUpdateTime);
+         LastShutDownTime=findViewById(R.id.LastShutDownTime);
+        init_Info();
+
+
+        setting_button_group.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(final View view) {
+//應該要全頁面拿來共用此按鈕
+                PopupMenu button_popmenu = new PopupMenu(MainActivity.this, view);
+                button_popmenu.getMenuInflater().inflate(R.menu.button_popmenu, button_popmenu.getMenu());
+                button_popmenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+//                         Do something...
+                        switch (item.getItemId()) {
+                            case R.id.enter:
+                                Snackbar.make(view, "下傳", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+
+                                return true;
+                            case R.id.cancel:
+                                Snackbar.make(view, "取消", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+//            ... code ...
+                                return true;
+                            case R.id.reset:
+                                Snackbar.make(view, "重新整理", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+                                return true;
+                            default:
+                                return false;
+                        }
+
+                    }
+
+                });
+
+                button_popmenu.show();
+            }
+
+
+        });
 
         light_direction_setting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,6 +296,37 @@ public class MainActivity extends Base_activity {
         // Example of a call to a native method
 //        TextView tv = (TextView) findViewById(R.id.sample_text);
 //        tv.setText(stringFromJNI());
+    }
+
+    private void init_Info() {
+        LCN.setText(String.valueOf(A.getLCN()));
+        TC_IP_info IP_Group=A.getIP_Group();
+        HostIP.setText(Format_IP(IP_Group.HostIP,IP_Group.HostPort));
+        DestIP1.setText(Format_IP(IP_Group.DestIP0,IP_Group.DestPort0));
+        DestIP2.setText(Format_IP(IP_Group.DestIP1,IP_Group.DestPort1));
+        Netmask.setText(Format_Net(IP_Group.Netmask));
+        Gateway.setText(Format_Net(IP_Group.Gateway));
+        LastShutDownTime.setText(DateTimeFormat(A.getLastShutDowmTime()));
+        HardwareVersion.setText(A.getHardwareVersion());
+        LastUpdateTime.setText(A.getHWUpdateTime());
+    }
+
+    public String DateTimeFormat(YMDHMS ymdhms)
+    {String result;
+        result=ymdhms.Year+"年"+ymdhms.Month+"月"+ymdhms.Day+"日"+"   "+ymdhms.Hour+"時"+ymdhms.Min+"分"+ymdhms.Sec+"秒";
+        return result;
+    }
+public String Format_IP(int []IPInfo,int Port)
+{
+    String result;
+    result=Format_Net(IPInfo)+":"+Port;
+        return result;
+}
+    public String Format_Net(int []IPInfo)
+    {
+        String result;
+        result=IPInfo[0]+"."+IPInfo[1]+"."+IPInfo[2]+"."+IPInfo[3];
+        return result;
     }
 
 
@@ -566,6 +713,33 @@ public class MainActivity extends Base_activity {
                 .show();
 
     }
+
+
+
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+        init_Info();
+        tcpClass.connect();
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        tcpClass.SocketDestroy();
+        super.onDestroy();
+
+    }
+
+    @Override
+    public void onStop() {
+        tcpClass.SocketDestroy();
+                super.onStop();
+
+    }
+
+
 
 
 //////////////////////////////////主程式底部///////////////////////////////

@@ -173,8 +173,9 @@ class V3_tc_data {
     private static int[][] plan_num_record = new int[21][32];//segment,segment_count
     /*-------------------------------------------------------------------*/
     /*時制計畫中的時間設定*/
-    static private PlanContext planContext=new PlanContext();
-  private   JSONObject[] plancontext = new JSONObject[49];
+    static private PlanContext planContext = new PlanContext();
+    private JSONObject[] plancontext = new JSONObject[49];
+
     private void plancontext_init(JSONObject[] plancontext) {
         for (int i = 0; i < 49; i++) {
             try {
@@ -185,15 +186,15 @@ class V3_tc_data {
         }
         PlanDetailValue_init(plancontext);
     }
+
     private void PlanDetailValue_init(JSONObject[] plancontext) {
-        for (int PlanNum = 0; PlanNum < 49; PlanNum++)
-        {
+        for (int PlanNum = 0; PlanNum < 49; PlanNum++) {
             try {
-                Log.d("!!!!!", "PlanDetailValue_init: num="+PlanNum+" "+plancontext[PlanNum].toString());
+                Log.d("!!!!!", "PlanDetailValue_init: num=" + PlanNum + " " + plancontext[PlanNum].toString());
                 planContext.Cycle_value[PlanNum] = Integer.valueOf(plancontext[PlanNum].getString("cycle_time"));
                 planContext.Offset[PlanNum] = Integer.valueOf(plancontext[PlanNum].getString("offset"));
-                planContext.PhaseOrderOfPlan[PlanNum]= Integer.valueOf(plancontext[PlanNum].getString("phase_order"));
-                planContext.subphase_count[PlanNum] =total_subphasecount[planContext.PhaseOrderOfPlan[PlanNum]];
+                planContext.PhaseOrderOfPlan[PlanNum] = Integer.valueOf(plancontext[PlanNum].getString("phase_order"));
+                planContext.subphase_count[PlanNum] = total_subphasecount[planContext.PhaseOrderOfPlan[PlanNum]];
                 //Integer.valueOf(plancontext[PlanNum].getString("subphase_count"));
                 //這個參數要和step_setting的total_subphasecount[phaseorder]相等
             } catch (JSONException e) {
@@ -202,20 +203,13 @@ class V3_tc_data {
             for (int subphase = 0; subphase < 8; subphase++) {
 
                 try {
-                    planContext.green[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum]
-                            .getJSONArray("subphase_green").get(subphase).toString());
-                    planContext.red[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum]
-                            .getJSONArray("subphase_allred").get(subphase).toString());
-                    planContext.yellow[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum]
-                            .getJSONArray("subphase_yellow").get(subphase).toString());
-                    planContext.pedF[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum]
-                            .getJSONArray("subphase_pedgreen_flash").get(subphase).toString());
-                    planContext.pedR[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum]
-                            .getJSONArray("subphase_pedred").get(subphase).toString());
-                    planContext.minG[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum]
-                            .getJSONArray("subphase_min_green").get(subphase).toString());
-                    planContext.maxG[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum]
-                            .getJSONArray("subphase_max_green").get(subphase).toString());
+                    planContext.green[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum].getJSONArray("subphase_green").get(subphase).toString());
+                    planContext.red[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum].getJSONArray("subphase_allred").get(subphase).toString());
+                    planContext.yellow[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum].getJSONArray("subphase_yellow").get(subphase).toString());
+                    planContext.pedF[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum].getJSONArray("subphase_pedgreen_flash").get(subphase).toString());
+                    planContext.pedR[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum].getJSONArray("subphase_pedred").get(subphase).toString());
+                    planContext.minG[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum].getJSONArray("subphase_min_green").get(subphase).toString());
+                    planContext.maxG[PlanNum][subphase] = Integer.valueOf(plancontext[PlanNum].getJSONArray("subphase_max_green").get(subphase).toString());
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -224,55 +218,57 @@ class V3_tc_data {
             }
         }
     }
-    public String sendPlanContextToTc(int PlanNum)
-    {
+
+    public String sendPlanContextToTc(int PlanNum) {
         try {
 
 
-            plancontext[PlanNum].put("cycle_time",planContext.Cycle_value[PlanNum]);
-            plancontext[PlanNum].put("offset",planContext.Offset[PlanNum]);
-            plancontext[PlanNum].put("subphase_count",planContext.subphase_count[PlanNum]);
-            plancontext[PlanNum].put("phase_order",planContext.PhaseOrderOfPlan[PlanNum]);
-            for(int Subphase=0;Subphase<planContext.subphase_count[PlanNum];Subphase++) {
-                plancontext[PlanNum].optJSONArray("subphase_allred").put(Subphase,planContext.red[PlanNum][Subphase]);
-                plancontext[PlanNum].optJSONArray("subphase_green").put(Subphase,planContext.green[PlanNum][Subphase]);
-                plancontext[PlanNum].optJSONArray("subphase_yellow").put(Subphase,planContext.yellow[PlanNum][Subphase]);
-                plancontext[PlanNum].optJSONArray("subphase_pedgreen_flash").put(Subphase,planContext.pedF[PlanNum][Subphase]);
-                plancontext[PlanNum].optJSONArray("subphase_pedred").put(Subphase,planContext.pedR[PlanNum][Subphase]);
-                plancontext[PlanNum].optJSONArray("subphase_min_green").put(Subphase,planContext.minG[PlanNum][Subphase]);
-                plancontext[PlanNum].optJSONArray("subphase_max_green").put(Subphase,planContext.maxG[PlanNum][Subphase]);
+            plancontext[PlanNum].put("cycle_time", planContext.Cycle_value[PlanNum]);
+            plancontext[PlanNum].put("offset", planContext.Offset[PlanNum]);
+            plancontext[PlanNum].put("subphase_count", planContext.subphase_count[PlanNum]);
+            plancontext[PlanNum].put("phase_order", planContext.PhaseOrderOfPlan[PlanNum]);
+            for (int Subphase = 0; Subphase < planContext.subphase_count[PlanNum]; Subphase++) {
+                plancontext[PlanNum].optJSONArray("subphase_allred").put(Subphase, planContext.red[PlanNum][Subphase]);
+                plancontext[PlanNum].optJSONArray("subphase_green").put(Subphase, planContext.green[PlanNum][Subphase]);
+                plancontext[PlanNum].optJSONArray("subphase_yellow").put(Subphase, planContext.yellow[PlanNum][Subphase]);
+                plancontext[PlanNum].optJSONArray("subphase_pedgreen_flash").put(Subphase, planContext.pedF[PlanNum][Subphase]);
+                plancontext[PlanNum].optJSONArray("subphase_pedred").put(Subphase, planContext.pedR[PlanNum][Subphase]);
+                plancontext[PlanNum].optJSONArray("subphase_min_green").put(Subphase, planContext.minG[PlanNum][Subphase]);
+                plancontext[PlanNum].optJSONArray("subphase_max_green").put(Subphase, planContext.maxG[PlanNum][Subphase]);
             }
-            for(int Subphase=planContext.subphase_count[PlanNum];Subphase<8;Subphase++) {
-                plancontext[PlanNum].optJSONArray("subphase_allred").put(Subphase,0);
-                planContext.red[PlanNum][Subphase]=0;
-                plancontext[PlanNum].optJSONArray("subphase_green").put(Subphase,0);
-                planContext.green[PlanNum][Subphase]=0;
-                plancontext[PlanNum].optJSONArray("subphase_yellow").put(Subphase,0);
-                planContext.yellow[PlanNum][Subphase]=0;
-                plancontext[PlanNum].optJSONArray("subphase_pedgreen_flash").put(Subphase,0);
-                planContext.pedF[PlanNum][Subphase]=0;
-                plancontext[PlanNum].optJSONArray("subphase_pedred").put(Subphase,0);
-                planContext.pedR[PlanNum][Subphase]=0;
-                plancontext[PlanNum].optJSONArray("subphase_min_green").put(Subphase,0);
-                planContext.minG[PlanNum][Subphase]=0;
-                plancontext[PlanNum].optJSONArray("subphase_max_green").put(Subphase,999);
-                planContext.maxG[PlanNum][Subphase]=0;
+            for (int Subphase = planContext.subphase_count[PlanNum]; Subphase < 8; Subphase++) {
+                plancontext[PlanNum].optJSONArray("subphase_allred").put(Subphase, 0);
+                planContext.red[PlanNum][Subphase] = 0;
+                plancontext[PlanNum].optJSONArray("subphase_green").put(Subphase, 0);
+                planContext.green[PlanNum][Subphase] = 0;
+                plancontext[PlanNum].optJSONArray("subphase_yellow").put(Subphase, 0);
+                planContext.yellow[PlanNum][Subphase] = 0;
+                plancontext[PlanNum].optJSONArray("subphase_pedgreen_flash").put(Subphase, 0);
+                planContext.pedF[PlanNum][Subphase] = 0;
+                plancontext[PlanNum].optJSONArray("subphase_pedred").put(Subphase, 0);
+                planContext.pedR[PlanNum][Subphase] = 0;
+                plancontext[PlanNum].optJSONArray("subphase_min_green").put(Subphase, 0);
+                planContext.minG[PlanNum][Subphase] = 0;
+                plancontext[PlanNum].optJSONArray("subphase_max_green").put(Subphase, 999);
+                planContext.maxG[PlanNum][Subphase] = 0;
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        JSONObject json=new JSONObject();
+        JSONObject json = new JSONObject();
         try {
-            json.put("plancontext",plancontext[PlanNum]);
+            json.put("plancontext", plancontext[PlanNum]);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return json.toString();
     }
+
     public static PlanContext getPlanContext() {
         return planContext;
     }
+
     public static void setPlanContext(PlanContext planContext) {
         V3_tc_data.planContext = planContext;
     }
@@ -405,7 +401,7 @@ class V3_tc_data {
     }
 
 
-    static JSONObject jsonObject = new JSONObject();
+    public static JSONObject jsonObject = new JSONObject();
     private static JSONObject[] segcontext = new JSONObject[21];
     private static JSONObject[] step_object = new JSONObject[256];//for step_setting
 
@@ -469,7 +465,7 @@ class V3_tc_data {
 
     public void put_tc_data(JSONObject object) {
         jsonObject = object;
-       refreshdata();
+        refreshdata();
     }
 
     public void refreshdata()//只是把jsonObject 的內容重新讀取過
@@ -478,6 +474,7 @@ class V3_tc_data {
         init_setp_object();
         TodInfo_init();
         plancontext_init(plancontext);
+        init_Tc_Static_info();
     }
 
     public JSONObject getV3_json_data() {
@@ -607,19 +604,80 @@ class V3_tc_data {
         }
     }
 
-    private int []HostIP=new int[4];
-    private int HostPort;
-    private int []DestIP0=new int[4];
-    private int DestPort0;
-    private int []DestIP1=new int[4];
-    private int DestPort1;
-    private int Netmask;
-    private int Gateway;
-    private int LCN;
-    private int []HWVersion=new int[2];
-    private int HWmodifyYear;
-    private int HWmodifyMonth;
-    private int HWmodifyDay;
-    java.util.Date uDate=new java.util.Date();
 
+    private void init_Tc_Static_info() {
+        try {
+            JSONObject HWinfo = jsonObject.getJSONObject("HardwareGroup");
+            HWVersion[0] = HWinfo.getJSONArray("Version").getInt(0);
+            HWVersion[1] = HWinfo.getJSONArray("Version").getInt(1);
+            LastHWUpdateTime.Year = HWinfo.getInt("modifyYear");
+            LastHWUpdateTime.Month = HWinfo.getInt("modifyMonth");
+            LastHWUpdateTime.Day = HWinfo.getInt("modifyDay");
+            JSONObject ShutDownTime = jsonObject.getJSONObject("LastShutDownTime");
+            LastShutDowmTime.Year = ShutDownTime.getInt("year");
+            LastShutDowmTime.Month = ShutDownTime.getInt("month");
+            LastShutDowmTime.Day = ShutDownTime.getInt("day");
+            LastShutDowmTime.Hour = ShutDownTime.getInt("hour");
+            LastShutDowmTime.Min = ShutDownTime.getInt("min");
+            LastShutDowmTime.Sec = ShutDownTime.getInt("sec");
+            IPGroup_init();
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void IPGroup_init() throws JSONException {
+        JSONObject IPGroup = jsonObject.getJSONObject("IP_Group");
+        Log.d(TAG, "test: "+IPGroup.toString());
+        for (int i = 0; i < 4; i++) {
+            IP_Group.HostIP[i] = IPGroup.optJSONArray("HostIP").getInt(i);
+            IP_Group.DestIP0[i] = IPGroup.optJSONArray("DestIP0").getInt(i);
+            IP_Group.DestIP1[i] = IPGroup.optJSONArray("DestIP1").getInt(i);
+            IP_Group.Netmask[i] = IPGroup.optJSONArray("Netmask").getInt(i);
+            IP_Group.Gateway[i] = IPGroup.optJSONArray("Gateway").getInt(i);
+        }
+        IP_Group.HostPort = IPGroup.getInt("HostPort");
+        IP_Group.DestPort0 = IPGroup.getInt("Dest0_Port");
+        IP_Group.DestPort1 = IPGroup.getInt("Dest1_Port");
+        LCN = IPGroup.getInt("LCN");
+    }
+
+    private int LCN;
+    private int[] HWVersion = new int[2];
+    private YMDHMS LastHWUpdateTime = new YMDHMS();
+    private YMDHMS TC_SystemTime = new YMDHMS();
+    private YMDHMS LastShutDowmTime = new YMDHMS();
+    private TC_IP_info IP_Group = new TC_IP_info();
+
+    public String getHardwareVersion() {
+        return HWVersion[0] + "." + HWVersion[1];
+    }
+
+    public String getHWUpdateTime() {
+        String result;
+        result = LastHWUpdateTime.Year + "年" + LastHWUpdateTime.Month + "月" + LastHWUpdateTime.Day + "日" + "   " + LastHWUpdateTime.Hour + "時" + LastHWUpdateTime.Min + "分" + LastHWUpdateTime.Sec + "秒";
+        return result;
+    }
+
+    public YMDHMS getLastShutDowmTime() {
+        return LastShutDowmTime;
+    }
+
+    public TC_IP_info getIP_Group() {
+        return IP_Group;
+    }
+
+    public void setIP_Group(TC_IP_info IP_Group) {
+        this.IP_Group = IP_Group;
+    }
+
+    public int getLCN() {
+        return LCN;
+    }
+
+    public void setLCN(int LCN) {
+        this.LCN = LCN;
+    }
 }
