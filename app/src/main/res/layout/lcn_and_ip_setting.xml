@@ -36,7 +36,6 @@
         </TableRow>
     </TableLayout>
 
-
     <TableLayout
         android:id="@+id/host_IP_group"
         android:layout_width="match_parent"
