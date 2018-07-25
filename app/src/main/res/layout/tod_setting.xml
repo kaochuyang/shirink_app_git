@@ -1,718 +1,746 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <LinearLayout
-
-        android:id="@+id/weekday_label_mark"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/weekday_label"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/timeofday"
-            android:textSize="15sp" />
-
-    </LinearLayout>
-
-    <TableRow
-        android:id="@+id/weekday_label_group"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-
-        <TextView
-            android:id="@+id/label_weeday_mark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="@string/timeofday_mark"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/label_monday"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="@string/monday"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/label_tuesday"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-
-            android:text="@string/tuesday"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/label_wednesday"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="@string/wednesday"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/label_thursday"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="@string/thirsday"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/label_friday"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="@string/friday"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/label_saturday"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="@string/saturday"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/label_sunday"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="@string/sunday"
-            android:textSize="15sp" />
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/common_day_setting_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/label_segement_mark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="@string/segmenttype_mark"
-            android:textSize="15sp" />
-
-        <Spinner
-            android:id="@+id/Spin_common_day_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:popupBackground="@drawable/ic_launcher_background"
-            android:dropDownSelector="@color/yellow"
-
-            android:layout_weight="1"
-            android:gravity="center_horizontal" />
-
-        <Spinner
-            android:id="@+id/Spin_common_day_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal" />
-
-        <Spinner
-            android:id="@+id/Spin_common_day_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal" />
-
-        <Spinner
-            android:id="@+id/Spin_common_day_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal" />
-
-        <Spinner
-            android:id="@+id/Spin_common_day_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal" />
-
-        <Spinner
-            android:id="@+id/Spin_common_day_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal" />
-
-        <Spinner
-            android:id="@+id/Spin_common_day_7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:scrollbarStyle="insideOverlay" />
-
-
-    </TableRow>
-
-    <!--<TextView-->
-    <!--android:id="@+id/label_modify_mark"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-
-    <!--android:layout_alignParentStart="true"-->
-    <!--android:layout_below="@+id/label_segement_mark"-->
-    <!--android:text="變更時段型態為:"-->
-    <!--android:textSize="15sp" />-->
-
-    <!--以上是靜態內容-->
-    <!--區分內容和功能的分隔線-->
-    <View
-        android:id="@+id/gap_line_tod_xml"
-        android:layout_width="fill_parent"
-        android:layout_height="3dp"
-        android:background="#000000" />
-    <!--區分內容和功能的分隔線-->
-    <!--以下開始是功能連結-->
-    <LinearLayout
-
-        android:id="@+id/dpecial_day_label_mark"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/dpecial_label"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/specialday_segmenttype"
-            android:textSize="20sp" />
-
-    </LinearLayout>
+    android:layout_height="match_parent">
 
     <TableLayout
-        android:id="@+id/dpecial_day_label_mark_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TableRow>
+        <LinearLayout
+
+            android:id="@+id/weekday_label_mark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/dpecial_day_segmenttype_mark"
-                android:layout_width="wrap_content"
+                android:id="@+id/weekday_label"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="@string/segmenttype"
-                android:textSize="12sp" />
+                android:gravity="center"
+                android:text="@string/timeofday"
+                android:textSize="15sp" />
 
+        </LinearLayout>
+
+        <TableRow
+            android:id="@+id/weekday_label_group"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
 
             <TextView
-                android:id="@+id/specialday_start_time_mark"
+                android:id="@+id/label_weeday_mark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="@string/date_time_start"
-                android:textSize="12sp" />
+
+                android:text="@string/timeofday_mark"
+                android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/specialday_end_date_mark"
-                android:layout_width="wrap_content"
+                android:id="@+id/label_monday"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/day_time_end"
-                android:textSize="12sp" />
-
-        </TableRow>
-
-        <TableRow>
-
-           <Button android:background="@android:drawable/btn_default"
-                
-                android:id="@+id/segmenttype_button_8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-
-                android:text="@string/segmenttype_8"
+                android:text="@string/monday"
                 android:textSize="15sp" />
 
-            <EditText
-                android:id="@+id/specialday_start_date_8"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/label_tuesday"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
 
-            <EditText
-                android:id="@+id/specialday_end_date_8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-        </TableRow>
-
-        <TableRow>
-
-           <Button android:background="@android:drawable/btn_default"
-                android:id="@+id/segmenttype_button_9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-
-                android:text="@string/segmenttype_9"
+                android:text="@string/tuesday"
                 android:textSize="15sp" />
 
-            <EditText
-                android:id="@+id/specialday_start_date_9"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/label_wednesday"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-
-            <EditText
-                android:id="@+id/specialday_end_date_9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-        </TableRow>
-
-        <TableRow>
-
-           <Button android:background="@android:drawable/btn_default"
-                android:id="@+id/segmenttype_button_10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-
-                android:text="@string/segmenttype_10"
+                android:text="@string/wednesday"
                 android:textSize="15sp" />
 
-            <EditText
-                android:id="@+id/specialday_start_date_10"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/label_thursday"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-
-            <EditText
-                android:id="@+id/specialday_end_date_10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-        </TableRow>
-
-        <TableRow>
-
-           <Button android:background="@android:drawable/btn_default"
-                android:id="@+id/segmenttype_button_11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-
-                android:text="@string/segmenttype_11"
+                android:text="@string/thirsday"
                 android:textSize="15sp" />
 
-            <EditText
-                android:id="@+id/specialday_start_date_11"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/label_friday"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-
-            <EditText
-                android:id="@+id/specialday_end_date_11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-        </TableRow>
-
-
-        <TableRow>
-
-           <Button android:background="@android:drawable/btn_default"
-                android:id="@+id/segmenttype_button_12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-
-                android:text="@string/segmenttype_12"
+                android:text="@string/friday"
                 android:textSize="15sp" />
 
-            <EditText
-                android:id="@+id/specialday_start_date_12"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/label_saturday"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-
-            <EditText
-                android:id="@+id/specialday_end_date_12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-        </TableRow>
-
-
-        <TableRow>
-
-           <Button android:background="@android:drawable/btn_default"
-                android:id="@+id/segmenttype_button_13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-
-                android:text="@string/segmenttype_13"
+                android:text="@string/saturday"
                 android:textSize="15sp" />
 
-            <EditText
-                android:id="@+id/specialday_start_date_13"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/label_sunday"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-
-            <EditText
-                android:id="@+id/specialday_end_date_13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
+                android:text="@string/sunday"
+                android:textSize="15sp" />
         </TableRow>
 
+        <TableRow
+            android:id="@+id/common_day_setting_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TableRow>
-
-           <Button android:background="@android:drawable/btn_default"
-                android:id="@+id/segmenttype_button_14"
+            <TextView
+                android:id="@+id/label_segement_mark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:layout_weight="1"
-
-                android:text="@string/segmenttype_14"
+                android:text="@string/segmenttype_mark"
                 android:textSize="15sp" />
 
-            <EditText
-                android:id="@+id/specialday_start_date_14"
+            <Spinner
+                android:id="@+id/Spin_common_day_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
+                android:dropDownSelector="@color/yellow"
 
-            <EditText
-                android:id="@+id/specialday_end_date_14"
+                android:gravity="center_horizontal"
+                android:popupBackground="@drawable/ic_launcher_background" />
+
+            <Spinner
+                android:id="@+id/Spin_common_day_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
+                android:gravity="center_horizontal" />
+
+            <Spinner
+                android:id="@+id/Spin_common_day_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal" />
+
+            <Spinner
+                android:id="@+id/Spin_common_day_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal" />
+
+            <Spinner
+                android:id="@+id/Spin_common_day_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal" />
+
+            <Spinner
+                android:id="@+id/Spin_common_day_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal" />
+
+            <Spinner
+                android:id="@+id/Spin_common_day_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
+                android:scrollbarStyle="insideOverlay" />
+
+
         </TableRow>
 
+        <!--<TextView-->
+        <!--android:id="@+id/label_modify_mark"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
 
-        <TableRow>
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_below="@+id/label_segement_mark"-->
+        <!--android:text="變更時段型態為:"-->
+        <!--android:textSize="15sp" />-->
 
-           <Button android:background="@android:drawable/btn_default"
-                android:id="@+id/segmenttype_button_15"
-                android:layout_width="wrap_content"
+        <!--以上是靜態內容-->
+        <!--區分內容和功能的分隔線-->
+        <View
+            android:id="@+id/gap_line_tod_xml"
+            android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            android:background="#000000" />
+        <!--區分內容和功能的分隔線-->
+        <!--以下開始是功能連結-->
+        <LinearLayout
+
+            android:id="@+id/dpecial_day_label_mark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/dpecial_label"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/specialday_segmenttype"
+                android:textSize="20sp" />
 
-                android:layout_weight="1"
+        </LinearLayout>
 
-                android:text="@string/segmenttype_15"
-                android:textSize="15sp" />
+        <TableLayout
+            android:id="@+id/dpecial_day_label_mark_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/specialday_start_date_15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
+            <TableRow>
 
-            <EditText
-                android:id="@+id/specialday_end_date_15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/dpecial_day_segmenttype_mark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="@string/segmenttype"
+                    android:textSize="12sp" />
 
 
-        <TableRow>
+                <TextView
+                    android:id="@+id/specialday_start_time_mark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center_horizontal"
+                    android:text="@string/date_time_start"
+                    android:textSize="12sp" />
 
-           <Button android:background="@android:drawable/btn_default"
-                android:id="@+id/segmenttype_button_16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <TextView
+                    android:id="@+id/specialday_end_date_mark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center_horizontal"
+                    android:text="@string/day_time_end"
+                    android:textSize="12sp" />
 
-                android:layout_weight="1"
+            </TableRow>
 
-                android:text="@string/segmenttype_16"
-                android:textSize="15sp" />
+            <TableRow>
 
-            <EditText
-                android:id="@+id/specialday_start_date_16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
+                <Button
+                    android:id="@+id/segmenttype_button_8"
+                    style="?android:attr/buttonStyleSmall"
 
-            <EditText
-                android:id="@+id/specialday_end_date_16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-        </TableRow>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
 
+                    android:background="@android:drawable/btn_default"
 
-        <TableRow>
+                    android:text="@string/segmenttype_8"
+                    android:textSize="15sp" />
 
-           <Button android:background="@android:drawable/btn_default"
-                android:id="@+id/segmenttype_button_17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <EditText
+                    android:id="@+id/specialday_start_date_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
 
-                android:layout_weight="1"
+                <EditText
+                    android:id="@+id/specialday_end_date_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+            </TableRow>
 
-                android:text="@string/segmenttype_17"
-                android:textSize="15sp" />
+            <TableRow>
 
-            <EditText
-                android:id="@+id/specialday_start_date_17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
+                <Button
+                    android:id="@+id/segmenttype_button_9"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
 
-            <EditText
-                android:id="@+id/specialday_end_date_17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-        </TableRow>
+                    android:background="@android:drawable/btn_default"
 
+                    android:text="@string/segmenttype_9"
+                    android:textSize="15sp" />
 
-        <TableRow>
+                <EditText
+                    android:id="@+id/specialday_start_date_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
 
-           <Button android:background="@android:drawable/btn_default"
-                android:id="@+id/segmenttype_button_18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <EditText
+                    android:id="@+id/specialday_end_date_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+            </TableRow>
 
-                android:layout_weight="1"
+            <TableRow>
 
-                android:text="@string/segmenttype_18"
-                android:textSize="15sp" />
+                <Button
+                    android:id="@+id/segmenttype_button_10"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
 
-            <EditText
-                android:id="@+id/specialday_start_date_18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
+                    android:background="@android:drawable/btn_default"
 
-            <EditText
-                android:id="@+id/specialday_end_date_18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-        </TableRow>
+                    android:text="@string/segmenttype_10"
+                    android:textSize="15sp" />
 
+                <EditText
+                    android:id="@+id/specialday_start_date_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
 
-        <TableRow>
+                <EditText
+                    android:id="@+id/specialday_end_date_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+            </TableRow>
 
-           <Button android:background="@android:drawable/btn_default"
-                android:id="@+id/segmenttype_button_19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <TableRow>
 
-                android:layout_weight="1"
+                <Button
+                    android:id="@+id/segmenttype_button_11"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
 
-                android:text="@string/segmenttype_19"
-                android:textSize="15sp" />
+                    android:background="@android:drawable/btn_default"
 
-            <EditText
-                android:id="@+id/specialday_start_date_19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
+                    android:text="@string/segmenttype_11"
+                    android:textSize="15sp" />
 
-            <EditText
-                android:id="@+id/specialday_end_date_19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-        </TableRow>
+                <EditText
+                    android:id="@+id/specialday_start_date_11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
 
-
-        <TableRow>
-
-           <Button android:background="@android:drawable/btn_default"
-                android:id="@+id/segmenttype_button_20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-
-                android:text="@string/segmenttype_20"
-                android:textSize="13sp" />
-
-            <EditText
-                android:id="@+id/specialday_start_date_20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-
-            <EditText
-                android:id="@+id/specialday_end_date_20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:editable="false"
-                android:gravity="center_horizontal"
-                android:hint="@string/mm_dd_yy_h_mmaa" />
-        </TableRow>
-
-        <TableRow>
+                <EditText
+                    android:id="@+id/specialday_end_date_11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+            </TableRow>
 
 
+            <TableRow>
 
-           <Button android:background="@android:drawable/btn_default"
-                android:id="@+id/goto_plan_button"
+                <Button
+                    android:id="@+id/segmenttype_button_12"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/plan_setting" />
-        </TableRow>
+                    android:background="@android:drawable/btn_default"
+
+                    android:text="@string/segmenttype_12"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/specialday_start_date_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+
+                <EditText
+                    android:id="@+id/specialday_end_date_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+            </TableRow>
 
 
+            <TableRow>
+
+                <Button
+                    android:id="@+id/segmenttype_button_13"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:background="@android:drawable/btn_default"
+
+                    android:text="@string/segmenttype_13"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/specialday_start_date_13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+
+                <EditText
+                    android:id="@+id/specialday_end_date_13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+            </TableRow>
+
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/segmenttype_button_14"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:background="@android:drawable/btn_default"
+
+                    android:text="@string/segmenttype_14"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/specialday_start_date_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+
+                <EditText
+                    android:id="@+id/specialday_end_date_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+            </TableRow>
+
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/segmenttype_button_15"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:background="@android:drawable/btn_default"
+
+                    android:text="@string/segmenttype_15"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/specialday_start_date_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+
+                <EditText
+                    android:id="@+id/specialday_end_date_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+            </TableRow>
+
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/segmenttype_button_16"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:background="@android:drawable/btn_default"
+
+                    android:text="@string/segmenttype_16"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/specialday_start_date_16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+
+                <EditText
+                    android:id="@+id/specialday_end_date_16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+            </TableRow>
+
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/segmenttype_button_17"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:background="@android:drawable/btn_default"
+
+                    android:text="@string/segmenttype_17"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/specialday_start_date_17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+
+                <EditText
+                    android:id="@+id/specialday_end_date_17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+            </TableRow>
+
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/segmenttype_button_18"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:background="@android:drawable/btn_default"
+
+                    android:text="@string/segmenttype_18"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/specialday_start_date_18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+
+                <EditText
+                    android:id="@+id/specialday_end_date_18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+            </TableRow>
+
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/segmenttype_button_19"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:background="@android:drawable/btn_default"
+
+                    android:text="@string/segmenttype_19"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/specialday_start_date_19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+
+                <EditText
+                    android:id="@+id/specialday_end_date_19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+            </TableRow>
+
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/segmenttype_button_20"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:background="@android:drawable/btn_default"
+
+                    android:text="@string/segmenttype_20"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/specialday_start_date_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+
+                <EditText
+                    android:id="@+id/specialday_end_date_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/mm_dd_yy_h_mmaa" />
+            </TableRow>
+
+            <TableRow>
+
+
+                <Button
+                    android:id="@+id/goto_plan_button"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_default"
+                    android:text="@string/plan_setting" />
+            </TableRow>
+
+
+        </TableLayout>
+        <!--<TableRow-->
+        <!--android:layout_below="@+id/num_series_mark"-->
+        <!--android:layout_marginTop="500dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+
+        <!--</TableRow>-->
     </TableLayout>
-    <!--<TableRow-->
-    <!--android:layout_below="@+id/num_series_mark"-->
-    <!--android:layout_marginTop="500dp"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content">-->
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/setting_button_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        app:layout_anchorGravity="bottom|right|end"
+        app:srcCompat="@android:drawable/ic_dialog_dialer" />
 
-    <!--</TableRow>-->
-</TableLayout>
-
-<android.support.design.widget.FloatingActionButton
-android:id="@+id/setting_button_group"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_gravity="bottom|right"
-android:layout_margin="16dp"
-app:srcCompat="@android:drawable/ic_dialog_dialer"
-app:layout_anchorGravity="bottom|right|end" />
-
-    </android.support.design.widget.CoordinatorLayout>
+</android.support.design.widget.CoordinatorLayout>
